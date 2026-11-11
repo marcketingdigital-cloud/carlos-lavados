@@ -32,7 +32,7 @@ if (form) form.addEventListener('submit',function(e){
   const message = ['Hola Carlos, quiero pedir presupuesto para un lavado de auto a domicilio.','','Vehículo: '+vehicle,'Servicio: '+service,'Localidad: '+location,details ? 'Detalles: '+details : '', '', '¿Me indicás presupuesto y disponibilidad?'].filter(function(line,index){return line !== '' || index === 1;}).join('\n');
   trackCTA('formulario_presupuesto');
   const url = waUrl(message);
-  const pop = window.open(url,'_blank','noopener,noreferrer');
-  if (!pop) window.location.assign(url);
+  // Un solo intento de apertura evita ventanas duplicadas en navegadores móviles.
+  window.location.assign(url);
 });
 const year = document.getElementById('year'); if (year) year.textContent = new Date().getFullYear();
