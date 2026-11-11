@@ -62,3 +62,25 @@ Visitas, clics en "Solicitar turno", apertura del calendario, solicitudes regist
 
 ## Publicación
 Rama de trabajo: `develop/carlos-reserva-v4`. Main y la web de GitHub Pages no se cambian hasta aprobación explícita de la versión completa.
+
+
+## DECISIÓN ESTRATÉGICA APROBADA — 11/11/2026
+
+**Arquitectura elegida para el lanzamiento:** Web de CARLOS en GitHub Pages + Cal.com para reservas de un operador + Google Calendar como agenda operativa + WhatsApp Business como canal de comunicación. Modalidad: **confirmación supervisada**.
+
+**Alcance V1:** el visitante selecciona un horario efectivamente disponible en Cal.com, crea una solicitud pendiente y CARLOS confirma después de evaluar localidad, traslado, condiciones y capacidad. No indicar "turno confirmado" antes de aprobar. Sin automatizaciones ficticias ni horarios hardcodeados.
+
+**Horizonte de evolución:**
+- V1 Lanzamiento: embed Cal.com, calendario sincronizado y control manual; usar plan gratuito individual cuando sus límites lo permitan.
+- V2 Operación: recopilar métricas, documentar duraciones reales, servicios y buffers, mejorar comunicación y fidelización.
+- V3 Plataforma propia: backend seguro, base de datos, motor de disponibilidad según zona/desplazamiento, panel administrativo, múltiples operarios, reprogramaciones y automatizaciones. Mantener frontend e identidad, reemplazando gradualmente el motor externo.
+
+**Reglas anti-dependencia:**
+1. No incrustar el URL del proveedor en múltiples lugares; definir configuración centralizada para cambiar motor.
+2. Separar campos propios de servicio/vehículo/localidad/estado de los campos específicos de Cal.com.
+3. No publicar tokens ni datos personales en el repositorio público.
+4. Documentar exportación/migración y conservación de datos conforme a consentimiento y privacidad; nunca asumir portabilidad automática.
+5. Verificar precios, límites, confirmación y bloqueo de franjas en el plan antes del lanzamiento.
+6. Mantener la publicación vigente en main sin cambios hasta revisar la nueva V4.
+
+**Decisión pendiente de usuario:** crear/configurar cuenta operativa Cal.com y definir horarios de atención, duración por servicio, franjas/buffers, localidades exactas y condiciones en domicilio. No inventar esos datos.
