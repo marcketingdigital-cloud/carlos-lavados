@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://marcketingdigital-cloud.github.io/carlos-lavados/sitemap.xml
