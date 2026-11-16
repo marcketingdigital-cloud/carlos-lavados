@@ -42,3 +42,39 @@ document.querySelectorAll('.book-link').forEach(function(link){
     if(Array.isArray(window.dataLayer)) window.dataLayer.push({event:'carlos_reserva_click',cta_location:link.closest('section')?.id || 'navigation'});
   });
 });
+
+/* CARLOS RESERVA: cargador oficial Cal.com. El embed inline gestiona su propia altura.
+   En navegadores que bloqueen scripts externos siempre existe el enlace directo a la agenda. */
+(function(C,A,L){
+  const queue=function(api,args){api.q.push(args)};
+  const doc=C.document;
+  C.Cal=C.Cal||function(){
+    const cal=C.Cal, args=arguments;
+    if(!cal.loaded){
+      cal.ns={}; cal.q=cal.q||[];
+      const script=doc.createElement('script'); script.src=A; script.async=true;
+      doc.head.appendChild(script); cal.loaded=true;
+    }
+    if(args[0]===L){
+      const api=function(){queue(api,arguments)};
+      const namespace=args[1]; api.q=api.q||[];
+      if(typeof namespace==='string'){cal.ns[namespace]=api;queue(api,args);}
+      else queue(cal,args);
+      return;
+    }
+    queue(cal,args);
+  };
+})(window,'https://app.cal.com/embed/embed.js','init');
+if(document.getElementById('cal-booking')){
+  Cal('init','carlos-reserva',{origin:'https://app.cal.com'});
+  Cal.ns['carlos-reserva']('inline',{
+    elementOrSelector:'#cal-booking',
+    calLink:'carlos-lavados/solicitud-lavado-domicilio',
+    config:{layout:'month_view',theme:'dark'}
+  });
+  Cal.ns['carlos-reserva']('ui',{
+    styles:{branding:{brandColor:'#00A86B'}},
+    hideEventTypeDetails:false,
+    layout:'month_view'
+  });
+}
