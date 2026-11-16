@@ -36,3 +36,9 @@ if (form) form.addEventListener('submit',function(e){
   window.location.assign(url);
 });
 const year = document.getElementById('year'); if (year) year.textContent = new Date().getFullYear();
+/* Medición sin trackers externos para accesos al calendario de CARLOS. */
+document.querySelectorAll('.book-link').forEach(function(link){
+  link.addEventListener('click',function(){
+    if(Array.isArray(window.dataLayer)) window.dataLayer.push({event:'carlos_reserva_click',cta_location:link.closest('section')?.id || 'navigation'});
+  });
+});
