@@ -1,68 +1,30 @@
-# CARLOS — Lavados de Autos a Domicilio
+# CARLOS — Opción 2 aprobada, landing lista para GitHub Pages
 
-Landing page estática y adaptable para el relanzamiento de CARLOS en Zona Norte (Buenos Aires, Argentina).
+Versión visual: 16/11/2026 · estado: **LISTA PARA PUBLICAR / NO DESPLEGADA AUTOMÁTICAMENTE**.
 
-## Estado del proyecto
-**Nueva versión preparada con CARLOS RESERVA integrado. GitHub Pages publica la rama `main` cuando el despliegue está habilitado.**
+## Qué incluye
+- Logo maestro ORIGINAL y SIN redibujar: `assets/logo-maestro-original.png` (archivo binario idéntico al del kit aprobado).
+- Diseño negro/grafito, plata y verde #00A86B inspirado en la segunda propuesta aprobada.
+- Fotos conceptuales de automóvil negro y detailing. No se atribuyen a trabajos reales de CARLOS.
+- Calendario Cal.com integrado: https://cal.com/carlos-lavados/solicitud-lavado-domicilio
+- Enlace de respaldo a Cal.com para navegadores con bloqueo de incrustaciones.
+- Enlaces de WhatsApp Business: +54 11 4142-7755 (revisar funcionamiento real).
+- Navegación y diseño adaptables a celulares. Menú móvil y CTA flotante que se oculta al usar el calendario.
 
-### CARLOS RESERVA — integración funcional
-- CTA principal **Solicitar turno** desde cabecera, hero, cierre y barra móvil.
-- Agenda pública Cal.com integrada en la sección `#reservar` mediante el widget inline oficial (altura dinámica), con enlace externo de respaldo.
-- Evento: https://cal.com/carlos-lavados/solicitud-lavado-domicilio
-- Confirmación supervisada por Carlos: el horario seleccionado no implica aprobación automática.
-- Horarios de atención: lunes a sábado 09:00–18:00, zona America/Argentina/Buenos_Aires; capacidad de un equipo de dos personas.
-- Los datos ingresados en el widget son gestionados por Cal.com, **no por GitHub Pages**.
-- El iframe requiere conexión a internet y que el navegador permita contenido de Cal.com; botón alternativo para abrirlo fuera de la web.
-- La duración de 180 minutos y los 45 de margen posterior se consideran configuración operativa inicial, revisable.
+## Cómo publicar sin perder la web vigente
+1. Descomprimí este ZIP.
+2. En GitHub, entrá a `marcketingdigital-cloud/carlos-lavados`.
+3. Elegí `Add file` → `Upload files`, y cargá el CONTENIDO de esta carpeta (archivos raíz y carpeta `assets`).
+4. Asegurate de que se respete la carpeta `assets/` y de sustituir los archivos homónimos. Si GitHub no conserva la estructura al arrastrarlos, subí los archivos `assets` por separado desde esa carpeta.
+5. Hacé el commit en una rama de pruebas y revisá el cambio antes de integrarlo a `main`.
+6. GitHub Pages publica desde `main` cuando se ejecute el workflow habilitado. Verificá en https://marcketingdigital-cloud.github.io/carlos-lavados/.
 
-### Funcionalidades
-- Diseño responsive (celulares, tablets y escritorio).
-- Identidad provisoria de texto, negro premium, acero/gris y verde esmeralda corporativo `#00A86B`.
-- Catálogo comercial de servicios y zona de cobertura.
-- Formulario que compone una consulta y abre WhatsApp Business. **No envía automáticamente el mensaje**.
-- Enlaces directos de WhatsApp por tipo de servicio.
-- Menú móvil accesible, FAQ, enlaces internos y CTA visible en celular.
-- SEO on-page, Open Graph básico, canonical, robots, sitemap y datos estructurados AutomotiveBusiness.
-- Evento `carlos_whatsapp_click` para una futura integración de Google Tag Manager, pero **sin rastreadores activos**.
+## Controles previos a la versión definitiva
+- Comprobar apertura del calendario y selección de horarios en Brave/Android y Chrome.
+- Confirmar el funcionamiento de WhatsApp y de la aprobación manual en Cal.com (ya probados en la versión anterior).
+- Corroborar que las imágenes publicitarias conceptuales no se presenten como fotografías de trabajos reales.
+- Evitar declarar resultados garantizados, certificaciones, ofertas o reseñas inexistentes.
+- Si se decide mostrar a trabajadores y vehículos rotulados, pegar el archivo original de marca directamente sobre los soportes en la pieza final; no utilizar redibujos generados del logo.
 
-### Estructura
-- `index.html`: estructura y contenido de la landing.
-- `styles.css`: estilos responsive y design tokens.
-- `script.js`: interacciones, menú y presupuesto por WhatsApp.
-- `assets/favicon.svg`: ícono temporal. Reemplazar por el **archivo exacto del logotipo maestro**.
-- `robots.txt`, `sitemap.xml`, `.nojekyll`: archivos de publicación e indexación.
-
-## Publicar con GitHub Pages
-1. Ir a **Settings → Pages** en este repositorio.
-2. En **Build and deployment** seleccionar **Deploy from a branch**.
-3. Elegir **main** y **/(root)**, y guardar.
-4. Verificar el sitio en: https://marcketingdigital-cloud.github.io/carlos-lavados/
-
-## Lista de revisión obligatoria antes de anunciar
-- **Marca:** la web NO incluye todavía el logo maestro aprobado: el repositorio solo contiene `assets/favicon.svg` temporal. Hay que subir el archivo exacto y autorizado, sin redibujarlo. La tipografía de CARLOS permanece como sustituto de accesibilidad hasta entonces.
-- **WhatsApp:** se utiliza `541141427755` para el número comunicado `011 4142-7755`. Comprobar desde un teléfono que abre la cuenta correcta. Si el número de WhatsApp usa `+54 9`, cambiar `WA_NUMBER` en `script.js` y los enlaces de respaldo del HTML.
-- **Oferta:** confirmar los servicios reales y las áreas de atención; Martínez y Acassuso son las localidades mostradas.
-- **Pruebas:** comprobar apertura del iframe en Android/iOS, enlace alternativo, agenda real, mensaje de aprobación, formulario, botones, menú móvil y legibilidad en varios dispositivos. La integración en el sitio todavía necesita prueba específica luego del despliegue.
-- **Publicidad y medición:** integrar GA4/Google Ads solo cuando estén disponibles las cuentas y preferencias de consentimiento correspondientes.
-- **Fotos y reputación:** agregar únicamente trabajos, opiniones y materiales reales y autorizados. No se muestran precios ni reseñas inventadas.
-
-## Actualizaciones
-Los cambios se realizan mediante commits en `main`. GitHub Pages volverá a publicar la web automáticamente una vez que esté habilitado.
-
-## Privacidad
-Este sitio no tiene backend propio y no almacena datos del formulario de presupuesto. El navegador abre WhatsApp con un texto preparado y el visitante decide enviarlo. La sección de reservas incrusta una página de Cal.com: los datos de reservas se procesan por Cal.com y sus servicios asociados, bajo sus condiciones y política de privacidad.
-
-
-## Corrección móvil — noviembre 2026
-- Se sustituyó el iframe de altura fija por el cargador del embed inline de Cal.com para evitar el doble desplazamiento observado en Brave Android.
-- Se compactó el encabezado del calendario para recuperar espacio vertical.
-- Se añadió un enlace visible en celulares para abrir la agenda a pantalla completa cuando la integración no se vea correctamente.
-- No se modificaron los ajustes de Cal.com ni la política de confirmación manual.
-- Verificar el comportamiento final en el teléfono: la carga del widget oficial depende de la red y del navegador.
-
-
-## Revisión móvil de cliente (capturas del 16/11/2026)
-- **Comprobado:** Cal.com muestra fechas y horarios dentro de la landing en un teléfono Android.
-- **Corregido desde la web:** se redujo el encabezado fijo en pantallas pequeñas y se oculta la barra inferior de «Solicitar turno» cuando el widget de reservas está a la vista.
-- **Corregido desde el widget:** se solicita a Cal.com ocultar los detalles extensos del evento en el embed (hideEventTypeDetails:true) para priorizar el calendario. La página muestra un resumen breve con duración y aprobación manual, sin tocar la configuración real del evento de Cal.com.
-- **Pendiente de prueba visual en dispositivo:** confirmar que la opción de ocultar detalles de Cal.com haga efecto y que el formulario sea cómodo sin CTA superpuesto. Si el navegador o proveedor ignora el ajuste, editar de forma manual la descripción larga en el panel de Cal.com y conservar el enlace directo a pantalla completa.
+## Branding aprobado
+Negro premium como base, grafito / gris metálico como soporte, verde #00A86B para CTA y acentos. Logotipo maestro intacto. La imagen `assets/opcion-2-referencia-vertical.png` se incluye solo como referencia creativa y NO se usa como logotipo ni se publica como evidencia de trabajos reales.
