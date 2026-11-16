@@ -52,3 +52,16 @@
  .booking-mobile-open a{color:#8ef4bd;text-decoration:underline;text-underline-offset:3px;font-weight:700;font-size:13px}
  .cal-booking-inline{min-height:820px}
 }
+
+/* Revisión móvil QA: menor encabezado, CTA sin superposición y menos metadatos redundantes. */
+.booking-widget-tip{margin:0;padding:16px 20px;background:#152018;border-bottom:1px solid #36503e;color:#c7d8cb;font-size:13px;line-height:1.65}
+.booking-widget-tip strong{color:#eafff0}
+@media(max-width:820px){
+ .navbar{min-height:61px}
+ .brand-main{font-size:31px}
+ .brand-small{font-size:7px;letter-spacing:.25em;margin-top:6px}
+ .menu-button{width:40px;height:40px}
+ .bottom-mobile.is-hidden-in-booking{display:none}
+ .booking-section{scroll-margin-top:65px}
+ .booking-widget-tip{padding:13px 15px;font-size:12px}
+}
