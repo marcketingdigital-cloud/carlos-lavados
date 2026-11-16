@@ -74,7 +74,18 @@ if(document.getElementById('cal-booking')){
   });
   Cal.ns['carlos-reserva']('ui',{
     styles:{branding:{brandColor:'#00A86B'}},
-    hideEventTypeDetails:false,
+    hideEventTypeDetails:true,
     layout:'month_view'
   });
 }
+
+/* Evitar que el CTA flotante se superponga con el calendario durante la selección. */
+(function(){
+  const booking = document.querySelector('.booking-widget');
+  const stickyCTA = document.querySelector('.bottom-mobile');
+  if(!booking || !stickyCTA || !('IntersectionObserver' in window))return;
+  const observer = new IntersectionObserver(entries=>{
+    stickyCTA.classList.toggle('is-hidden-in-booking',entries[0].isIntersecting);
+  },{rootMargin:'-74px 0px -80px 0px',threshold:0});
+  observer.observe(booking);
+})();
