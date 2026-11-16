@@ -59,3 +59,10 @@ Este sitio no tiene backend propio y no almacena datos del formulario de presupu
 - Se añadió un enlace visible en celulares para abrir la agenda a pantalla completa cuando la integración no se vea correctamente.
 - No se modificaron los ajustes de Cal.com ni la política de confirmación manual.
 - Verificar el comportamiento final en el teléfono: la carga del widget oficial depende de la red y del navegador.
+
+
+## Revisión móvil de cliente (capturas del 16/11/2026)
+- **Comprobado:** Cal.com muestra fechas y horarios dentro de la landing en un teléfono Android.
+- **Corregido desde la web:** se redujo el encabezado fijo en pantallas pequeñas y se oculta la barra inferior de «Solicitar turno» cuando el widget de reservas está a la vista.
+- **Corregido desde el widget:** se solicita a Cal.com ocultar los detalles extensos del evento en el embed (hideEventTypeDetails:true) para priorizar el calendario. La página muestra un resumen breve con duración y aprobación manual, sin tocar la configuración real del evento de Cal.com.
+- **Pendiente de prueba visual en dispositivo:** confirmar que la opción de ocultar detalles de Cal.com haga efecto y que el formulario sea cómodo sin CTA superpuesto. Si el navegador o proveedor ignora el ajuste, editar de forma manual la descripción larga en el panel de Cal.com y conservar el enlace directo a pantalla completa.
