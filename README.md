@@ -7,7 +7,7 @@ Landing page estática y adaptable para el relanzamiento de CARLOS en Zona Norte
 
 ### CARLOS RESERVA — integración funcional
 - CTA principal **Solicitar turno** desde cabecera, hero, cierre y barra móvil.
-- Agenda pública Cal.com integrada en la sección `#reservar` mediante iframe con enlace externo de respaldo.
+- Agenda pública Cal.com integrada en la sección `#reservar` mediante el widget inline oficial (altura dinámica), con enlace externo de respaldo.
 - Evento: https://cal.com/carlos-lavados/solicitud-lavado-domicilio
 - Confirmación supervisada por Carlos: el horario seleccionado no implica aprobación automática.
 - Horarios de atención: lunes a sábado 09:00–18:00, zona America/Argentina/Buenos_Aires; capacidad de un equipo de dos personas.
@@ -51,3 +51,11 @@ Los cambios se realizan mediante commits en `main`. GitHub Pages volverá a publ
 
 ## Privacidad
 Este sitio no tiene backend propio y no almacena datos del formulario de presupuesto. El navegador abre WhatsApp con un texto preparado y el visitante decide enviarlo. La sección de reservas incrusta una página de Cal.com: los datos de reservas se procesan por Cal.com y sus servicios asociados, bajo sus condiciones y política de privacidad.
+
+
+## Corrección móvil — noviembre 2026
+- Se sustituyó el iframe de altura fija por el cargador del embed inline de Cal.com para evitar el doble desplazamiento observado en Brave Android.
+- Se compactó el encabezado del calendario para recuperar espacio vertical.
+- Se añadió un enlace visible en celulares para abrir la agenda a pantalla completa cuando la integración no se vea correctamente.
+- No se modificaron los ajustes de Cal.com ni la política de confirmación manual.
+- Verificar el comportamiento final en el teléfono: la carga del widget oficial depende de la red y del navegador.
