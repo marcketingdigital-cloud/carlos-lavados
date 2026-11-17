@@ -83,3 +83,24 @@
   transition:none!important;transform:none;
  }
 }
+
+/* V4.4: fotografía autosuficiente + marca original referenciada como asset independiente.
+   El SVG conserva posición relativa sobre gorra, uniforme, cubeta y pulverizador. */
+.hero .hero-photo{
+ background:none!important;filter:none!important;
+ left:auto;right:0;width:62%;height:100%;
+ overflow:hidden;isolation:isolate;
+}
+.hero .hero-photo .hero-scene{
+ display:block;width:100%;height:100%;
+}
+.hero .hero-photo .hero-merch{
+ mix-blend-mode:screen;opacity:.94;
+}
+@media(max-width:850px){
+ .hero .hero-photo{width:78%}
+}
+@media(max-width:600px){
+ .hero .hero-photo{width:100%;left:0}
+ .hero .hero-photo .hero-scene{object-fit:cover}
+}
