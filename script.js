@@ -5,37 +5,45 @@ if(menuButton&&mobileMenu){
  menuButton.addEventListener('click',()=>{const isOpen=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!isOpen));mobileMenu.hidden=isOpen;menuButton.setAttribute('aria-label',isOpen?'Abrir menú':'Cerrar menú');});
  mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Abrir menú');mobileMenu.hidden=true;}));
 }
-/* CTA adaptativo: se atenúa cuando el principal ya es visible, se recupera
-   al salir del hero y se retira por completo en reservas y pie de página. */
+/* CTA móvil sin superposición: sale durante la portada, el calendario,
+   el CTA final y el footer. Vuelve a aparecer únicamente entre secciones.
+   No usa opacidad fantasma ni bloquea los iconos de la página. */
 const booking=document.getElementById('reservar');
 const sticky=document.getElementById('mobile-cta');
 const footer=document.querySelector('.footer');
-const primaryCTA=document.getElementById('hero-booking-cta');
-const finalCTA=document.querySelector('.last-cta .btn-primary');
-if(sticky && 'IntersectionObserver' in window){
- const zones={hero:false,final:false,booking:false,footer:false};
+const heroSection=document.querySelector('.hero');
+const finalCTA=document.querySelector('.last-cta');
+if(sticky){
+ const zones={hero:true,booking:false,final:false,footer:false};
  const updateSticky=()=>{
-  const hide=zones.booking||zones.footer;
-  const dim=(zones.hero||zones.final)&&!hide;
-  sticky.classList.toggle('in-booking',hide);
-  sticky.classList.toggle('is-muted',dim);
-  sticky.tabIndex=hide||dim?-1:0;
-  if(hide||dim)sticky.setAttribute('aria-hidden','true');
+  const hide=zones.hero||zones.booking||zones.final||zones.footer;
+  sticky.classList.toggle('is-muted',zones.hero||zones.final);
+  sticky.classList.toggle('in-booking',zones.booking||zones.footer);
+  sticky.tabIndex=hide?-1:0;
+  if(hide)sticky.setAttribute('aria-hidden','true');
   else sticky.removeAttribute('aria-hidden');
+  sticky.classList.add('is-ready');
  };
- const observer=new IntersectionObserver(entries=>{
-  for(const entry of entries){
-   if(entry.target===primaryCTA)zones.hero=entry.isIntersecting;
-   if(entry.target===finalCTA)zones.final=entry.isIntersecting;
-   if(entry.target===booking)zones.booking=entry.isIntersecting;
-   if(entry.target===footer)zones.footer=entry.isIntersecting;
-  }
-  updateSticky();
- },{rootMargin:'-75px 0px -78px 0px',threshold:0.01});
- if(primaryCTA)observer.observe(primaryCTA);
- if(finalCTA)observer.observe(finalCTA);
- if(booking)observer.observe(booking);
- if(footer)observer.observe(footer);
+ if('IntersectionObserver' in window){
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.target===heroSection)zones.hero=entry.isIntersecting;
+      if(entry.target===booking)zones.booking=entry.isIntersecting;
+      if(entry.target===finalCTA)zones.final=entry.isIntersecting;
+      if(entry.target===footer)zones.footer=entry.isIntersecting;
+    });
+    updateSticky();
+  },{rootMargin:'-78px 0px -75px 0px',threshold:0});
+  [heroSection,booking,finalCTA,footer].forEach(el=>{if(el)observer.observe(el)});
+ }else{
+  const recompute=()=>{
+   const vis=el=>{if(!el)return false;const r=el.getBoundingClientRect();return r.bottom>78&&r.top<window.innerHeight-75};
+   zones.hero=vis(heroSection);zones.booking=vis(booking);zones.final=vis(finalCTA);zones.footer=vis(footer);updateSticky();
+  };
+  window.addEventListener('scroll',recompute,{passive:true});
+  window.addEventListener('resize',recompute);
+  recompute();
+ }
 }
 
 /* Cargador oficial Cal.com. En caso de bloqueo, se conserva el enlace directo. */
