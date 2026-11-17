@@ -58,3 +58,24 @@ Tipografía: Montserrat Extended para la marca/títulos, Montserrat SemiBold com
 - V4.3: versión visual seleccionada, identidad oficial recuperada, promoción de primer lavado y CTA adaptativo.
 
 **Regla de seguridad:** conservar el enlace de Cal.com y la revisión manual; no sustituir el logo ni atribuir imágenes generadas a trabajos reales.
+
+## V4.4 — Portada persuasiva + UX móvil (rama de pruebas)
+**Fuente:** Prompt Ultra Maestro V4.4 validado y decisiones creativas de CARLOS.
+- Se mantiene el código del sitio existente; no se reemplazan `assets/logo-maestro-original.png`, Cal.com ni WhatsApp Business.
+- Portada con profesional trabajando sobre automóvil negro en contexto residencial. **Sin cliente al fondo tomando café.**
+- La imagen `assets/hero-carlos-v44-clean.webp` es una **fotografía conceptual publicitaria**, no prueba de un trabajo real. Texto publicitario y botones son HTML accesible, no forman parte del mapa de bits.
+- Las aplicaciones del símbolo sobre gorra, polo, cubeta y pulverizador utilizan exactamente el archivo `assets/logo-maestro-original.png`, superpuesto desde la propia web como `<image>` en SVG y no generado ni reinterpretado por IA.
+- Titular `IMPECABLE,` con efecto metálico plateado/blanco y pequeño reflejo inspirado en la propuesta ganadora; solo usa colores de marca.
+- WhatsApp: se reemplaza el SVG anterior (que se veía recortado) por pictograma proporcionado, con círculo de contención discreto y bordes plata.
+- Botón flotante: se retira totalmente en portada, bloque de reservas, CTA final y footer; aparece en secciones intermedias. Sin «fantasma» semitransparente sobre contenido. Se respeta preferencia de movimiento reducido.
+- Se preserva el gancho comercial `20% de descuento en el primer lavado, nuevos clientes, por única vez`, con validación manual; sin inventar vigencias.
+- Nuevo CSS de ajustes incrementales: `brand-v4-4.css`, cargado luego del V4.3.
+
+### Control previo a publicar
+1. Revisar el SVG sobre la imagen en teléfonos de 320, 360, 390 y 414 px, tablet de 768 px y escritorio. Confirmar recorte y colocación de cada marca en superficies reales.
+2. Verificar lectura de «IMPECABLE,» y «SIN SALIR DE CASA» sin recorte de letras ni invasión sobre el profesional.
+3. Probar el botón WhatsApp desde celular y verificar que se abra el número empresarial correcto.
+4. Desplazarse desde portada hacia servicios: el botón flotante no debe estar visible en hero; debe reaparecer al salir, y desaparecer de nuevo en reservas y footer.
+5. Probar Cal.com con solicitud de turno real y verificar que quede **pendiente de aprobación manual** en la cuenta de Carlos. No afirmar que está validado solo por ver el calendario.
+6. Verificar rendimiento de `hero-carlos-v44-clean.webp` (aprox. 133 KB), accesibilidad, foco, contraste y ausencia de scroll horizontal.
+7. Comparar portada con referencia aprobada y realizar correcciones visuales en rama antes de fusionar.
