@@ -208,3 +208,6 @@
 #servicios .service-picture .service-photo-brand img{
  filter:none!important;mix-blend-mode:normal!important;
 }
+
+/* En escritorio se ven las tres tarjetas; el control por swipe queda solo para móvil. */
+@media(min-width:601px){#servicios .service-carousel-controls{display:none}}
