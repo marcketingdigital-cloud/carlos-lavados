@@ -1,0 +1,85 @@
+/* CARLOS V4.4 — ajuste incremental. Conserva la identidad original y el módulo Cal.com.
+   Foto conceptual ganadora pendiente de incorporarse como assets/hero-carlos-v44.webp;
+   assets/vehiculo.webp funciona como respaldo sin romper la portada. */
+:root{--brand-electric:#24D65A;--brand-silver:#BFC4C9;--brand-graphite:#0B0F10}
+.hero-photo{
+ background-image:url("assets/hero-carlos-v44.webp"),url("assets/vehiculo.webp");
+ background-size:cover,cover;
+ background-repeat:no-repeat,no-repeat;
+ background-position:63% center,63% center;
+ filter:saturate(.96) contrast(1.04) brightness(1.08);
+}
+.hero-vignette{
+ background:linear-gradient(90deg,rgba(11,15,16,.96) 0%,rgba(11,15,16,.78) 30%,rgba(11,15,16,.47) 53%,rgba(11,15,16,.09) 100%),
+ linear-gradient(0deg,rgba(11,15,16,.68),transparent 38%);
+}
+.hero h1 .metallic-word{
+ display:inline-block;
+ position:relative;
+ background:linear-gradient(180deg,#FFFFFF 0%,#FFFFFF 27%,#DDE0E3 43%,#9FA7AD 50%,#FAFBFB 59%,#BFC4C9 79%,#FFFFFF 100%);
+ -webkit-background-clip:text;background-clip:text;
+ color:transparent;-webkit-text-fill-color:transparent;
+ filter:drop-shadow(0 3px 2px rgba(0,0,0,.22));
+ letter-spacing:-.06em;white-space:nowrap;
+}
+.hero h1 .metallic-word:after{
+ content:"";position:absolute;z-index:2;left:0;bottom:.12em;
+ width:2.15em;height:2px;pointer-events:none;
+ background:linear-gradient(90deg,transparent,#FFFFFF 38%,#BFC4C9 55%,transparent 100%);
+ box-shadow:0 0 8px rgba(255,255,255,.45);transform:rotate(-2deg);
+}
+.hero-photo-disclaimer{font-size:10px;line-height:1.45;letter-spacing:0;color:#BFC4C9;opacity:.9;margin-top:12px}
+.actions .hero-whatsapp{
+ display:inline-grid;grid-template-columns:38px minmax(0,1fr) 22px;
+ align-items:center;justify-content:initial;column-gap:10px;
+ color:#FFFFFF;background:#0B0F10;border:1.5px solid #BFC4C9;
+ border-radius:13px;padding:11px 16px;min-height:55px;
+ box-shadow:none;
+}
+.actions .hero-whatsapp:hover,.actions .hero-whatsapp:focus-visible{border-color:#24D65A}
+.actions .hero-whatsapp:before{content:none!important}
+.actions .hero-whatsapp .wa-icon-frame{
+ display:grid;place-items:center;width:35px;height:35px;
+ border:1px solid rgba(191,196,201,.6);border-radius:50%;background:transparent;
+}
+.actions .hero-whatsapp .wa-icon{display:block;width:22px;height:22px;color:#24D65A;flex:none}
+.actions .hero-whatsapp span:nth-of-type(2){font-family:"Montserrat",Arial,sans-serif;font-weight:700;line-height:1.25;letter-spacing:.005em;text-align:center}
+.actions .hero-whatsapp .cta-arrow{justify-self:end;font-size:22px;color:#BFC4C9;white-space:nowrap}
+.mobile-cta{
+ opacity:0;visibility:hidden;transform:translateY(105%);
+ transition:opacity .24s ease,transform .24s ease,visibility .24s ease;
+ will-change:opacity,transform;
+}
+.mobile-cta.is-ready{opacity:1;visibility:visible;transform:translateY(0)}
+.mobile-cta.is-ready.is-muted,.mobile-cta.is-ready.in-booking{
+ opacity:0;visibility:hidden;transform:translateY(105%);pointer-events:none;
+}
+@media(max-width:850px){.hero-photo{background-position:68% center,68% center}}
+@media(max-width:600px){
+ .hero-photo{background-position:69% center,72% 50%;filter:saturate(1.0) brightness(1.07) contrast(1.03)}
+ .hero-vignette{
+  background:linear-gradient(90deg,rgba(11,15,16,.93) 0%,rgba(11,15,16,.75) 36%,rgba(11,15,16,.38) 70%,rgba(11,15,16,.18) 100%),
+  linear-gradient(0deg,#0B0F10 0%,transparent 34%);
+ }
+ .hero h1{font-size:clamp(32px,9.4vw,45px);letter-spacing:-.06em;line-height:1.03}
+ .hero h1 .metallic-word{font-size:.95em;letter-spacing:-.077em}
+ .hero h1 .metallic-word:after{height:1.5px;box-shadow:0 0 5px rgba(255,255,255,.42)}
+ .hero-desc{max-width:335px;font-size:14px;line-height:1.53}
+ .hero-photo-disclaimer{font-size:9px;line-height:1.35;margin:9px 0 0;max-width:300px}
+ .actions .hero-whatsapp{display:grid;grid-template-columns:36px minmax(0,1fr) 20px;width:100%;min-height:56px;padding:9px 14px;column-gap:9px;line-height:1.2}
+ .actions .hero-whatsapp .wa-icon-frame{width:34px;height:34px}
+ .actions .hero-whatsapp .wa-icon{width:21px;height:21px;flex:none}
+ .actions .hero-whatsapp span:nth-of-type(2){font-size:clamp(10px,3vw,12px)}
+ .mobile-cta.is-ready.in-booking{display:flex}
+}
+@media(max-width:360px){
+ .hero h1{font-size:clamp(30px,9.7vw,35px)}
+ .hero h1 .metallic-word{font-size:.93em;letter-spacing:-.08em}
+ .actions .hero-whatsapp{column-gap:7px}
+ .actions .hero-whatsapp span:nth-of-type(2){font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){
+ .mobile-cta,.mobile-cta.is-ready,.mobile-cta.is-ready.is-muted,.mobile-cta.is-ready.in-booking{
+  transition:none!important;transform:none;
+ }
+}
