@@ -1,62 +1,60 @@
-# CARLOS — Opción 2 aprobada, landing lista para GitHub Pages
+# CARLOS — Lavados de Autos a Domicilio
 
-Versión visual: 16/11/2026 · estado: **LISTA PARA PUBLICAR / NO DESPLEGADA AUTOMÁTICAMENTE**.
+Landing comercial responsive en GitHub Pages. Repositorio original, sin reconstrucción desde cero.
 
-## Qué incluye
-- Logo maestro ORIGINAL y SIN redibujar: `assets/logo-maestro-original.png` (archivo binario idéntico al del kit aprobado).
-- Diseño negro/grafito, plata y verde #00A86B inspirado en la segunda propuesta aprobada.
-- Fotos conceptuales de automóvil negro y detailing. No se atribuyen a trabajos reales de CARLOS.
-- Calendario Cal.com integrado: https://cal.com/carlos-lavados/solicitud-lavado-domicilio
-- Enlace de respaldo a Cal.com para navegadores con bloqueo de incrustaciones.
-- Enlaces de WhatsApp Business: +54 11 4142-7755 (revisar funcionamiento real).
-- Navegación y diseño adaptables a celulares. Menú móvil y CTA flotante que se oculta al usar el calendario.
+**Versión:** V4.3 (fusión creativa Combo 03 + Combo 05) · **Estado del código:** propuesta aprobada, incorporada primero en rama de revisión.
 
-## Cómo publicar sin perder la web vigente
-1. Descomprimí este ZIP.
-2. En GitHub, entrá a `marcketingdigital-cloud/carlos-lavados`.
-3. Elegí `Add file` → `Upload files`, y cargá el CONTENIDO de esta carpeta (archivos raíz y carpeta `assets`).
-4. Asegurate de que se respete la carpeta `assets/` y de sustituir los archivos homónimos. Si GitHub no conserva la estructura al arrastrarlos, subí los archivos `assets` por separado desde esa carpeta.
-5. Hacé el commit en una rama de pruebas y revisá el cambio antes de integrarlo a `main`.
-6. GitHub Pages publica desde `main` cuando se ejecute el workflow habilitado. Verificá en https://marcketingdigital-cloud.github.io/carlos-lavados/.
+## Sitio y gestión
+- Web pública: https://marcketingdigital-cloud.github.io/carlos-lavados/
+- Repositorio: https://github.com/marcketingdigital-cloud/carlos-lavados
+- Reservas: https://cal.com/carlos-lavados/solicitud-lavado-domicilio
+- WhatsApp Business: +54 11 4142-7755 · https://wa.me/541141427755
 
-## Controles previos a la versión definitiva
-- Comprobar apertura del calendario y selección de horarios en Brave/Android y Chrome.
-- Confirmar el funcionamiento de WhatsApp y de la aprobación manual en Cal.com (ya probados en la versión anterior).
-- Corroborar que las imágenes publicitarias conceptuales no se presenten como fotografías de trabajos reales.
-- Evitar declarar resultados garantizados, certificaciones, ofertas o reseñas inexistentes.
-- Si se decide mostrar a trabajadores y vehículos rotulados, pegar el archivo original de marca directamente sobre los soportes en la pieza final; no utilizar redibujos generados del logo.
+## Identidad corporativa: Manual de Identidad Visual CARLOS 2027
+**Esta sección es fuente de verdad y reemplaza las menciones anteriores del verde #00A86B.**
 
-## Branding aprobado
-Negro premium como base, grafito / gris metálico como soporte, verde #00A86B para CTA y acentos. Logotipo maestro intacto. La imagen `assets/opcion-2-referencia-vertical.png` se incluye solo como referencia creativa y NO se usa como logotipo ni se publica como evidencia de trabajos reales.
+| Uso | Valor |
+|---|---|
+| Verde Premium / eléctrico | `#24D65A` |
+| Gris Metálico | `#BFC4C9` |
+| Grafito | `#0B0F10` |
+| Blanco | `#FFFFFF` |
 
-## V4.1 — Premium combinada (rama de revisión)
-- Rama: `feature/carlos-v4-1-premium`. No fusionar a `main` hasta validar los flujos reales.
-- Conserva los archivos de imagen actuales y el logotipo maestro original; ninguna imagen conceptual se presenta como trabajo real.
-- Se refina el hero, los botones, la grilla de servicios, las pantallas móviles, los estados de foco y el contenido de confianza.
-- Se incorpora una sección de preguntas frecuentes sobre aprobación manual, cobertura y cambios de turno.
-- Cal.com mantiene el mismo enlace y el mismo script de incrustación; la configuración de aprobación manual depende de Cal.com y no se modifica desde esta rama.
-- Se omite la promoción anterior del 20% hasta nueva aprobación comercial.
+Tipografía: Montserrat Extended para la marca/títulos, Montserrat SemiBold complementaria. La web importa Montserrat de Google Fonts como aproximación para textos, sin alterar la tipografía incrustada en el logotipo.
 
-### Pruebas necesarias antes del lanzamiento
-1. Revisar portada y logo en Android Chrome/Brave y iPhone Safari.
-2. Abrir menú móvil y verificar enlaces, foco y botón fijo.
-3. Seleccionar fecha y horario en Cal.com; completar solicitud de prueba y confirmar que queda pendiente de aprobación, sin duplicados.
-4. Verificar correo/notificación de aprobación, cambio y cancelación desde el administrador Cal.com.
-5. Abrir WhatsApp Business y comprobar que corresponde al número oficial.
-6. Confirmar imágenes, rendimiento y ausencia de desplazamiento horizontal.
-7. Evaluar en móvil la longitud de la portada y la accesibilidad del calendario.
+**Logotipo maestro original sin editar:** `assets/logo-maestro-original.png`. Prohibido redibujar, reinterpretar, deformar, recolorear o sustituir. Las fotos de la web son materiales conceptuales de campaña, NO trabajos documentados de CARLOS.
 
-## V4.2 — Fidelidad móvil al boceto aprobado (rama de pruebas)
+## Cambios V4.3
+- `brand-v4-3.css`: última hoja de estilos, aplica la paleta y el concepto móvil aprobado sin eliminar la estructura anterior.
+- Portada con automóvil conceptual, tipografía editorial, dos acciones principales y acentos contenidos.
+- CTA de reservas con icono de calendario; CTA secundario con icono de WhatsApp.
+- Beneficios agrupados en cuatro columnas y servicios con tarjetas completas pulsables (evita tres botones redundantes).
+- Banner aprobado: «BIENVENIDA A NUEVOS CLIENTES · En tu primer lavado obtenés un 20% de descuento · POR ÚNICA VEZ».
+- Condición visible: beneficio exclusivo para nuevos clientes, sujeto a consulta al pedir el turno. El sistema Cal.com no aplica automáticamente un descuento; la validación comercial corresponde a CARLOS.
+- CTA inferior adaptativo: se atenúa cuando el botón principal de la portada o el CTA final están visibles, recupera verde al seguir desplazándose y se oculta en la sección del calendario y el pie de página.
+- `script.js`: Cal.com conserva la URL y la integración mensual; solo cambia el acento visual de la incrustación a `#24D65A`. No modifica ni promete que la **aprobación manual** esté configurada; eso se verifica en Cal.com.
+- Navegación y footer conservados, con retoques visuales responsive.
 
-**Motivo:** la V4.1 publicada mantuvo una estructura móvil demasiado larga y una foto del hero demasiado oscura, distinta del concepto visual aprobado. Esta revisión corrige la composición, no reconstruye el sitio.
+## Archivos importantes
+- `index.html` — contenido y enlaces.
+- `styles.css` — estilos históricos.
+- `mobile-v4-2.css` — capa responsive previa.
+- `brand-v4-3.css` — capa de marca V4.3, tiene prioridad en cascada.
+- `script.js` — menú, CTA adaptativo y cargador oficial Cal.com.
+- `assets/` — logotipo original y fotografías conceptuales.
 
-**Cambios:**
-- Hoja adicional `mobile-v4-2.css` aislada para permitir revisión o reversión fácil.
-- Hero móvil compacto con foto conceptual existente de automóvil, contraste equilibrado y dos CTA grandes.
-- Cuatro beneficios en una franja horizontal con iconos descriptivos.
-- Tarjetas de los tres servicios en la misma fila para vista móvil, con enlace a reservas.
-- Tarjeta visual de bienvenida **sin descuento activo**, ya que la vigencia de campañas debe verificarse antes de publicarse.
-- Footer más compacto; CTA flotante se oculta al entrar en reserva o pie de página.
-- No se cambió el logotipo binario original, el número de WhatsApp ni el enlace/embed a Cal.com.
+## Control de calidad y lanzamiento
+1. Abrir la web en Android Chrome/Brave y Safari iOS; revisar 320, 360, 390, 414, 768 px y escritorio.
+2. Confirmar que el logotipo no se recorta, el hero muestra el automóvil, la tipografía no se desborda y las tres tarjetas son accesibles.
+3. Verificar «RESERVAR TURNO» (portada/CTA inferior/tarjetas) y botón con icono «CONSULTAR POR WHATSAPP» hacia el número oficial.
+4. Desplazarse: al ver CTA hero, el inferior se atenúa; al salir, recupera intensidad; en CARLOS RESERVA y footer se oculta.
+5. Validar carga del calendario, elección de fechas, solicitud real de prueba, su estado **pendiente de aprobación** y recepción/confirmación por el administrador de Cal.com. No confundir disponibilidad mostrada con reserva confirmada.
+6. Revisar que la promoción se gestione manualmente para nuevos clientes y por una única vez, sin descuento automático o vencimiento ficticio.
+7. Revisar contrastes, navegación por teclado, foco visible, rendimiento y uso de imágenes conceptuales.
 
-**Control de calidad antes de fusionar a main:** probar anchos 320, 360, 390, 414 y 768 px, sin overflow horizontal; observar legibilidad de servicios; foto del hero realmente visible; menú accesible; CTA sin superposición; enlaces a WhatsApp; abrir calendario; probar solicitud manual con la configuración existente de Cal.com. Validar fotos publicitarias y rendimiento. Nota: el concepto aprobado es una maqueta, no evidencia de captura real del sitio.
+## Historial
+- V4.1: primera composición premium, FAQ y mejoras de foco.
+- V4.2: estructura móvil más compacta; cuatro beneficios; tres tarjetas; primer manejo de CTA fijo.
+- V4.3: versión visual seleccionada, identidad oficial recuperada, promoción de primer lavado y CTA adaptativo.
+
+**Regla de seguridad:** conservar el enlace de Cal.com y la revisión manual; no sustituir el logo ni atribuir imágenes generadas a trabajos reales.

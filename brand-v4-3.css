@@ -1,0 +1,214 @@
+/* CARLOS V4.3 — Fusión 03 + 05. Aplicación del Manual de Identidad Visual 2027.
+   Colores oficiales: #24D65A, #BFC4C9, #0B0F10, #FFFFFF.
+   Logo original intacto. Regla: acentos visuales, no ruido. */
+:root{
+ --bg:#0B0F10; --surface:#0B0F10; --surface2:#0B0F10; --card:#0B0F10;
+ --green:#24D65A; --green-soft:#24D65A; --text:#FFFFFF; --muted:#BFC4C9;
+ --line:color-mix(in srgb,#BFC4C9 38%,#0B0F10);
+ --brand-electric:#24D65A; --brand-silver:#BFC4C9;
+ --brand-graphite:#0B0F10; --brand-white:#FFFFFF;
+ --font:"Montserrat","Arial",sans-serif;
+}
+html{scroll-padding-top:88px}
+body{background:var(--brand-graphite);color:var(--brand-white);font-family:var(--font);overflow-x:clip}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--brand-electric);outline-offset:3px}
+h1,h2,h3{font-family:var(--font)}
+h2 em{color:var(--brand-electric)}
+p{color:var(--brand-silver)}
+.eyebrow{color:var(--brand-silver)}
+.site-header{background:rgba(11,15,16,.975);border-color:rgba(191,196,201,.26)}
+.nav-wrap{min-height:88px}
+.brand{width:225px;height:79px;overflow:visible}
+.brand img,.footer-brand img{object-fit:contain;object-position:left center}
+.desktop-nav a{color:var(--brand-silver)}
+.desktop-nav a:hover{color:var(--brand-electric)}
+.nav-cta{color:var(--brand-graphite);background:var(--brand-electric);border-radius:12px}
+.nav-cta:hover{background:color-mix(in srgb,var(--brand-electric) 88%,var(--brand-white))}
+.menu-toggle{border:1px solid color-mix(in srgb,var(--brand-electric) 65%,var(--brand-graphite));border-radius:12px;background:var(--brand-graphite)}
+.menu-toggle span{background:var(--brand-white)}
+.mobile-nav{background:var(--brand-graphite);border-color:var(--line)}
+.mobile-nav a{border-color:var(--line)}
+.hero{background:var(--brand-graphite);isolation:isolate;overflow:hidden}
+.hero-photo{background-image:url("assets/vehiculo.webp");background-position:69% center;background-size:cover;filter:brightness(1.14) contrast(1.11) saturate(.9)}
+.hero-vignette{background:linear-gradient(90deg,rgba(11,15,16,.98) 0%,rgba(11,15,16,.91) 35%,rgba(11,15,16,.54) 68%,rgba(11,15,16,.18)),linear-gradient(0deg,#0B0F10 0%,transparent 35%)}
+.hero:after{content:"";position:absolute;z-index:-1;pointer-events:none;inset:auto -15% 9% 62%;height:7px;transform:skewY(-20deg);background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--brand-electric) 80%,transparent),transparent);box-shadow:0 0 16px color-mix(in srgb,var(--brand-electric) 22%,transparent);opacity:.75}
+.hero-copy{max-width:760px}
+.hero-eyebrow{display:inline-block;letter-spacing:.12em;color:var(--brand-white);position:relative;padding-bottom:16px}
+.hero-eyebrow:after{content:"";position:absolute;bottom:0;left:0;width:69px;height:3px;background:var(--brand-electric);border-radius:5px}
+.hero h1{font-style:italic;font-weight:900;letter-spacing:-.045em;line-height:1.02}
+.hero h1>span{color:var(--brand-white)}
+.hero h1 em{display:inline-block;font-style:italic;color:var(--brand-electric);letter-spacing:-.045em;text-shadow:0 3px 12px rgba(0,0,0,.36)}
+.hero h1 br.v43-mobile-break{display:none}
+.hero-desc{color:var(--brand-white);font-size:18px;line-height:1.58;max-width:550px;text-wrap:pretty}
+.hero-caption{color:var(--brand-silver);letter-spacing:.09em}
+.btn-primary{background:var(--brand-electric);border:1px solid var(--brand-silver);color:var(--brand-graphite);box-shadow:0 8px 24px color-mix(in srgb,var(--brand-electric) 15%,transparent);border-radius:14px}
+.btn-primary:hover{background:color-mix(in srgb,var(--brand-electric) 88%,var(--brand-white))}
+.btn-icon{width:25px;height:25px;flex:0 0 25px}
+.cta-arrow{font-size:22px;font-weight:800;line-height:1}
+.actions .btn,.actions .hero-whatsapp{font-weight:800;text-transform:uppercase;letter-spacing:-.01em}
+.actions .btn{gap:16px}
+.actions .hero-whatsapp{display:inline-flex;align-items:center;justify-content:center;gap:14px;border:2px solid var(--brand-silver);border-radius:14px;background:rgba(11,15,16,.75);padding:12px 18px;text-decoration:none;color:var(--brand-white);min-height:58px}
+.actions .hero-whatsapp:hover{border-color:var(--brand-electric);color:var(--brand-white)}
+.actions .hero-whatsapp .wa-icon{color:var(--brand-electric);width:30px;height:30px;flex-shrink:0}
+.assurance-strip{border:0;background:var(--brand-graphite);padding:0}
+.assurance-content{border:1px solid color-mix(in srgb,var(--brand-electric) 42%,var(--brand-graphite));border-radius:18px;background:rgba(11,15,16,.95);padding:16px 22px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.assurance-item{justify-content:center;align-items:center;border-right:1px solid rgba(191,196,201,.35);padding:3px 12px}
+.assurance-item:last-child{border:0}
+.assurance-item svg{color:var(--brand-silver);width:26px;height:26px;flex:0 0 26px}
+.assurance-item:first-child svg,.assurance-item:last-child svg{color:var(--brand-electric)}
+.assurance-label strong{color:var(--brand-white);font-weight:800}
+.assurance-label small{color:var(--brand-silver)}
+.section{padding-block:70px}
+.section-head h2,.faq h2{color:var(--brand-white)}
+.service-grid{gap:18px}
+.service-card{background:var(--brand-graphite);border:1px solid var(--brand-silver);border-radius:16px;overflow:hidden;box-shadow:none;transition:border-color .2s ease,transform .2s ease}
+.service-card:hover{border-color:var(--brand-electric);transform:translateY(-2px)}
+.service-card-link{display:block;width:100%;height:100%;color:inherit;text-decoration:none}
+.service-card-link:focus-visible{outline:3px solid var(--brand-electric);outline-offset:-4px}
+.service-picture{aspect-ratio:1.43}
+.service-picture img{filter:saturate(.77) contrast(1.08)}
+.service-info{background:var(--brand-graphite)}
+.service-info h3{color:var(--brand-white)}
+.service-info p{color:var(--brand-silver)}
+.service-picture span{background:var(--brand-electric);color:var(--brand-graphite)}
+.service-mobile-name,.service-link-mobile,.services-heading-mobile{display:none}
+.welcome-card{display:flex;align-items:center;gap:18px;border:1px solid color-mix(in srgb,var(--brand-silver) 80%,transparent);border-radius:20px;padding:20px 25px;background:linear-gradient(120deg,color-mix(in srgb,var(--brand-silver) 17%,var(--brand-graphite)),var(--brand-graphite) 46%,color-mix(in srgb,var(--brand-electric) 8%,var(--brand-graphite)) 100%);box-shadow:inset 0 -3px 0 color-mix(in srgb,var(--brand-electric) 58%,var(--brand-graphite));color:var(--brand-white)}
+.welcome-icon{flex:0 0 68px;display:grid;place-items:center;width:68px;aspect-ratio:1;border:1px solid var(--brand-silver);border-radius:14px;color:var(--brand-white);background:color-mix(in srgb,var(--brand-silver) 16%,var(--brand-graphite))}
+.welcome-offer{min-width:0}
+.welcome-card .welcome-kicker{font-size:14px;line-height:1.25;font-weight:900;color:var(--brand-white);font-style:italic;letter-spacing:.015em;margin:0 0 6px}
+.welcome-card .welcome-lead{font-size:13px;line-height:1.3;color:var(--brand-silver);margin:0}
+.welcome-amount{display:flex;align-items:baseline;gap:10px}
+.welcome-amount strong{color:var(--brand-electric);font-size:clamp(40px,5vw,72px);line-height:1;font-weight:900;letter-spacing:-.06em}
+.welcome-amount span{color:var(--brand-white);font-size:clamp(13px,2vw,22px);font-weight:900;font-style:italic}
+.welcome-card .welcome-once{color:var(--brand-graphite);background:var(--brand-electric);font-size:12px;line-height:1.25;font-weight:900;letter-spacing:.035em;display:inline-block;border-radius:3px;padding:3px 9px;margin:5px 0 7px}
+.welcome-card .welcome-terms{color:var(--brand-silver);font-size:11px;line-height:1.5;margin:0}
+.concept-note{color:var(--brand-silver);font-size:11px}
+.experience{background:var(--brand-graphite);border-block:1px solid rgba(191,196,201,.18)}
+.experience-pic:after{background:linear-gradient(90deg,transparent 40%,var(--brand-graphite) 100%)}
+.experience-content .eyebrow,.minor-title,.experience-line span{color:var(--brand-electric)}
+.experience-line{border-color:var(--line)}
+.booking{background:var(--brand-graphite);border-top:1px solid var(--line)}
+.booking-aside{background:var(--brand-graphite);border-color:var(--line)}
+.booking-step{border-color:var(--line)}
+.booking-step b{color:var(--brand-electric)}
+.booking-notice{background:color-mix(in srgb,var(--brand-electric) 13%,var(--brand-graphite))}
+.booking-notice>span{color:var(--brand-electric)}
+.booking-notice p{color:var(--brand-white)}
+.booking-whatsapp{color:var(--brand-electric);border-color:var(--line)}
+.booking-container{border-color:var(--brand-silver);background:var(--brand-graphite)}
+.booking-top{background:color-mix(in srgb,var(--brand-silver) 9%,var(--brand-graphite));border-color:var(--line)}
+.booking-top small{border-color:var(--line);color:var(--brand-silver)}
+.full-screen-booking{background:color-mix(in srgb,var(--brand-silver) 9%,var(--brand-graphite));color:var(--brand-electric)}
+.full-screen-booking:hover{background:color-mix(in srgb,var(--brand-silver) 15%,var(--brand-graphite))}
+.calendar-alt{border-color:var(--line)}
+.calendar-alt a{color:var(--brand-electric)}
+.privacy{color:var(--brand-silver)}
+.zones{border-color:var(--line)}
+.zones>div{border-color:var(--line)}
+.zones span{color:var(--brand-electric)}
+.inline-link{color:var(--brand-electric)}
+.faq details{background:var(--brand-graphite);border-color:var(--line)}
+.faq details a{color:var(--brand-electric)}
+.last-cta{background:var(--brand-graphite);border-top:1px solid var(--line)}
+.footer{background:var(--brand-graphite);border-color:var(--line)}
+.footer small{color:var(--brand-silver)}
+.mobile-cta{background:rgba(11,15,16,.97);color:var(--brand-graphite)}
+.mobile-cta:before{background:var(--brand-electric)}
+@media(max-width:850px){
+ .assurance-item{flex-direction:column;gap:7px;text-align:center}
+ .assurance-label{align-items:center}
+ .assurance-item svg{flex:0 0 auto}
+}
+@media(max-width:600px){
+ html{scroll-padding-top:80px}
+ .shell{width:calc(100% - 30px)}
+ .site-header .nav-wrap{min-height:75px}
+ .brand{width:185px;height:72px}
+ .brand img{object-fit:contain}
+ .menu-toggle{width:50px;height:50px;flex:0 0 50px;padding:13px}
+ .hero,.hero-inner{min-height:0}
+ .hero-photo{background-image:url("assets/vehiculo.webp");background-position:72% 50%;filter:brightness(1.3) contrast(1.11) saturate(.92)}
+ .hero-vignette{background:linear-gradient(90deg,rgba(11,15,16,.97) 0%,rgba(11,15,16,.92) 34%,rgba(11,15,16,.55) 67%,rgba(11,15,16,.28) 100%),linear-gradient(0deg,#0B0F10,transparent 35%)}
+ .hero:after{inset:auto -15% 18% 53%;height:4px;opacity:.55}
+ .hero-copy{padding:34px 0 20px}
+ .hero-eyebrow{font-size:10px;letter-spacing:.075em;margin:0 0 17px;padding-bottom:13px;line-height:1.4}
+ .hero-eyebrow:after{height:3px;width:58px}
+ .hero h1{font-size:clamp(35px,9.6vw,47px);line-height:.99;margin:0 0 17px;font-style:italic;font-weight:900;letter-spacing:-.06em;text-shadow:0 3px 10px rgba(0,0,0,.48)}
+ .hero h1>span{white-space:nowrap}
+ .hero h1 em{font-size:1.02em;letter-spacing:-.058em;white-space:normal;display:inline}
+ .hero h1 br.v43-mobile-break{display:inline}
+ .hero-desc{max-width:325px;color:var(--brand-white);font-size:14px;line-height:1.55;margin:0}
+ .actions{display:flex;flex-direction:column;align-items:stretch;gap:10px;margin:23px 0 14px}
+ .actions .btn{width:100%;min-height:56px;display:flex;align-items:center;justify-content:center;padding:12px 14px;border-radius:14px;font-size:14px;gap:14px;box-shadow:0 0 0 1px var(--brand-silver),0 7px 19px color-mix(in srgb,var(--brand-electric) 18%,transparent)}
+ .actions .btn .btn-icon{width:25px;height:25px;flex-basis:25px}
+ .actions .btn .cta-arrow{margin-left:0}
+ .actions .hero-whatsapp{width:100%;min-height:54px;font-size:12px;gap:12px;padding:10px 12px;border-radius:14px;line-height:1.2;color:var(--brand-white);background:rgba(11,15,16,.8);text-decoration:none}
+ .actions .hero-whatsapp::before{content:none!important;display:none!important}
+ .actions .hero-whatsapp .wa-icon{width:27px;height:27px;flex:0 0 27px}
+ .actions .hero-whatsapp .cta-arrow{margin-left:0}
+ .hero-caption{color:var(--brand-white);font-size:9px;line-height:1.4;letter-spacing:.025em;margin:5px 0 2px}
+ .assurance-strip{background:var(--brand-graphite);margin:0;padding:0}
+ .assurance-content{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid color-mix(in srgb,var(--brand-electric) 60%,var(--brand-graphite));border-radius:17px;padding:13px 3px 11px;background:var(--brand-graphite)}
+ .assurance-item{padding:0 3px;gap:4px;min-height:76px;border-right:1px solid rgba(191,196,201,.4)}
+ .assurance-item svg{width:24px;height:24px;flex:0 0 24px;color:var(--brand-silver)}
+ .assurance-item:first-child svg,.assurance-item:last-child svg{color:var(--brand-electric)}
+ .assurance-label strong{font-size:9px;color:var(--brand-white);font-weight:800;letter-spacing:-.02em;line-height:1.22}
+ .assurance-label small{display:block;font-size:8px;color:var(--brand-silver);line-height:1.3;letter-spacing:-.025em}
+ #servicios.section{padding-top:22px;padding-bottom:43px}
+ #servicios .section-head{margin:0 0 17px}
+ #servicios .section-head h2{font-size:clamp(23px,6.5vw,29px);line-height:1.1;font-style:italic;letter-spacing:-.055em;margin:0;color:var(--brand-white);position:relative;padding-bottom:11px}
+ #servicios .section-head h2:after{content:"";position:absolute;bottom:0;left:0;width:69px;height:3px;background:var(--brand-electric);border-radius:3px}
+ .services-heading-desktop{display:none}
+ .services-heading-mobile{display:inline}
+ .service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .service-card{position:relative;border:1px solid var(--brand-silver);border-radius:13px;overflow:hidden;min-height:149px;background:var(--brand-graphite)}
+ .service-card-link{display:block;position:relative;height:100%;min-height:149px}
+ .service-picture{position:absolute;inset:0;aspect-ratio:auto;height:100%}
+ .service-picture img{width:100%;height:100%;object-fit:cover;filter:saturate(.87) contrast(1.06)}
+ .service-picture:after{content:"";position:absolute;inset:25% 0 0;background:linear-gradient(0deg,#0B0F10 0%,rgba(11,15,16,.92) 16%,transparent 95%);pointer-events:none}
+ .service-picture>span{display:none}
+ .service-info{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:38px 3px 11px;text-align:center;background:transparent}
+ .service-info h3{font-size:clamp(11px,3vw,14px);font-weight:800;line-height:1.15;min-height:0;margin:0;color:var(--brand-white)}
+ .service-desktop-name,.service-link-desktop{display:none}
+ .service-mobile-name{display:inline}
+ .service-info p,.service-info a{display:none}
+ .welcome-card{display:grid;grid-template-columns:49px minmax(0,1fr);align-items:center;gap:13px;padding:15px 13px 14px;margin:21px 0 12px;border-radius:16px;border:1px solid var(--brand-silver);background:linear-gradient(115deg,color-mix(in srgb,var(--brand-silver) 18%,var(--brand-graphite)),var(--brand-graphite) 45%,color-mix(in srgb,var(--brand-electric) 9%,var(--brand-graphite)));box-shadow:inset 0 -2px 0 var(--brand-electric)}
+ .welcome-icon{width:46px;height:46px;flex:0 0 46px;padding:7px;border:1px solid var(--brand-silver);border-radius:10px;color:var(--brand-white)}
+ .welcome-icon svg{width:30px;height:30px}
+ .welcome-card .welcome-kicker{font-size:11px;font-weight:900;margin:0 0 4px;line-height:1.25}
+ .welcome-card .welcome-lead{font-size:11px;line-height:1.25;margin:0;color:var(--brand-silver)}
+ .welcome-amount{gap:9px;align-items:center;margin:2px 0}
+ .welcome-amount strong{font-size:clamp(40px,12vw,50px)}
+ .welcome-amount span{font-size:clamp(10px,3.2vw,13px);line-height:1.08}
+ .welcome-card .welcome-once{font-size:10px;padding:3px 8px;margin:2px 0 5px}
+ .welcome-card .welcome-terms{font-size:9px;line-height:1.35}
+ .concept-note{font-size:10px;color:var(--brand-silver);line-height:1.4}
+ .mobile-cta{display:flex;align-items:center;justify-content:center;gap:11px;position:fixed;bottom:0;left:0;right:0;z-index:25;background:rgba(11,15,16,.98);border-top:1px solid rgba(191,196,201,.25);color:var(--brand-graphite);font-weight:900;font-size:14px;letter-spacing:0;padding:9px 15px 16px;min-height:79px;text-decoration:none;transition:opacity .24s ease,filter .24s ease}
+ .mobile-cta:before{content:"";position:absolute;inset:9px 15px 15px;border-radius:13px;background:var(--brand-electric);z-index:-1;box-shadow:0 0 0 1px var(--brand-silver),0 8px 24px color-mix(in srgb,var(--brand-electric) 16%,transparent)}
+ .mobile-cta .btn-icon{width:23px;height:23px;flex:0 0 23px}
+ .mobile-cta .cta-arrow{font-size:23px}
+ .mobile-cta.is-muted{opacity:.32;filter:saturate(.35);pointer-events:none}
+ .mobile-cta.in-booking{display:none}
+ .footer{padding-bottom:22px}
+ .footer-content{display:grid;grid-template-columns:125px 1fr;gap:12px}
+ .footer-brand{grid-column:1;width:125px;height:65px}
+ .footer p{grid-column:2;font-size:11px}
+ .footer-links{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:7px 20px}
+ .footer small{grid-column:1/-1;font-size:10px;color:var(--brand-silver)}
+}
+@media(max-width:360px){
+ .brand{width:153px}
+ .hero h1{font-size:clamp(32px,10.1vw,36px)}
+ .hero-desc{font-size:13px}
+ .assurance-label small{font-size:8px}
+ .welcome-card{grid-template-columns:36px minmax(0,1fr);gap:9px;padding:12px}
+ .welcome-icon{width:35px;height:35px;padding:4px}
+ .welcome-icon svg{width:24px;height:24px}
+ .welcome-card .welcome-kicker{font-size:10px}
+ .welcome-amount strong{font-size:37px}
+ .welcome-amount span{font-size:10px}
+ .mobile-cta{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+ .service-card,.mobile-cta,.btn-primary{transition:none}
+}
