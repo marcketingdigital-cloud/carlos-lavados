@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="brand-v4-4-1.css">
   <link rel="stylesheet" href="brand-v4-4-2.css">
   <link rel="stylesheet" href="brand-v4-4-3.css">
+  <link rel="stylesheet" href="brand-v4-4-4.css">
   <title>CARLOS — Lavados de Autos a Domicilio | Solicitar turno</title>
 </head>
 <body>
@@ -87,21 +88,70 @@
 
     <section class="section shell" id="servicios" aria-labelledby="servicios-title">
       <div class="section-head"><div><p class="eyebrow">SERVICIOS / 01</p><h2 id="servicios-title"><span class="services-heading-desktop">EL DETALLE<br><em>HACE LA DIFERENCIA.</em></span><span class="services-heading-mobile">Nuestros servicios</span></h2></div><p>Elegí el cuidado que necesita tu vehículo. Revisamos cada solicitud para confirmar alcance y disponibilidad.</p></div>
-      <div class="service-grid">
-        <article class="service-card"><a class="service-card-link" href="#reservar" aria-label="Consultar disponibilidad de lavado exterior"><div class="service-picture"><img src="assets/lavado.webp" alt="Imagen conceptual de una mano utilizando microfibra sobre carrocería oscura" loading="lazy" width="1450" height="399"><span>01</span></div><div class="service-info"><h3><span class="service-desktop-name">LAVADO EXTERIOR</span><span class="service-mobile-name">Exterior</span></h3><p>Carrocería, vidrios y superficies exteriores para recuperar esa sensación de auto cuidado.</p></div></a></article>
-        <article class="service-card"><a class="service-card-link" href="#reservar" aria-label="Consultar disponibilidad de limpieza interior"><div class="service-picture"><img src="assets/vehiculo.webp" alt="Imagen conceptual de automóvil negro, referencia de cuidado interior y exterior" loading="lazy" width="1450" height="402"><span>02</span></div><div class="service-info"><h3><span class="service-desktop-name">LIMPIEZA INTERIOR</span><span class="service-mobile-name">Interior</span></h3><p>Consultanos por limpieza de cabina, superficies de uso cotidiano y detalles interiores según el vehículo.</p></div></a></article>
-        <article class="service-card"><a class="service-card-link" href="#reservar" aria-label="Consultar disponibilidad de lavado completo"><div class="service-picture"><img src="assets/detalle.webp" alt="Imagen conceptual de detailing y limpieza de vehículo con paño y pulverizador" loading="lazy" width="1450" height="399"><span>03</span></div><div class="service-info"><h3><span class="service-desktop-name">COMPLETO Y TERMINACIONES</span><span class="service-mobile-name">Completo</span></h3><p>Una opción integral con atención a los detalles. Confirmamos el alcance antes de coordinar.</p></div></a></article>
+      <div class="service-carousel" aria-label="Servicios de CARLOS">
+        <div class="service-grid" id="services-track" role="region" aria-roledescription="carrusel" aria-label="Deslizá para explorar los tres servicios de lavado" tabindex="0">
+          <article class="service-card" data-service-index="0">
+            <a class="service-card-link" href="#reservar" aria-label="Consultar disponibilidad del servicio Exterior">
+              <div class="service-picture">
+                <img src="assets/servicio-exterior-v444.webp" alt="Imagen publicitaria conceptual de un lavado exterior de un auto negro con agua y espuma" loading="lazy" width="442" height="1145">
+                <span class="service-photo-brand" aria-hidden="true"><img src="assets/logo-maestro-original.png" alt="" loading="lazy" width="1672" height="941"></span>
+                <span class="service-index" aria-hidden="true">01</span>
+              </div>
+              <div class="service-info">
+                <h3><span class="service-desktop-name">LAVADO EXTERIOR</span><span class="service-mobile-name">Exterior</span></h3>
+                <p>Carrocería, vidrios y superficies exteriores para recuperar esa sensación de auto cuidado.</p>
+              </div>
+            </a>
+          </article>
+          <article class="service-card is-active" data-service-index="1">
+            <a class="service-card-link" href="#reservar" aria-label="Consultar disponibilidad del servicio Interior">
+              <div class="service-picture">
+                <img src="assets/servicio-interior-v444.webp" alt="Imagen publicitaria conceptual de un profesional aspirando los asientos y la cabina de un automóvil" loading="lazy" width="445" height="1145">
+                <span class="service-photo-brand" aria-hidden="true"><img src="assets/logo-maestro-original.png" alt="" loading="lazy" width="1672" height="941"></span>
+                <span class="service-index" aria-hidden="true">02</span>
+              </div>
+              <div class="service-info">
+                <h3><span class="service-desktop-name">LIMPIEZA INTERIOR</span><span class="service-mobile-name">Interior</span></h3>
+                <p>Consultanos por limpieza de cabina, superficies de uso cotidiano y detalles interiores según el vehículo.</p>
+              </div>
+            </a>
+          </article>
+          <article class="service-card" data-service-index="2">
+            <a class="service-card-link" href="#reservar" aria-label="Consultar disponibilidad del servicio Completo">
+              <div class="service-picture">
+                <img src="assets/servicio-completo-v444.webp" alt="Imagen publicitaria conceptual de una terminación de automóvil negro con paño de microfibra verde" loading="lazy" width="462" height="1145">
+                <span class="service-photo-brand" aria-hidden="true"><img src="assets/logo-maestro-original.png" alt="" loading="lazy" width="1672" height="941"></span>
+                <span class="service-index" aria-hidden="true">03</span>
+              </div>
+              <div class="service-info">
+                <h3><span class="service-desktop-name">COMPLETO Y TERMINACIONES</span><span class="service-mobile-name">Completo</span></h3>
+                <p>Una opción integral con atención a los detalles. Confirmamos el alcance antes de coordinar.</p>
+              </div>
+            </a>
+          </article>
+        </div>
+        <div class="service-carousel-controls" aria-label="Controles del carrusel">
+          <button class="service-arrow service-arrow-prev" type="button" aria-label="Mostrar servicio anterior"><span aria-hidden="true">‹</span></button>
+          <div class="service-dots" role="group" aria-label="Elegir servicio">
+            <button type="button" class="service-dot" data-go-to="0" aria-label="Ver lavado exterior" aria-pressed="false"></button>
+            <button type="button" class="service-dot is-active" data-go-to="1" aria-label="Ver limpieza interior" aria-pressed="true"></button>
+            <button type="button" class="service-dot" data-go-to="2" aria-label="Ver lavado completo" aria-pressed="false"></button>
+          </div>
+          <button class="service-arrow service-arrow-next" type="button" aria-label="Mostrar servicio siguiente"><span aria-hidden="true">›</span></button>
+        </div>
+        <p class="service-swipe-hint">Deslizá para descubrir nuestros servicios <span aria-hidden="true">↔</span></p>
       </div>
-      <div class="welcome-card" role="note" id="promocion-bienvenida">
-  <div class="welcome-icon" aria-hidden="true"><svg viewBox="0 0 40 40" width="42" height="42" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M34 20 18 36 4 22V5h18z"/><circle cx="26" cy="13" r="3"/></svg></div>
-  <div class="welcome-offer">
-    <p class="welcome-kicker">BIENVENIDA A NUEVOS CLIENTES</p>
-    <p class="welcome-lead">En tu primer lavado obtenés un</p>
-    <div class="welcome-amount"><strong>20%</strong><span>DE DESCUENTO</span></div>
-    <p class="welcome-once">POR ÚNICA VEZ</p>
-    <p class="welcome-terms">Exclusivo para nuevos clientes. Consultá el beneficio al solicitar tu turno.</p>
-  </div>
-</div>
+      <a class="welcome-card welcome-card-link" id="promocion-bienvenida" href="https://wa.me/541141427755?text=Hola%20Carlos%2C%20vi%20la%20promoci%C3%B3n%20del%2020%25%20de%20descuento%20de%20bienvenida%20para%20nuevos%20clientes%20y%20quiero%20solicitarla%20para%20mi%20primer%20lavado%20a%20domicilio.%20%C2%BFPod%C3%A9s%20indicarme%20las%20condiciones%20y%20disponibilidad%3F" target="_blank" rel="noopener noreferrer" aria-label="Solicitar por WhatsApp el 20% de descuento de bienvenida en el primer lavado, exclusivo para nuevos clientes y por única vez">
+        <span class="welcome-icon" aria-hidden="true"><svg viewBox="0 0 40 40" width="42" height="42" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M34 20 18 36 4 22V5h18z"/><circle cx="26" cy="13" r="3"/></svg></span>
+        <span class="welcome-offer">
+          <span class="welcome-kicker">BIENVENIDA A NUEVOS CLIENTES</span>
+          <span class="welcome-lead">En tu primer lavado obtenés un</span>
+          <span class="welcome-amount"><strong>20%</strong><span>DE DESCUENTO</span></span>
+          <span class="welcome-once">POR ÚNICA VEZ</span>
+          <span class="welcome-terms">Exclusivo para nuevos clientes. Beneficio sujeto a verificación al solicitar tu turno.</span>
+          <span class="welcome-cta"><svg class="wa-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.966-.273-.1-.471-.149-.67.149-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.496.1-.198.05-.372-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.009-.372-.011-.57-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.015-1.04 2.479s1.065 2.875 1.213 3.073c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.693.625.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.005-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.397 7.316h-.003a9.84 9.84 0 0 1-5.031-1.378l-.361-.213-3.741.982.998-3.648-.235-.374a9.83 9.83 0 0 1-1.51-5.26c.002-5.435 4.426-9.858 9.861-9.858a9.79 9.79 0 0 1 6.978 2.894 9.78 9.78 0 0 1 2.889 6.98c-.002 5.435-4.427 9.859-9.861 9.859m8.384-18.24A11.92 11.92 0 0 0 12.073 0C5.495 0 .14 5.35.137 11.932a11.87 11.87 0 0 0 1.594 5.956L0 24l6.258-1.64a11.93 11.93 0 0 0 5.713 1.456h.005c6.577 0 11.934-5.35 11.937-11.932A11.92 11.92 0 0 0 20.459 3.46Z"/></svg><span>SOLICITAR MI 20% POR WHATSAPP</span><span class="welcome-cta-arrow" aria-hidden="true">→</span></span>
+        </span>
+      </a>
       <p class="concept-note">Imágenes conceptuales de la campaña. No representan fotografías documentales de trabajos realizados por CARLOS.</p>
     </section>
 
