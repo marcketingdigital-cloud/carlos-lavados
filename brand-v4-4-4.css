@@ -1,0 +1,205 @@
+/* CARLOS V4.4.4 — Carrusel táctil premium + bienvenida clicable.
+   No sustituye estilos aprobados de portada ni cambia Cal.com.
+   Identidad: #24D65A eléctrico, #BFC4C9 metálico, #0B0F10 grafito y blanco. */
+#servicios .service-carousel{width:100%;min-width:0}
+#servicios .service-grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:18px;overflow:visible;
+}
+#servicios .service-card{
+ display:block;position:relative;min-width:0;
+ height:clamp(285px,31vw,390px);
+ border:1px solid rgba(191,196,201,.74);
+ border-radius:18px;background:#0B0F10;overflow:hidden;
+ transform:none;transition:border-color .22s ease,box-shadow .22s ease,transform .22s ease;
+}
+#servicios .service-card.is-active{
+ border:2px solid #24D65A;
+ box-shadow:0 0 0 1px rgba(36,214,90,.2),0 0 19px rgba(36,214,90,.16);
+}
+#servicios .service-card:hover{transform:translateY(-2px);border-color:#24D65A}
+#servicios .service-card-link{display:block;position:relative;width:100%;height:100%;text-decoration:none;color:#FFFFFF}
+#servicios .service-card-link:focus-visible{outline:3px solid #24D65A;outline-offset:-5px}
+#servicios .service-picture{position:absolute;inset:0;height:100%;width:100%;aspect-ratio:auto;overflow:hidden}
+#servicios .service-picture>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 48%;filter:saturate(.96) contrast(1.06)}
+#servicios .service-picture:after{
+ content:"";position:absolute;inset:30% 0 0;pointer-events:none;
+ background:linear-gradient(180deg,transparent 0%,rgba(11,15,16,.10) 40%,rgba(11,15,16,.94) 100%);
+}
+#servicios .service-picture .service-photo-brand{
+ display:block;position:absolute;z-index:2;top:12px;right:11px;width:94px;height:54px;
+ border:1px solid rgba(191,196,201,.38);border-radius:8px;
+ background:rgba(11,15,16,.83);overflow:hidden;
+}
+#servicios .service-picture .service-photo-brand img{
+ width:100%;height:100%;display:block;object-fit:contain;
+}
+#servicios .service-index{
+ position:absolute;z-index:2;top:14px;left:14px;color:#BFC4C9;
+ background:rgba(11,15,16,.68);padding:4px 7px;border-radius:5px;
+ font:700 11px/1 "Montserrat",Arial,sans-serif;letter-spacing:.05em;
+}
+#servicios .service-info{position:absolute;z-index:3;bottom:0;left:0;right:0;text-align:center;padding:45px 13px 20px;background:transparent}
+#servicios .service-info h3{
+ font-family:"Montserrat",Arial,sans-serif;font-style:italic;font-weight:900;
+ font-size:clamp(19px,2.3vw,27px);line-height:1.05;letter-spacing:-.04em;
+ color:#FFFFFF;margin:0 0 7px;
+}
+#servicios .service-info p{display:block;max-width:30ch;margin:0 auto;font-size:12px;line-height:1.35;color:#D5D9D8}
+#servicios .service-carousel-controls{display:flex;justify-content:center;align-items:center;gap:16px;margin:15px 0 4px}
+#servicios .service-arrow{
+ appearance:none;display:grid;place-items:center;cursor:pointer;
+ width:40px;height:40px;border:1px solid rgba(191,196,201,.45);
+ background:#0B0F10;color:#BFC4C9;border-radius:50%;
+ font:400 29px/1 Arial,sans-serif;padding:0;transition:color .2s,border-color .2s;
+}
+#servicios .service-arrow:hover,#servicios .service-arrow:focus-visible{
+ color:#24D65A;border-color:#24D65A;
+}
+#servicios .service-arrow:disabled{opacity:.28;cursor:default}
+#servicios .service-dots{display:flex;align-items:center;justify-content:center;gap:12px}
+#servicios .service-dot{
+ display:block;appearance:none;width:13px;height:13px;padding:0;border:0;
+ border-radius:50%;background:#666D6D;cursor:pointer;
+ transition:background .2s,transform .2s,box-shadow .2s;
+}
+#servicios .service-dot.is-active{
+ background:#24D65A;transform:scale(1.14);box-shadow:0 0 10px rgba(36,214,90,.25);
+}
+#servicios .service-dot:focus-visible{outline:2px solid #FFFFFF;outline-offset:4px}
+#servicios .service-swipe-hint{display:none;color:#BFC4C9;text-align:center;font-size:12px;line-height:1.4;margin:8px 0 0}
+
+/* Bienvenida: un solo enlace de bloque (nunca botones anidados).
+   Reutiliza el mismo WhatsApp Business real. */
+#servicios .welcome-card-link{
+ display:grid;grid-template-columns:70px minmax(0,1fr);align-items:center;
+ gap:16px;margin:26px 0 12px;padding:22px 24px;
+ background:linear-gradient(110deg,#202827,#0B0F10 46%,#0B1D16);
+ border:1px solid #BFC4C9;border-radius:20px;
+ color:#FFFFFF;text-decoration:none;cursor:pointer;
+ box-shadow:inset 0 -3px 0 #24D65A;
+ transition:border-color .2s ease,box-shadow .2s ease;
+}
+#servicios .welcome-card-link:hover,
+#servicios .welcome-card-link:focus-visible{
+ border-color:#24D65A;box-shadow:inset 0 -3px 0 #24D65A,0 0 0 1px rgba(36,214,90,.25);
+ outline:none;
+}
+#servicios .welcome-card-link:focus-visible{outline:3px solid #BFC4C9;outline-offset:3px}
+#servicios .welcome-card-link .welcome-icon{width:66px;height:66px;display:grid;place-items:center;border:1px solid #BFC4C9;border-radius:13px;flex:0 0 auto;color:#FFFFFF}
+#servicios .welcome-card-link .welcome-offer{display:block;min-width:0}
+#servicios .welcome-card-link .welcome-kicker{display:block;color:#FFFFFF;font-weight:900;font-size:clamp(13px,2vw,17px);font-style:italic;line-height:1.25;margin:0 0 4px}
+#servicios .welcome-card-link .welcome-lead{display:block;color:#BFC4C9;font-size:13px;line-height:1.35;margin:0}
+#servicios .welcome-card-link .welcome-amount{display:flex;align-items:baseline;gap:13px;margin:2px 0}
+#servicios .welcome-card-link .welcome-amount strong{
+ display:inline-block;will-change:transform;
+ color:#24D65A;font:900 clamp(46px,7vw,79px)/1 "Montserrat",Arial,sans-serif;
+ letter-spacing:-.075em;transform-origin:center center;
+}
+#servicios .welcome-card-link .welcome-amount>span{color:#FFFFFF;font-weight:900;font-style:italic;font-size:clamp(12px,2vw,20px);line-height:1.12}
+#servicios .welcome-card-link .welcome-once{display:inline-block;color:#0B0F10;background:#24D65A;padding:3px 9px;border-radius:4px;font-weight:900;font-size:11px;line-height:1.3;margin:4px 0 7px}
+#servicios .welcome-card-link .welcome-terms{display:block;color:#BFC4C9;font-size:12px;line-height:1.45;margin:0}
+#servicios .welcome-cta{
+ display:flex;align-items:center;justify-content:center;gap:11px;
+ margin-top:15px;min-height:45px;padding:9px 12px;
+ background:#24D65A;border:1px solid #BFC4C9;border-radius:11px;
+ color:#0B0F10;font:900 12px/1.2 "Montserrat",Arial,sans-serif;
+ letter-spacing:.015em;text-align:center;
+}
+#servicios .welcome-cta .wa-icon{color:#0B0F10;fill:currentColor;width:21px;height:21px;flex:0 0 21px}
+#servicios .welcome-cta-arrow{font-size:20px;font-weight:700;line-height:1}
+#servicios .concept-note{color:#BFC4C9;font-size:11px;line-height:1.5;margin:11px 0 0}
+
+/* El 20% realiza un gesto moderado al entrar en pantalla:
+   3px verticales + máximo 4% de escala, luego descansa. Ciclo 6s. */
+@keyframes carlos-promo-bounce{
+ 0%,100%{transform:translateY(0) scale(1)}
+ 4%{transform:translateY(-3px) scale(1.04)}
+ 8%{transform:translateY(1px) scale(.995)}
+ 11%{transform:translateY(0) scale(1)}
+}
+#servicios .welcome-card-link.promo-inview .welcome-amount strong{
+ animation:carlos-promo-bounce 6s ease-in-out infinite;
+}
+#servicios .welcome-card-link:hover .welcome-amount strong,
+#servicios .welcome-card-link:focus-within .welcome-amount strong{
+ animation-play-state:paused;
+}
+@media(max-width:850px){
+ #servicios .service-grid{gap:11px}
+ #servicios .service-card{height:300px}
+ #servicios .service-info p{font-size:11px}
+}
+@media(max-width:600px){
+ #servicios.section{padding-top:26px;padding-bottom:32px}
+ #servicios .section-head{margin-bottom:15px}
+ #servicios .section-head>p{display:none}
+ #servicios .service-carousel{width:100%;overflow:visible}
+ #servicios .service-grid{
+  display:flex;flex-wrap:nowrap;gap:12px;
+  width:100vw;box-sizing:border-box;
+  margin-left:calc(50% - 50vw);
+  padding:7px calc((100vw - min(69vw,290px))/2) 12px;
+  scroll-padding-inline:calc((100vw - min(69vw,290px))/2);
+  overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  overscroll-behavior-inline:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+ }
+ #servicios .service-grid::-webkit-scrollbar{display:none}
+ #servicios .service-card{
+  flex:0 0 min(69vw,290px);
+  height:clamp(245px,68vw,304px);
+  min-height:0;
+  scroll-snap-align:center;scroll-snap-stop:always;
+  border-radius:17px;
+ }
+ #servicios .service-card:hover{transform:none}
+ #servicios .service-picture>img{object-position:center 49%}
+ #servicios .service-picture .service-photo-brand{width:71px;height:41px;top:9px;right:9px}
+ #servicios .service-index{font-size:9px;top:12px;left:12px}
+ #servicios .service-info{padding:35px 8px 17px}
+ #servicios .service-info h3{font-size:clamp(18px,5vw,23px);margin:0}
+ #servicios .service-info p{display:none}
+ #servicios .service-info .service-mobile-name{display:inline}
+ #servicios .service-info .service-desktop-name{display:none}
+ #servicios .service-carousel-controls{margin:9px 0 0;gap:20px}
+ #servicios .service-arrow{width:36px;height:36px;font-size:26px}
+ #servicios .service-dot{height:10px;width:10px}
+ #servicios .service-swipe-hint{display:block;font-size:11px;margin:2px 0 0}
+ #servicios .welcome-card-link{
+  grid-template-columns:43px minmax(0,1fr);gap:11px;
+  margin:19px 0 9px;padding:14px 12px 13px;border-radius:16px;
+ }
+ #servicios .welcome-card-link .welcome-icon{width:42px;height:42px}
+ #servicios .welcome-card-link .welcome-icon svg{width:27px;height:27px}
+ #servicios .welcome-card-link .welcome-kicker{font-size:11px;margin:0 0 3px}
+ #servicios .welcome-card-link .welcome-lead{font-size:11px}
+ #servicios .welcome-card-link .welcome-amount{gap:8px;margin:2px 0}
+ #servicios .welcome-card-link .welcome-amount strong{font-size:clamp(40px,11.9vw,53px)}
+ #servicios .welcome-card-link .welcome-amount>span{font-size:clamp(11px,3.1vw,14px)}
+ #servicios .welcome-card-link .welcome-once{font-size:10px;margin:1px 0 5px}
+ #servicios .welcome-card-link .welcome-terms{font-size:10px;line-height:1.35}
+ #servicios .welcome-cta{margin-top:10px;min-height:44px;padding:7px 9px;gap:8px;font-size:clamp(10px,2.85vw,12px);letter-spacing:0}
+ #servicios .welcome-cta .wa-icon{width:19px;height:19px;flex-basis:19px}
+ #servicios .welcome-cta-arrow{font-size:18px}
+ #servicios .concept-note{font-size:10px;line-height:1.35;margin:8px 0 0}
+}
+@media(max-width:360px){
+ #servicios .service-grid{gap:10px}
+ #servicios .service-card{height:245px}
+ #servicios .welcome-card-link{grid-template-columns:35px minmax(0,1fr);gap:8px;padding:11px 10px}
+ #servicios .welcome-card-link .welcome-icon{width:35px;height:35px}
+ #servicios .welcome-card-link .welcome-kicker{font-size:10px}
+ #servicios .welcome-card-link .welcome-amount strong{font-size:38px}
+ #servicios .welcome-card-link .welcome-amount>span{font-size:10px}
+ #servicios .welcome-cta{gap:6px;font-size:10px}
+ #servicios .welcome-cta .wa-icon{width:17px;height:17px;flex-basis:17px}
+}
+@media(prefers-reduced-motion:reduce){
+ #servicios .service-card,#servicios .service-arrow,#servicios .service-dot,
+ #servicios .welcome-card-link{transition:none!important}
+ #servicios .service-grid{scroll-behavior:auto!important}
+ #servicios .welcome-card-link.promo-inview .welcome-amount strong{animation:none!important;will-change:auto}
+}
