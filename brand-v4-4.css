@@ -1,12 +1,12 @@
 /* CARLOS V4.4 — ajuste incremental. Conserva la identidad original y el módulo Cal.com.
-   Foto conceptual ganadora pendiente de incorporarse como assets/hero-carlos-v44.webp;
-   assets/vehiculo.webp funciona como respaldo sin romper la portada. */
+   La imagen limpia y el logotipo oficial se superponen mediante SVG responsive;
+   assets/vehiculo.webp permanece disponible como respaldo editorial. */
 :root{--brand-electric:#24D65A;--brand-silver:#BFC4C9;--brand-graphite:#0B0F10}
 .hero-photo{
- background-image:url("assets/hero-carlos-v44.webp"),url("assets/vehiculo.webp");
- background-size:cover,cover;
- background-repeat:no-repeat,no-repeat;
- background-position:63% center,63% center;
+ background-image:url("assets/vehiculo.webp");
+ background-size:cover;
+ background-repeat:no-repeat;
+ background-position:63% center;
  filter:saturate(.96) contrast(1.04) brightness(1.08);
 }
 .hero-vignette{
@@ -54,9 +54,9 @@
 .mobile-cta.is-ready.is-muted,.mobile-cta.is-ready.in-booking{
  opacity:0;visibility:hidden;transform:translateY(105%);pointer-events:none;
 }
-@media(max-width:850px){.hero-photo{background-position:68% center,68% center}}
+@media(max-width:850px){.hero-photo{background-position:68% center}}
 @media(max-width:600px){
- .hero-photo{background-position:69% center,72% 50%;filter:saturate(1.0) brightness(1.07) contrast(1.03)}
+ .hero-photo{background-position:69% center;filter:saturate(1.0) brightness(1.07) contrast(1.03)}
  .hero-vignette{
   background:linear-gradient(90deg,rgba(11,15,16,.93) 0%,rgba(11,15,16,.75) 36%,rgba(11,15,16,.38) 70%,rgba(11,15,16,.18) 100%),
   linear-gradient(0deg,#0B0F10 0%,transparent 34%);
