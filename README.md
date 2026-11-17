@@ -89,3 +89,15 @@ Tipografía: Montserrat Extended para la marca/títulos, Montserrat SemiBold com
 **Invariantes:** marca `#24D65A/#BFC4C9/#0B0F10/#FFFFFF`; efecto metálico de «IMPECABLE,»; promociones para primera compra (20%, nuevos clientes, una vez); WhatsApp `541141427755`; `cal.com/carlos-lavados/solicitud-lavado-domicilio` y solicitud pendiente de aprobación manual. El widget no se reconfigura.
 
 **Validar antes de considerar producción cerrada:** captura real de la primera pantalla en 320/360/390/414 px y alturas de viewport distintas; cuatro beneficios completos sin forzar reducción de tipografía; botón de WhatsApp sin círculo y destino correcto; imagen de marca coherente en las zonas de tela; menú accesible, CTA sticky sin solapamientos, Cal.com real con aprobación y reservas sin duplicar. En móviles pequeños puede requerirse desplazamiento: nunca sacrificar accesibilidad por encajar todo en una pantalla.
+
+## V4.4.2 — Portada y beneficios en una única primera pantalla móvil (17/11/2026)
+
+**Objetivo aprobado:** ver logo/menú, título metalizado, fotografía conceptual de lavado a domicilio, descripción, reserva, WhatsApp, cobertura, aviso conceptual y los cuatro beneficios completos. «Nuestros servicios» comienza debajo del primer pliegue de pantalla en móviles de altura suficiente.
+
+**Cambio HTML/CSS:** contenedor `.hero-first-screen` rodea la sección `.hero` y el bloque `.assurance-strip`. `brand-v4-4-2.css` está al final de la cascada para móvil de hasta 600 px; define `min-height: calc(100svh - 65px)` considerando el header, flex vertical y reparto del espacio libre. La portada se centra verticalmente dentro de su región y los beneficios quedan al pie. Compresión selectiva de espacios cuando la altura es inferior a 760/640 px. Se preserva la altura táctil mínima de 48 px de las dos acciones.
+
+**Comportamiento importante:** la altura es *mínima*, no fija. Si el navegador, la accesibilidad, zoom o un equipo muy pequeño necesitan más espacio, se mantiene el scroll natural y no se corta texto ni botones. No garantizar un «todo en pantalla» imposible en cualquier dispositivo. El JS del CTA flotante observa ahora `.hero-first-screen` para no tapar los cuatro beneficios. En los demás tamaños la web mantiene los estilos previos.
+
+**Reglas inalterables:** mantener el logotipo original, verde `#24D65A`, texto metalizado «IMPECABLE,», imagen conceptual identificada, WhatsApp oficial, promoción 20% de primer lavado para nuevos clientes una sola vez, y solicitud de turno Cal.com sujeta a aprobación manual. No se tocaron datos, servicios ni ajustes de Cal.com.
+
+**QA móvil pendiente:** 320×568, 360×640, 390×844, 414×896, vertical/horizontal y apertura de menú; verificar que no aparece «Nuestros servicios» antes del final del primer scroll cuando la altura útil lo permite, que los cuatro beneficios se leen, CTA inferior no se superpone, sin scroll horizontal, y que los enlaces de reservas y WhatsApp funcionan. Revisar captura real en Android con barras del navegador visibles.
