@@ -28,3 +28,20 @@ Versión visual: 16/11/2026 · estado: **LISTA PARA PUBLICAR / NO DESPLEGADA AUT
 
 ## Branding aprobado
 Negro premium como base, grafito / gris metálico como soporte, verde #00A86B para CTA y acentos. Logotipo maestro intacto. La imagen `assets/opcion-2-referencia-vertical.png` se incluye solo como referencia creativa y NO se usa como logotipo ni se publica como evidencia de trabajos reales.
+
+## V4.1 — Premium combinada (rama de revisión)
+- Rama: `feature/carlos-v4-1-premium`. No fusionar a `main` hasta validar los flujos reales.
+- Conserva los archivos de imagen actuales y el logotipo maestro original; ninguna imagen conceptual se presenta como trabajo real.
+- Se refina el hero, los botones, la grilla de servicios, las pantallas móviles, los estados de foco y el contenido de confianza.
+- Se incorpora una sección de preguntas frecuentes sobre aprobación manual, cobertura y cambios de turno.
+- Cal.com mantiene el mismo enlace y el mismo script de incrustación; la configuración de aprobación manual depende de Cal.com y no se modifica desde esta rama.
+- Se omite la promoción anterior del 20% hasta nueva aprobación comercial.
+
+### Pruebas necesarias antes del lanzamiento
+1. Revisar portada y logo en Android Chrome/Brave y iPhone Safari.
+2. Abrir menú móvil y verificar enlaces, foco y botón fijo.
+3. Seleccionar fecha y horario en Cal.com; completar solicitud de prueba y confirmar que queda pendiente de aprobación, sin duplicados.
+4. Verificar correo/notificación de aprobación, cambio y cancelación desde el administrador Cal.com.
+5. Abrir WhatsApp Business y comprobar que corresponde al número oficial.
+6. Confirmar imágenes, rendimiento y ausencia de desplazamiento horizontal.
+7. Evaluar en móvil la longitud de la portada y la accesibilidad del calendario.
