@@ -20,6 +20,7 @@ if(sticky){
   const hide=zones.hero||zones.booking||zones.final||zones.footer||zones.promo;
   sticky.classList.toggle('is-muted',zones.hero||zones.final);
   sticky.classList.toggle('in-booking',zones.booking||zones.footer);
+  sticky.classList.toggle('is-hidden',hide);
   sticky.tabIndex=hide?-1:0;
   if(hide)sticky.setAttribute('aria-hidden','true');
   else sticky.removeAttribute('aria-hidden');

@@ -133,3 +133,7 @@ Tipografía: Montserrat Extended para la marca/títulos, Montserrat SemiBold com
 **Sin cambios:** imagen de portada de V4.4.3, logotipo fuente `assets/logo-maestro-original.png`, paleta `#24D65A/#BFC4C9/#0B0F10/#FFFFFF`, titular metálico «IMPECABLE,», botón WhatsApp superior, promoción una vez por nuevo cliente, enlace de Cal.com y revisión manual externa.
 
 **Pruebas antes de cerrar V4.4.4:** deslizar de Exterior a Interior y Completo en 320/360/390/414 px, verificar bordes verdes/indicadores y enlaces, navegar con teclado, probar WhatsApp móvil con el mensaje precargado, corroborar que el botón fijo no tapa el descuento, activar modo movimiento reducido, revisar contraste, comprobar que los 3 WebP cargan desde GitHub Pages y realizar solicitud de Cal.com pendiente de aprobación con supervisión del administrador.
+
+## V4.4.4.1 — Corrección de superposición en promoción
+
+En la captura móvil de V4.4.4 se comprobó que el botón fijo «RESERVAR TURNO» tapaba el CTA «SOLICITAR MI 20% POR WHATSAPP». La lógica JS calculaba `zones.promo=true` y establecía ARIA/tabIndex de ocultación, pero el CSS solo ocultaba los estados `.is-muted`/`.in-booking`; faltaba la clase visual correspondiente a `promo`. Ahora `script.js` sincroniza la clase `.is-hidden` con `hide`, y `brand-v4-4-4.css` la oculta (opacidad, visibilidad, transform y sin interceptar pulsaciones). Así, cuando aparece el beneficio, no compite con un CTA fijo superpuesto. No se alteran imágenes, carrusel, promoción, rutas WhatsApp ni configuración Cal.com. Validación real en celular pendiente.
