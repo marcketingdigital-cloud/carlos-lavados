@@ -79,3 +79,13 @@ Tipografía: Montserrat Extended para la marca/títulos, Montserrat SemiBold com
 5. Probar Cal.com con solicitud de turno real y verificar que quede **pendiente de aprobación manual** en la cuenta de Carlos. No afirmar que está validado solo por ver el calendario.
 6. Verificar rendimiento de `hero-carlos-v44-clean.webp` (aprox. 133 KB), accesibilidad, foco, contraste y ausencia de scroll horizontal.
 7. Comparar portada con referencia aprobada y realizar correcciones visuales en rama antes de fusionar.
+
+## V4.4.1 — Afinación móvil de primera pantalla y merchandising (17/11/2026)
+
+**Motivo:** la V4.4 seguía mostrando CTAs demasiado altos, icono de WhatsApp con un círculo innecesario, texto local y aclaración conceptual poco legibles y 4 beneficios cortados por la altura de portada. El logo original estaba sobredimensionado en gorra y superpuesto sobre brazo, en vez de pecho.
+
+**Cambios:** `brand-v4-4-1.css` se carga al final y sustituye solo estilos necesarios; ningún otro CSS histórico se elimina. Se compactan gradualmente los márgenes, altura de encabezado y CTAs con tamaño táctil mínimo de 48 px. El icono oficial de WhatsApp se muestra solo, sin marco circular; texto en altas y bajas de lectura fácil. La cobertura se divide en localidades principales y consulta ampliada, y la advertencia de publicidad conceptual se mantiene legible. Los beneficios se hacen más compactos sin esconder sus descripciones. La fotografía sigue siendo la conceptual aprobada; se mantienen menos aplicaciones del archivo maestro de marca: gorra más pequeña, pecho en vez de brazo y cubeta; se suprime la miniatura ilegible sobre atomizador. El recurso gráfico fuente `assets/logo-maestro-original.png` y su URL permanecen intactos.
+
+**Invariantes:** marca `#24D65A/#BFC4C9/#0B0F10/#FFFFFF`; efecto metálico de «IMPECABLE,»; promociones para primera compra (20%, nuevos clientes, una vez); WhatsApp `541141427755`; `cal.com/carlos-lavados/solicitud-lavado-domicilio` y solicitud pendiente de aprobación manual. El widget no se reconfigura.
+
+**Validar antes de considerar producción cerrada:** captura real de la primera pantalla en 320/360/390/414 px y alturas de viewport distintas; cuatro beneficios completos sin forzar reducción de tipografía; botón de WhatsApp sin círculo y destino correcto; imagen de marca coherente en las zonas de tela; menú accesible, CTA sticky sin solapamientos, Cal.com real con aprobación y reservas sin duplicar. En móviles pequeños puede requerirse desplazamiento: nunca sacrificar accesibilidad por encajar todo en una pantalla.
