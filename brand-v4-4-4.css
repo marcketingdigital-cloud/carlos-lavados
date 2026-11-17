@@ -203,3 +203,8 @@
  #servicios .service-grid{scroll-behavior:auto!important}
  #servicios .welcome-card-link.promo-inview .welcome-amount strong{animation:none!important;will-change:auto}
 }
+
+/* El PNG maestro se muestra sin filtros ni alteraciones cromáticas. */
+#servicios .service-picture .service-photo-brand img{
+ filter:none!important;mix-blend-mode:normal!important;
+}
