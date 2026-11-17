@@ -1,0 +1,96 @@
+/* CARLOS V4.2 · Traducción responsive del concepto visual aprobado.
+   CSS aislado: no modifica los assets originales ni la configuración Cal.com. */
+:root{--v42-black:#080b0c;--v42-green:#00A86B;--v42-silver:#d7dce0}
+.service-mobile-name,.service-link-mobile,.services-heading-mobile{display:none}
+.assurance-item{display:flex;align-items:center;gap:10px;min-width:0}
+.assurance-item svg{flex:0 0 25px;color:#cfeadd}
+.assurance-label{display:flex;flex-direction:column;gap:2px;line-height:1.2}
+.assurance-label strong{font-size:12px;font-weight:800;letter-spacing:0}
+.assurance-label small{font-size:11px;font-weight:500;letter-spacing:0;color:#b3cbbf}
+.welcome-card{margin:30px 0 12px;border:1px solid #347b5e;background:linear-gradient(115deg,#087d50,#093425 70%,#10191b);color:#fff;border-radius:15px;padding:20px 24px;display:flex;align-items:center;gap:20px}
+.welcome-icon{display:grid;place-items:center;border:1px solid #95e6b9;border-radius:12px;padding:12px;color:#e6fff1}
+.welcome-card>div:nth-child(2){flex:1}
+.welcome-card strong{font-size:20px;line-height:1.3}
+.welcome-card p{color:#e2f7eb;margin:4px 0 0;font-size:14px}
+.welcome-card a{white-space:nowrap;background:#f5fff9;border-radius:8px;color:#0b3c2a;font-weight:900;padding:12px 18px}
+.welcome-card a:hover{background:#d6f9e6}
+@media(max-width:850px){
+ .assurance-content{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+ .assurance-item{flex-direction:column;text-align:center}
+ .assurance-item svg{flex:0 0 auto}
+}
+@media(max-width:600px){
+ html{scroll-padding-top:75px}
+ .shell{width:calc(100% - 34px)}
+ .site-header .nav-wrap{min-height:70px;gap:14px}
+ .brand{width:172px;height:65px}
+ .brand img{object-fit:contain}
+ .menu-toggle{flex:0 0 46px;height:46px}
+ .hero,.hero-inner{min-height:0}
+ .hero-photo{background-image:url('assets/vehiculo.webp');background-position:67% 45%;background-size:cover;filter:saturate(.95) brightness(1.4) contrast(1.05)}
+ .hero-vignette{background:linear-gradient(90deg,rgba(3,7,8,.94),rgba(3,7,8,.77) 45%,rgba(3,7,8,.30) 100%),linear-gradient(0deg,#080b0c 0%,transparent 34%)}
+ .hero-inner{display:block}
+ .hero-copy{padding:31px 0 24px;max-width:100%}
+ .hero-eyebrow{font-size:10px;letter-spacing:.07em;color:#fff;margin-bottom:10px}
+ .hero h1{font-size:clamp(33px,9.5vw,42px);line-height:1.04;margin:0 0 13px;letter-spacing:-.05em;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+ .hero h1>span{white-space:nowrap}
+ .hero h1 em{color:#75ebac;font-size:.88em;white-space:nowrap;letter-spacing:-.05em;display:inline-block}
+ .hero-desc{font-size:14px;line-height:1.45;max-width:330px;color:#ecf4ee;margin:0 0 6px}
+ .actions{flex-direction:column;align-items:stretch;gap:10px;margin:18px 0 13px}
+ .actions .btn{min-height:50px;padding:11px 16px;width:100%;gap:16px;font-size:14px;letter-spacing:.015em}
+ .actions .text-action{min-height:49px;padding:10px 15px;width:100%;display:flex;align-items:center;justify-content:center;gap:12px;text-decoration:none;background:rgba(3,8,8,.48);border:2px solid #e4f2ed;border-radius:9px;font-size:13px;color:#fff}
+ .actions .text-action::before{content:'✆';font-size:24px;color:#75ebac;line-height:1}
+ .hero-caption{font-size:9px;color:#f4f6f5;letter-spacing:.035em;margin:9px 0 0}
+ .assurance-strip{background:#121a1c;border-block:1px solid #436358}
+ .assurance-content{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:13px 0 11px}
+ .assurance-item{padding:0 4px;gap:5px;justify-content:start;min-height:57px;border-right:1px solid #50635b}
+ .assurance-item:last-child{border-right:0}
+ .assurance-item svg{width:22px;height:22px}
+ .assurance-label{gap:2px}
+ .assurance-label strong{font-size:10px;letter-spacing:-.02em;white-space:normal}
+ .assurance-label small{font-size:9px;line-height:1.1;white-space:normal}
+ #servicios.section{padding-top:27px;padding-bottom:35px}
+ #servicios .section-head{display:block;margin:0 0 18px}
+ #servicios .section-head .eyebrow{display:none}
+ #servicios .section-head h2{font-size:25px;letter-spacing:-.03em;line-height:1.1}
+ .services-heading-desktop{display:none}
+ .services-heading-mobile{display:inline}
+ #servicios .section-head>p{display:none}
+ .service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+ .service-card{border:1px solid #4e655e;border-radius:11px;background:#121b1c;box-shadow:none;min-width:0}
+ .service-picture{aspect-ratio:1.1}
+ .service-picture img{object-fit:cover;height:100%;width:100%}
+ .service-picture span{display:none}
+ .service-info{padding:8px 5px 5px;text-align:center}
+ .service-info h3{font-size:12px;line-height:1.2;letter-spacing:-.025em;min-height:29px;margin:0;display:grid;place-items:center}
+ .service-desktop-name,.service-link-desktop{display:none}
+ .service-mobile-name,.service-link-mobile{display:inline}
+ .service-info p{display:none}
+ .service-info a{border:0;color:#9eecc2;display:flex;justify-content:center;align-items:center;gap:4px;min-height:42px;padding:5px 0;font-size:11px}
+ .welcome-card{margin:17px 0 5px;padding:15px 13px;gap:11px;border-radius:12px}
+ .welcome-icon{padding:8px;border-radius:9px}
+ .welcome-icon svg{width:24px;height:24px}
+ .welcome-card strong{font-size:15px}
+ .welcome-card p{font-size:11px;line-height:1.3;margin-top:2px}
+ .welcome-card a{font-size:11px;min-width:55px;white-space:normal;text-align:center;padding:10px 7px}
+ .concept-note{font-size:11px;margin-top:12px}
+ .section:not(#servicios){padding-block:55px}
+ .footer{padding:27px 0 25px}
+ .footer-content{display:grid;grid-template-columns:130px 1fr;gap:12px;align-items:center}
+ .footer-brand{grid-column:1;width:130px;height:72px}
+ .footer p{grid-column:2;font-size:12px;line-height:1.45}
+ .footer-links{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;font-size:13px}
+ .footer-links a{min-height:32px;display:flex;align-items:center}
+ .footer small{grid-column:1/-1;letter-spacing:0;font-size:10px;margin-top:8px}
+ .mobile-cta{min-height:63px;padding:7px 15px 12px;font-size:13px;gap:12px}
+ .mobile-cta:before{inset:7px 15px 9px}
+}
+@media(max-width:360px){
+ .hero h1{font-size:32px}
+ .hero h1 em{font-size:.82em}
+ .brand{width:147px}
+ .assurance-label small{display:none}
+ .service-info h3{font-size:11px}
+ .welcome-card strong{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){.actions .btn,.welcome-card a{transition:none}}

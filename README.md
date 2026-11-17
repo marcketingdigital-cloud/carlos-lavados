@@ -45,3 +45,18 @@ Negro premium como base, grafito / gris metálico como soporte, verde #00A86B pa
 5. Abrir WhatsApp Business y comprobar que corresponde al número oficial.
 6. Confirmar imágenes, rendimiento y ausencia de desplazamiento horizontal.
 7. Evaluar en móvil la longitud de la portada y la accesibilidad del calendario.
+
+## V4.2 — Fidelidad móvil al boceto aprobado (rama de pruebas)
+
+**Motivo:** la V4.1 publicada mantuvo una estructura móvil demasiado larga y una foto del hero demasiado oscura, distinta del concepto visual aprobado. Esta revisión corrige la composición, no reconstruye el sitio.
+
+**Cambios:**
+- Hoja adicional `mobile-v4-2.css` aislada para permitir revisión o reversión fácil.
+- Hero móvil compacto con foto conceptual existente de automóvil, contraste equilibrado y dos CTA grandes.
+- Cuatro beneficios en una franja horizontal con iconos descriptivos.
+- Tarjetas de los tres servicios en la misma fila para vista móvil, con enlace a reservas.
+- Tarjeta visual de bienvenida **sin descuento activo**, ya que la vigencia de campañas debe verificarse antes de publicarse.
+- Footer más compacto; CTA flotante se oculta al entrar en reserva o pie de página.
+- No se cambió el logotipo binario original, el número de WhatsApp ni el enlace/embed a Cal.com.
+
+**Control de calidad antes de fusionar a main:** probar anchos 320, 360, 390, 414 y 768 px, sin overflow horizontal; observar legibilidad de servicios; foto del hero realmente visible; menú accesible; CTA sin superposición; enlaces a WhatsApp; abrir calendario; probar solicitud manual con la configuración existente de Cal.com. Validar fotos publicitarias y rendimiento. Nota: el concepto aprobado es una maqueta, no evidencia de captura real del sitio.

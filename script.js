@@ -7,7 +7,20 @@ if(menuButton&&mobileMenu){
 }
 const booking=document.getElementById('calendar-zone');
 const sticky=document.getElementById('mobile-cta');
-if(booking&&sticky&&'IntersectionObserver' in window){new IntersectionObserver(entries=>sticky.classList.toggle('in-booking',entries[0].isIntersecting),{rootMargin:'-85px 0px -90px 0px'}).observe(booking);}
+const footer=document.querySelector('.footer');
+if(sticky&&'IntersectionObserver' in window){
+ const zones={booking:false,footer:false};
+ const updateSticky=()=>sticky.classList.toggle('in-booking',zones.booking||zones.footer);
+ const observer=new IntersectionObserver(entries=>{
+  for(const entry of entries){
+   if(entry.target===booking)zones.booking=entry.isIntersecting;
+   if(entry.target===footer)zones.footer=entry.isIntersecting;
+  }
+  updateSticky();
+ },{rootMargin:'-85px 0px -75px 0px'});
+ if(booking)observer.observe(booking);
+ if(footer)observer.observe(footer);
+}
 
 /* Cargador oficial Cal.com. En caso de bloqueo, se conserva el enlace directo. */
 (function (C, A, L) {
