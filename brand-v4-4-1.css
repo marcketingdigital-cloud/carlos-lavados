@@ -1,0 +1,166 @@
+/* CARLOS V4.4.1 — refinamiento de portada y experiencia móvil.
+   Cascada incremental; no sustituye la configuración de Cal.com ni el logotipo maestro.
+   Paleta oficial: #24D65A, #BFC4C9, #0B0F10 y #FFFFFF. */
+:root{--brand-electric:#24D65A;--brand-silver:#BFC4C9;--brand-graphite:#0B0F10;--brand-white:#FFFFFF}
+
+/* Merchandising: aplicaciones discretas del archivo exacto, sin placas, sin duplicados.
+   Imagen publicitaria conceptual, no foto documental de un trabajo real. */
+.hero .hero-photo .hero-merch{
+  mix-blend-mode:screen; opacity:.82;
+  filter:saturate(.86) contrast(1.04);
+}
+.hero .hero-photo .brand-on-cap .hero-merch{opacity:.78}
+.hero .hero-photo .brand-on-polo .hero-merch{opacity:.72}
+.hero .hero-photo .brand-on-bucket .hero-merch{opacity:.9}
+
+/* Dos CTAs con jerarquía: reserva protagonista, WhatsApp secundario sobrio. */
+.actions .btn.btn-primary{
+  min-height:50px;padding:11px 19px;border-radius:11px;
+  border:1px solid var(--brand-silver);background:var(--brand-electric);
+  box-shadow:none;color:var(--brand-graphite);font-weight:800;
+  letter-spacing:0;
+}
+.actions .btn.btn-primary:hover{box-shadow:0 4px 18px rgba(36,214,90,.13)}
+.actions .btn.btn-primary .btn-icon{width:22px;height:22px;flex-basis:22px}
+.actions .hero-whatsapp{
+  display:grid!important;grid-template-columns:25px minmax(0,1fr) 20px;
+  align-items:center;gap:12px;min-height:50px;padding:10px 18px;
+  border:1px solid var(--brand-silver);border-radius:11px;
+  background:rgba(11,15,16,.89);color:var(--brand-white);
+  box-shadow:none;text-decoration:none;
+}
+.actions .hero-whatsapp:before{display:none!important;content:none!important}
+.actions .hero-whatsapp > .wa-icon{
+  display:block;width:24px;height:24px;min-width:24px;
+  color:var(--brand-electric);fill:currentColor;flex:none;
+  padding:0;margin:0;border:0;border-radius:0;
+}
+.actions .hero-whatsapp > span:not(.cta-arrow){
+  font:700 14px/1.2 "Montserrat",Arial,sans-serif;
+  letter-spacing:-.01em;text-transform:none;text-align:center;
+  overflow-wrap:normal;
+}
+.actions .hero-whatsapp > .cta-arrow{
+  display:block;color:var(--brand-silver);font-size:21px;
+  font-weight:500;line-height:1;justify-self:end;margin:0;
+}
+.actions .hero-whatsapp:hover,.actions .hero-whatsapp:focus-visible{
+  border-color:var(--brand-electric);background:rgba(11,15,16,.98);
+}
+
+/* Cobertura y nota conceptual: dos niveles legibles, sin gris perdido sobre la foto. */
+.hero-caption{display:flex;flex-direction:column;align-items:flex-start;gap:3px;margin:0}
+.hero-zones-primary{
+  color:var(--brand-white);font-weight:800;
+  letter-spacing:.055em;font-size:12px;line-height:1.35;
+}
+.hero-zones-primary span{color:var(--brand-electric);padding:0 5px}
+.hero-zones-secondary{
+  color:var(--brand-silver);font-size:12px;font-weight:600;
+  letter-spacing:0;text-transform:none;line-height:1.4;
+}
+.hero-photo-disclaimer{
+  max-width:none;color:var(--brand-silver);
+  font-size:11px;font-weight:500;line-height:1.45;opacity:1;
+  letter-spacing:0;margin-top:8px;
+}
+
+/* Beneficios: prioridad a que todos los íconos y textos se lean. */
+.assurance-content{border-color:rgba(191,196,201,.42);box-shadow:none}
+.assurance-item svg{color:var(--brand-silver)}
+.assurance-label strong{color:var(--brand-white)}
+.assurance-label small{color:var(--brand-silver)}
+
+@media(max-width:600px){
+  html{scroll-padding-top:66px}
+  .site-header .nav-wrap{min-height:64px;gap:10px}
+  .brand{width:161px;height:59px}
+  .menu-toggle{width:44px;height:44px;flex:0 0 44px;border-radius:10px;padding:11px}
+  .hero .hero-copy{padding:20px 0 10px;max-width:100%}
+  .hero .hero-eyebrow{
+    font-size:10px;letter-spacing:.042em;
+    line-height:1.25;margin:0 0 12px;padding-bottom:10px;
+  }
+  .hero .hero-eyebrow:after{width:48px;height:3px}
+  .hero h1{
+    font-size:clamp(31px,9.1vw,42px);
+    line-height:1.00;margin:0 0 12px;
+    letter-spacing:-.058em;font-style:italic;
+  }
+  .hero h1 .metallic-word{font-size:.96em;letter-spacing:-.072em}
+  .hero h1 em{font-size:1.01em}
+  .hero .hero-desc{
+    font-size:13px;line-height:1.44;
+    font-weight:500;max-width:352px;margin:0;
+    text-wrap:pretty;
+  }
+  .hero .actions{
+    margin:14px 0 10px;gap:8px;display:flex;
+    flex-direction:column;
+  }
+  .hero .actions .btn.btn-primary{
+    width:100%;min-height:48px;border-radius:10px;
+    padding:9px 13px;font-size:13px;gap:10px;
+    box-shadow:none;
+  }
+  .hero .actions .btn.btn-primary .btn-icon{width:20px;height:20px;flex-basis:20px}
+  .hero .actions .btn.btn-primary .cta-arrow{font-size:19px}
+  .hero .actions .hero-whatsapp{
+    min-height:48px;width:100%;padding:8px 13px;gap:10px;
+    border-radius:10px;grid-template-columns:24px minmax(0,1fr) 19px;
+  }
+  .hero .actions .hero-whatsapp > .wa-icon{width:23px;height:23px;min-width:23px}
+  .hero .actions .hero-whatsapp > span:not(.cta-arrow){
+    font-size:13px;line-height:1.25;
+    white-space:nowrap;
+  }
+  .hero .actions .hero-whatsapp > .cta-arrow{font-size:19px}
+  .hero .hero-caption{gap:2px;margin:0}
+  .hero .hero-zones-primary{font-size:11px;line-height:1.3;letter-spacing:.04em}
+  .hero .hero-zones-secondary{font-size:10.5px;line-height:1.3;font-weight:600}
+  .hero .hero-photo-disclaimer{
+    font-size:10px;line-height:1.3;margin:6px 0 0;
+    color:#D3D6D8;max-width:370px;
+  }
+  .assurance-strip{padding:0;margin:0;background:var(--brand-graphite)}
+  .assurance-content{
+    padding:9px 2px 8px;border-radius:12px;
+    gap:0;min-height:0;
+  }
+  .assurance-item{
+    min-height:58px;gap:4px;padding:0 3px;
+    align-items:center;justify-content:flex-start;
+  }
+  .assurance-item svg{width:21px;height:21px;flex:0 0 21px}
+  .assurance-label{gap:2px}
+  .assurance-label strong{
+    font-size:10px;letter-spacing:-.025em;line-height:1.12;
+  }
+  .assurance-label small{
+    font-size:9px;letter-spacing:-.018em;line-height:1.1;
+  }
+}
+@media(max-width:360px){
+ .brand{width:148px}
+ .hero .hero-copy{padding:16px 0 9px}
+ .hero h1{font-size:clamp(29px,9.5vw,34px)}
+ .hero .hero-desc{font-size:12.5px;line-height:1.38}
+ .hero .actions{margin:10px 0 8px;gap:7px}
+ .hero .actions .hero-whatsapp > span:not(.cta-arrow){font-size:11px}
+ .hero .hero-zones-primary{font-size:10.5px}
+ .hero .hero-zones-secondary{font-size:10px}
+ .assurance-item{padding:0 2px;gap:3px}
+ .assurance-label strong{font-size:9px}
+ .assurance-label small{font-size:8.5px}
+}
+@media(max-width:600px) and (max-height:700px){
+ .hero .hero-copy{padding-top:14px;padding-bottom:7px}
+ .hero .hero-eyebrow{margin-bottom:9px}
+ .hero h1{margin-bottom:9px}
+ .hero .actions{margin-top:10px;margin-bottom:8px}
+ .hero .hero-photo-disclaimer{margin-top:4px}
+ .assurance-content{padding-block:7px}
+}
+@media(prefers-reduced-motion:reduce){
+ .actions .hero-whatsapp,.actions .btn.btn-primary{transition:none}
+}
