@@ -9,3 +9,90 @@
 @media(max-width:850px){.desktop-nav,.nav-cta{display:none}.menu-toggle{display:flex}.site-header .nav-wrap{min-height:70px}.brand{width:186px;height:65px}.hero{min-height:615px}.hero-inner{min-height:615px}.hero-copy{padding:68px 0}.hero-photo{background-position:65% center}.hero-vignette{background:linear-gradient(90deg,#040706 0%,rgba(4,7,6,.94) 26%,rgba(4,7,6,.36) 100%),linear-gradient(0deg,#07100a 0%,transparent 30%)}.hero-side-mark{display:none}.service-grid{grid-template-columns:1fr 1fr}.experience-grid{grid-template-columns:1fr}.experience-pic{min-height:300px}.experience-content{padding:36px 10px 46px}.section-head{flex-direction:column;align-items:start;gap:20px}.footer-content{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.coverage{grid-template-columns:1fr;gap:25px}.last-cta-content{flex-direction:column;align-items:flex-start}}
 @media(max-width:600px){.shell{width:calc(100% - 32px)}html{scroll-padding-top:73px}.section{padding-block:63px}.brand{width:169px;height:59px}.hero{min-height:625px}.hero-photo{background-position:75% center}.hero-vignette{background:linear-gradient(90deg,#030705ed 0%,#030705bb 55%,#03070588 100%),linear-gradient(0deg,#030705 0%,transparent 50%)}.hero h1{font-size:clamp(42px,11.8vw,62px)}.hero-copy{padding:55px 0 115px}.eyebrow{font-size:10px}.hero-desc{font-size:16px}.actions{gap:17px}.actions .btn{width:100%}.hero-caption{font-size:10px;letter-spacing:.08em}.assurance-content{flex-direction:column;gap:2px;padding:13px 0;font-size:10px}.service-grid{grid-template-columns:1fr}.service-picture{aspect-ratio:1.55}.service-info p{min-height:0}.service-info{padding:20px}.experience-pic{min-height:220px}.experience-content h2{font-size:34px}.booking-aside{display:block;padding:23px}.booking-top{padding:11px 13px}.booking-top strong{font-size:18px}.booking-top small{font-size:8px;padding:5px}.calendar-wrap{min-height:750px}.calendar-wrap #cal-booking{min-height:750px}.calendar-alt{flex-direction:column;align-items:flex-start}.zones>div{grid-template-columns:25px 1fr;gap:10px}.zones small{grid-column:2}.last-cta{padding:53px 0 82px}.footer{padding-bottom:115px}.footer-content{grid-template-columns:1fr}.footer-brand{grid-column:auto}.footer small{grid-column:auto}.mobile-cta{position:fixed;bottom:0;left:0;right:0;padding:16px;background:#0b100de8;z-index:20;display:flex;align-items:center;justify-content:center;gap:38px;color:#031c10;font-weight:900;font-size:14px;letter-spacing:.06em}.mobile-cta:before{content:'';position:absolute;inset:12px 16px;background:var(--green);z-index:-1}.mobile-cta.in-booking{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+
+/* CARLOS V4.1: capa de diseño premium sobre la versión existente.
+   Mantener logotipo original y configuración Cal.com. */
+:root{--bg:#080a0b;--surface:#101416;--surface2:#182024;--card:#141a1c;--green:#00a86b;--green-soft:#80e0ae;--text:#f8faf9;--muted:#d2dad8;--line:#374448;--font:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+body{background:var(--bg);line-height:1.6}
+:focus-visible{outline:3px solid #79e8ac;outline-offset:4px}
+a,button,summary{-webkit-tap-highlight-color:transparent}
+.site-header{background:rgba(7,10,11,.96);border-bottom:1px solid #3a4545}
+.nav-wrap{min-height:82px}
+.brand{width:220px;height:76px;overflow:visible}
+.brand img,.footer-brand img{object-fit:contain;object-position:left center}
+.nav-cta,.btn-primary{border-radius:9px;background:#00a86b;color:#07120c}
+.btn,.nav-cta,.full-screen-booking,.mobile-cta{transition:background .18s ease,transform .18s ease}
+.btn:active,.nav-cta:active{transform:scale(.98)}
+.hero{background:#070a0b;min-height:630px}
+.hero-inner{min-height:630px}
+.hero-photo{background-position:67% 48%;filter:saturate(.82) contrast(1.04)}
+.hero-vignette{background:linear-gradient(90deg,#060a0b 0%,rgba(6,10,11,.95) 26%,rgba(6,10,11,.66) 57%,rgba(6,10,11,.15) 100%),linear-gradient(0deg,#080a0b 0%,transparent 28%)}
+.hero-copy{max-width:745px}
+.hero h1{font-size:clamp(43px,6.6vw,92px);letter-spacing:-.05em;max-width:760px}
+.hero h1 em{color:var(--green-soft)}
+.hero-desc{max-width:540px;color:#eef2f0;font-size:18px}
+.hero-caption{color:#d3dcd8}
+.hero-side-mark{color:#b8c5c1}
+.assurance-strip{background:#101b18;color:#e9f4ee;border-block:1px solid #385348}
+.assurance-content{font-size:11px;letter-spacing:.08em;padding-block:20px}
+.service-grid{gap:22px}
+.service-card{border-radius:14px;border-color:#394649;box-shadow:0 12px 30px rgba(0,0,0,.15)}
+.service-picture{aspect-ratio:1.4}
+.service-info h3{font-size:21px}
+.service-info p{color:#d2dcda}
+.service-picture span{border-radius:5px}
+.experience{background:#10171a}
+.experience-pic:after{background:linear-gradient(90deg,transparent 45%,#10171a)}
+.booking{background:linear-gradient(150deg,#14221d 0%,#080a0b 70%)}
+.booking-container{border-radius:15px;border-color:#527463}
+.booking-aside{border-radius:15px}
+.booking-top{background:#15201d}
+.booking-top strong{font-size:20px}
+.full-screen-booking{background:#20352b;color:#a7f4c8}
+.full-screen-booking:hover{background:#2a4938}
+.calendar-wrap,.calendar-wrap #cal-booking{min-height:740px}
+.calendar-alt{flex-wrap:wrap}
+.concept-note{color:#b9c6bf}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.faq details{border:1px solid #40504b;border-radius:12px;background:#12191a;padding:20px}
+.faq summary{cursor:pointer;font-size:16px;font-weight:750;line-height:1.45}
+.faq summary::marker{color:var(--green-soft)}
+.faq details p{margin:15px 0 0;font-size:14px}
+.faq details a{color:var(--green-soft);text-decoration:underline;text-underline-offset:3px}
+.last-cta{background:linear-gradient(125deg,#113b2b,#0a1210)}
+.footer{background:#080a0b}
+.footer-brand{overflow:visible}
+.mobile-cta{border-top:1px solid #3f594b}
+@media(max-width:850px){.brand{width:180px;height:64px}.hero-photo{background-position:69% center}.hero-copy{max-width:620px}.hero-vignette{background:linear-gradient(90deg,#05090a 0%,rgba(5,9,10,.92) 35%,rgba(5,9,10,.52) 100%)}}
+@media(max-width:600px){
+ .shell{width:calc(100% - 34px)}
+ .site-header .nav-wrap{min-height:70px}
+ .brand{width:162px;height:61px}
+ .menu-toggle{border-radius:9px}
+ .mobile-nav{box-shadow:0 16px 24px rgba(0,0,0,.35)}
+ .mobile-nav a{min-height:46px}
+ .hero,.hero-inner{min-height:610px}
+ .hero-photo{background-position:72% center}
+ .hero-vignette{background:linear-gradient(90deg,rgba(4,8,9,.96),rgba(4,8,9,.75) 60%,rgba(4,8,9,.55)),linear-gradient(0deg,#080a0b,transparent 40%)}
+ .hero-copy{padding:54px 0 108px}
+ .hero h1{font-size:clamp(39px,10.5vw,58px);line-height:1.02;letter-spacing:-.048em;margin:18px 0 20px}
+ .hero-desc{font-size:16px;line-height:1.65}
+ .actions{margin:24px 0 26px;gap:15px}
+ .actions .btn,.actions .text-action{width:100%;justify-content:center;text-align:center}
+ .actions .text-action{min-height:44px;display:inline-flex;align-items:center}
+ .hero-caption{font-size:10px;letter-spacing:.06em}
+ .assurance-content{display:grid;grid-template-columns:1fr;gap:5px;padding:14px 0}
+ .section{padding-block:64px}
+ .service-card{border-radius:12px}
+ .service-picture{aspect-ratio:1.55}
+ .booking-container{border-radius:12px}
+ .booking-top strong{font-size:17px}
+ .booking-top small{white-space:normal;text-align:right}
+ .calendar-wrap,.calendar-wrap #cal-booking{min-height:730px}
+ .calendar-alt a{white-space:normal}
+ .faq-grid{grid-template-columns:1fr}
+ .faq details{padding:17px}
+ .mobile-cta{padding:12px 16px 18px;background:rgba(8,12,12,.98);min-height:76px}
+ .mobile-cta:before{inset:11px 16px 14px;border-radius:9px}
+ .footer{padding-bottom:120px}
+}

@@ -34,3 +34,9 @@ if(document.getElementById('cal-booking')){
  Cal.ns['carlos-reserva']('inline',{elementOrSelector:'#cal-booking',calLink:'carlos-lavados/solicitud-lavado-domicilio',config:{layout:'month_view',theme:'dark'}});
  Cal.ns['carlos-reserva']('ui',{styles:{branding:{brandColor:'#00A86B'}},hideEventTypeDetails:true,layout:'month_view'});
 }
+
+/* V4.1: accesibilidad del menú; seguimiento de CTA sin recopilar datos personales. */
+if(menuButton&&mobileMenu){
+ document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&!mobileMenu.hidden){mobileMenu.hidden=true;menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Abrir menú');menuButton.focus();}});
+ document.addEventListener('click',(event)=>{if(!mobileMenu.hidden&&!mobileMenu.contains(event.target)&&!menuButton.contains(event.target)){mobileMenu.hidden=true;menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Abrir menú');}});
+}
