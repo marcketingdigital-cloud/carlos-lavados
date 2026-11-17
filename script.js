@@ -11,7 +11,7 @@ if(menuButton&&mobileMenu){
 const booking=document.getElementById('reservar');
 const sticky=document.getElementById('mobile-cta');
 const footer=document.querySelector('.footer');
-const heroSection=document.querySelector('.hero');
+const heroSection=document.querySelector('.hero-first-screen') || document.querySelector('.hero');
 const finalCTA=document.querySelector('.last-cta');
 if(sticky){
  const zones={hero:true,booking:false,final:false,footer:false};
