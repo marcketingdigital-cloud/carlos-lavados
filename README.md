@@ -117,3 +117,19 @@ Tipografía: Montserrat Extended para la marca/títulos, Montserrat SemiBold com
 **Fuera de alcance / sin cambios:** página de reservas Cal.com, URL del evento y política externa de aprobación manual; textos del calendario, tipo de servicio, horas y promociones no se modifican. No se alteran claves ni datos personales.
 
 **Validación pendiente:** comparar captura real de Android con V4.4.2 (pre/post); revisar iluminación sobre rostro, superposición de marcas en ropa y estabilidad del primer pliegue a 320/360/390/414 px; probar CTA WhatsApp y evento de Cal.com con solicitud pendiente de aprobación. Esta inspección estática no sustituye QA en dispositivo.
+
+## V4.4.4 — Carrusel premium y bienvenida conversacional (17/11/2026)
+
+**Decisión comercial:** la segunda pantalla presenta fotos individuales de tres servicios con deslizamiento táctil, tarjeta central seleccionada con relieve verde eléctrico y una promoción del 20% que abre WhatsApp Business con un mensaje preparado. Toda la tarjeta promocional es **un único enlace**, no hay botones anidados.
+
+**Servicios.** Se incorporan 3 imágenes WebP optimizadas, generadas para la campaña, en `assets/servicio-exterior-v444.webp` (aprox. 69 KB), `assets/servicio-interior-v444.webp` (40 KB) y `assets/servicio-completo-v444.webp` (56 KB). No son fotografías de trabajos reales. Se conserva la nota aclaratoria. El PNG maestro no se modifica: aparece como un recurso independiente en cada tarjeta y mantiene sus colores originales. Las imágenes también están guardadas en Google Drive, carpeta `CARLOS - Landing GitHub / V4.4.4 - Servicios carrusel (imágenes conceptuales)`.
+
+**UX.** `brand-v4-4-4.css` está al final de la cascada: carrusel con `scroll-snap` sin dependencias, tres indicadores y flechas, activo con borde `#24D65A`, fotografía central más grande en móviles y tres tarjetas lado a lado en escritorio. `script.js` detecta el card más centrado durante el scroll, permite teclado izquierda/derecha, puntos y flechas. El acceso de las tarjetas a `#reservar` sigue disponible. El CTA fijo inferior se oculta también cuando la oferta del 20% está en pantalla para no competir con su propia llamada a la acción.
+
+**Beneficio.** Ancla promocional `#promocion-bienvenida` lleva a `wa.me/541141427755` con un mensaje sobre el descuento para nuevos clientes. El cliente debe **enviar** el mensaje para que CARLOS pueda recibir su consulta y el número visible por WhatsApp. Abrir la página no captura números de forma silenciosa. La aplicación y elegibilidad del 20% se confirman manualmente; no se integra un descuento automático en Cal.com.
+
+**Animación.** El número 20% hace un salto de 3 px y escala hasta 1.04, con rebote breve y un ciclo de descanso de 6 segundos; solo se anima si la tarjeta está visible, se pausa con la interacción y se desactiva con `prefers-reduced-motion: reduce`.
+
+**Sin cambios:** imagen de portada de V4.4.3, logotipo fuente `assets/logo-maestro-original.png`, paleta `#24D65A/#BFC4C9/#0B0F10/#FFFFFF`, titular metálico «IMPECABLE,», botón WhatsApp superior, promoción una vez por nuevo cliente, enlace de Cal.com y revisión manual externa.
+
+**Pruebas antes de cerrar V4.4.4:** deslizar de Exterior a Interior y Completo en 320/360/390/414 px, verificar bordes verdes/indicadores y enlaces, navegar con teclado, probar WhatsApp móvil con el mensaje precargado, corroborar que el botón fijo no tapa el descuento, activar modo movimiento reducido, revisar contraste, comprobar que los 3 WebP cargan desde GitHub Pages y realizar solicitud de Cal.com pendiente de aprobación con supervisión del administrador.
