@@ -211,3 +211,13 @@
 
 /* En escritorio se ven las tres tarjetas; el control por swipe queda solo para móvil. */
 @media(min-width:601px){#servicios .service-carousel-controls{display:none}}
+
+/* V4.4.4.1: salida real del CTA flotante cuando se ve otro acceso.
+   El JS marca .is-hidden tanto en promoción como en reservas, hero y footer.
+   Evita que tape "SOLICITAR MI 20% POR WHATSAPP" en la segunda pantalla. */
+.mobile-cta.is-ready.is-hidden{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+  transform:translateY(105%)!important;
+}
