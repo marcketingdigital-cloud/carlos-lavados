@@ -101,3 +101,19 @@ Tipografía: Montserrat Extended para la marca/títulos, Montserrat SemiBold com
 **Reglas inalterables:** mantener el logotipo original, verde `#24D65A`, texto metalizado «IMPECABLE,», imagen conceptual identificada, WhatsApp oficial, promoción 20% de primer lavado para nuevos clientes una sola vez, y solicitud de turno Cal.com sujeta a aprobación manual. No se tocaron datos, servicios ni ajustes de Cal.com.
 
 **QA móvil pendiente:** 320×568, 360×640, 390×844, 414×896, vertical/horizontal y apertura de menú; verificar que no aparece «Nuestros servicios» antes del final del primer scroll cuando la altura útil lo permite, que los cuatro beneficios se leen, CTA inferior no se superpone, sin scroll horizontal, y que los enlaces de reservas y WhatsApp funcionan. Revisar captura real en Android con barras del navegador visibles.
+
+## V4.4.3 — Refinamiento fotográfico y merchandising (17/11/2026)
+
+**Alcance aprobado:** pulir —sin rediseñar— la primera pantalla V4.4.2, que ya muestra completos los cuatro beneficios en el celular de referencia.
+
+**Implementación incremental**
+- Se incorpora `brand-v4-4-3.css` como última hoja en la cascada, conservando todas las capas y la primera pantalla de V4.4.2.
+- Ajuste de luz editorial mediante degradados CSS: fotografía original conceptual de lavado intacta, rostro y carrocería menos oscurecidos, protección del contraste tras los titulares.
+- El logotipo maestro de `assets/logo-maestro-original.png` se reutiliza por referencia sin modificar la imagen. Se pulen mínimamente posición, ángulo, escala, opacidad y mezcla de material de sus aplicaciones en gorra, pecho y cubeta. No se generan logotipos alternativos.
+- Corrección óptica de la separación entre aclaración conceptual y los cuatro beneficios: el copy puede bajar hasta 16 px en móviles altos; en pantallas bajas queda sin desplazamiento adicional. Mantiene el scroll natural si el contenido no cabe.
+- Tipografía de cobertura y leyenda conceptual con contraste sobrio; se mantiene visible la condición de imagen conceptual.
+- Se conservan los botones con superficie táctil mínima de 48 px, WhatsApp sin círculo, color de marca, promoción de bienvenida 20% para nuevos clientes por única vez y texto metalizado «IMPECABLE,».
+
+**Fuera de alcance / sin cambios:** página de reservas Cal.com, URL del evento y política externa de aprobación manual; textos del calendario, tipo de servicio, horas y promociones no se modifican. No se alteran claves ni datos personales.
+
+**Validación pendiente:** comparar captura real de Android con V4.4.2 (pre/post); revisar iluminación sobre rostro, superposición de marcas en ropa y estabilidad del primer pliegue a 320/360/390/414 px; probar CTA WhatsApp y evento de Cal.com con solicitud pendiente de aprobación. Esta inspección estática no sustituye QA en dispositivo.
