@@ -1,0 +1,504 @@
+/* CARLOS V4.5 · PANTALLA 02 — ELECTRIC EMERALD GLOW
+   Implementación fiel a la referencia aprobada. Solo afecta #servicios.
+   NO modificar el logotipo maestro, WhatsApp Business ni Cal.com.
+   Verde marca #24D65A, grafito #0B0F10, metal #BFC4C9,
+   auxiliares #11191A, #E3E7E9 y capas de luz transparentes. */
+#servicios{
+ --em-green:#24D65A;
+ --em-graphite:#0B0F10;
+ --em-panel:#11191A;
+ --em-metal:#BFC4C9;
+ --em-light:#E3E7E9;
+ position:relative;
+ isolation:isolate;
+ background:
+  radial-gradient(ellipse 49% 21% at 50% 35%, rgba(36,214,90,.085),transparent 90%),
+  linear-gradient(180deg,rgba(11,15,16,0),rgba(11,15,16,.02));
+}
+#servicios .section-head{position:relative;z-index:1}
+#servicios .service-counter{display:none}
+#servicios .service-detail-short{display:none}
+#servicios .service-detail-long{display:inline}
+#servicios .service-carousel{position:relative;z-index:1;width:100%;min-width:0}
+#servicios .service-grid{gap:20px}
+#servicios .service-card{
+ position:relative;
+ border:1px solid rgba(191,196,201,.45);
+ border-radius:26px;
+ background:#0B0F10;
+ overflow:hidden;
+ box-shadow:0 13px 25px rgba(0,0,0,.22);
+ transition:border-color .3s ease,box-shadow .3s ease,transform .3s ease;
+}
+#servicios .service-card.is-active{
+ border:2px solid #24D65A;
+ box-shadow:
+  0 0 0 1px rgba(36,214,90,.47),
+  0 0 11px rgba(36,214,90,.48),
+  0 0 27px rgba(36,214,90,.25),
+  0 16px 28px rgba(0,0,0,.27);
+}
+#servicios .service-card-link{height:100%;border-radius:inherit}
+#servicios .service-card-link:focus-visible{
+ outline:3px solid #FFFFFF;outline-offset:-6px;
+}
+#servicios .service-picture{height:100%;inset:0;overflow:hidden}
+#servicios .service-picture>img{
+ width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.06);
+ transform:none;transition:transform .45s ease,filter .45s ease;
+}
+#servicios .service-card:is(:hover,:focus-within) .service-picture>img{transform:scale(1.018)}
+#servicios .service-picture::after{
+ content:"";position:absolute;z-index:1;pointer-events:none;
+ inset:35% 0 0;
+ background:linear-gradient(180deg,
+   rgba(11,15,16,0),rgba(11,15,16,.18) 30%,
+   rgba(11,15,16,.78) 79%,#0B0F10 100%);
+}
+#servicios .service-card.is-active::after{
+ content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+ border-radius:inherit;
+ box-shadow:inset 0 0 0 1px rgba(227,231,233,.33),
+  inset 0 -14px 28px rgba(36,214,90,.085);
+}
+/* La marca fuente es el PNG maestro, sin badge oscuro ni recoloreado. */
+#servicios .service-picture .service-photo-brand{
+ display:block;position:absolute;z-index:3;
+ top:11px;right:11px;left:auto;
+ width:76px;height:46px;padding:0;
+ background:transparent;border:0;border-radius:0;box-shadow:none;
+ opacity:.75;mix-blend-mode:screen;
+ pointer-events:none;
+}
+#servicios .service-picture .service-photo-brand img{
+ display:block;max-width:none;width:100%;height:100%;
+ object-fit:contain;filter:none!important;
+}
+#servicios .service-index{
+ z-index:3;top:13px;left:13px;
+ font:800 11px/1 "Montserrat",Arial,sans-serif;
+ color:#E3E7E9;background:rgba(11,15,16,.48);
+ padding:5px 8px;border:1px solid rgba(191,196,201,.23);
+ border-radius:6px;
+}
+#servicios .service-info{
+ z-index:4;position:absolute;
+ bottom:0;left:0;right:0;text-align:center;
+ background:transparent;
+ padding:38px 13px 18px;
+}
+#servicios .service-info h3{
+ color:#FFFFFF;font:italic 900 clamp(19px,2.7vw,31px)/1.03 "Montserrat",Arial,sans-serif;
+ letter-spacing:-.05em;margin:0 auto 7px;
+ text-shadow:0 2px 10px rgba(0,0,0,.7);
+}
+#servicios .service-info h3::after{
+ content:"";display:block;width:50px;height:3px;
+ margin:9px auto 8px;border-radius:99px;background:#24D65A;
+ box-shadow:0 0 7px rgba(36,214,90,.55);
+}
+#servicios .service-info .service-detail{
+ display:block;color:#E3E7E9;font:500 12px/1.4 "Montserrat",Arial,sans-serif;
+ margin:0 auto;max-width:34ch;min-height:0;
+ text-shadow:0 2px 5px rgba(0,0,0,.65);
+}
+/* Navegación accesible y visualmente coherente. */
+#servicios .service-carousel-controls{
+ display:flex;justify-content:center;align-items:center;gap:18px;margin:10px 0 0;
+}
+#servicios .service-arrow{
+ border:1px solid rgba(191,196,201,.58);
+ color:#E3E7E9;background:rgba(11,15,16,.94);
+ box-shadow:inset 0 0 0 1px rgba(255,255,255,.045);
+ width:43px;height:43px;
+ transition:border-color .2s ease,color .2s ease,box-shadow .2s ease;
+}
+#servicios .service-arrow:not(:disabled):is(:hover,:focus-visible){
+ color:#FFFFFF;border-color:#24D65A;
+ box-shadow:0 0 13px rgba(36,214,90,.2);
+}
+#servicios .service-arrow:disabled{opacity:.42}
+#servicios .service-dot{
+ width:10px;height:10px;
+ background:#65706B;box-shadow:none;
+}
+#servicios .service-dot.is-active{
+ background:#24D65A;
+ box-shadow:0 0 0 2px rgba(36,214,90,.11),0 0 13px rgba(36,214,90,.50);
+ transform:scale(1.15);
+}
+#servicios .service-swipe-hint{
+ display:flex;justify-content:center;align-items:center;gap:12px;
+ color:#E3E7E9;text-align:center;
+ font:500 12px/1.3 "Montserrat",Arial,sans-serif;
+ margin:10px 0 0;letter-spacing:-.01em;
+}
+#servicios .service-swipe-hint .swipe-hand{
+ width:35px;height:35px;color:#FFFFFF;flex:0 0 auto;
+}
+#servicios .service-swipe-hint .swipe-line{
+ display:block;flex:0 1 48px;height:1px;max-width:48px;
+ background:linear-gradient(90deg,transparent,#24D65A);
+ box-shadow:0 0 5px rgba(36,214,90,.37);
+}
+#servicios .service-swipe-hint .swipe-line:last-child{
+ transform:rotate(180deg);
+}
+#servicios .service-visual-note{
+ display:block;max-width:49ch;margin:12px auto 0;
+ color:#AEB9B7;font:500 10px/1.45 "Montserrat",Arial,sans-serif;
+ text-align:center;letter-spacing:0;
+}
+
+/* PROMO: tarjeta y cápsula son una sola área clicable, sin enlaces anidados. */
+#servicios .welcome-card-link{
+ display:flex;flex-direction:column;align-items:stretch;
+ width:min(100%,740px);margin:30px auto 5px;padding:0;
+ gap:22px;
+ color:#FFFFFF;background:transparent!important;
+ border:0!important;border-radius:0!important;
+ box-shadow:none!important;text-decoration:none;overflow:visible;
+}
+#servicios .welcome-card-link:is(:hover,:focus-visible){border:0;box-shadow:none!important}
+#servicios .welcome-card-link:focus-visible{outline:3px solid #FFFFFF;outline-offset:7px;border-radius:24px}
+#servicios .welcome-panel{
+ position:relative;isolation:isolate;
+ display:grid;grid-template-columns:70px minmax(0,1fr);align-items:center;
+ gap:18px;width:100%;
+ padding:21px 22px;
+ background:
+  radial-gradient(ellipse 44% 110% at 100% 100%,rgba(36,214,90,.20),transparent 91%),
+  linear-gradient(125deg,rgba(32,49,43,.94),#0B0F10 51%,rgba(12,31,21,.96));
+ border:1px solid rgba(191,196,201,.8);border-radius:23px;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.08),
+   inset 0 -3px 0 rgba(36,214,90,.40),
+   0 0 18px rgba(36,214,90,.075);
+ overflow:hidden;
+ transition:border-color .22s ease,box-shadow .22s ease;
+}
+#servicios .welcome-panel::after{
+ content:"";pointer-events:none;position:absolute;bottom:0;right:0;
+ width:52%;height:29%;background:radial-gradient(ellipse at bottom right,rgba(36,214,90,.28),transparent 73%);
+ filter:blur(8px);
+}
+#servicios .welcome-card-link:is(:hover,:focus-visible) .welcome-panel{
+ border-color:#24D65A;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 0 19px rgba(36,214,90,.17);
+}
+#servicios .welcome-panel .welcome-icon{
+ position:relative;z-index:1;
+ width:60px;height:60px;flex:none;display:grid;place-items:center;
+ color:#FFFFFF;
+ border:1px solid rgba(191,196,201,.75);border-radius:15px;
+ background:linear-gradient(135deg,rgba(191,196,201,.15),rgba(11,15,16,.32));
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.09);
+}
+#servicios .welcome-panel .welcome-offer{
+ position:relative;z-index:1;display:block;min-width:0;
+ border-left:2px solid #24D65A;padding-left:19px;
+}
+#servicios .welcome-panel .welcome-kicker{
+ display:block;color:#FFFFFF;
+ font:italic 900 clamp(12px,1.9vw,16px)/1.25 "Montserrat",Arial,sans-serif;
+ letter-spacing:-.025em;margin:0 0 5px;
+}
+#servicios .welcome-panel .welcome-amount{
+ display:flex;align-items:baseline;justify-content:flex-start;gap:13px;
+ margin:2px 0 7px;
+}
+#servicios .welcome-panel .welcome-amount strong{
+ display:inline-block;will-change:transform;
+ color:#24D65A;
+ font:900 clamp(45px,7.6vw,79px)/.97 "Montserrat",Arial,sans-serif;
+ letter-spacing:-.075em;white-space:nowrap;
+ text-shadow:0 0 15px rgba(36,214,90,.10);
+}
+#servicios .welcome-panel .welcome-amount>span{
+ color:#FFFFFF;font:italic 900 clamp(12px,2vw,20px)/1.03 "Montserrat",Arial,sans-serif;
+ letter-spacing:-.02em;
+}
+#servicios .welcome-panel .welcome-once{
+ display:inline-block;
+ color:#0B0F10;
+ background:linear-gradient(180deg,#84F59F 0%,#33E16C 23%,#24D65A 73%,#1ABC50 100%);
+ border:1px solid rgba(227,231,233,.74);border-radius:999px;
+ padding:5px 15px;margin:0 0 5px;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.39),
+  0 0 9px rgba(36,214,90,.30);
+ font:900 12px/1.2 "Montserrat",Arial,sans-serif;
+ letter-spacing:0;
+}
+#servicios .welcome-panel .welcome-terms{
+ display:block;color:#BFC4C9;
+ font:500 11px/1.45 "Montserrat",Arial,sans-serif;
+ margin:3px 0 0;max-width:47ch;
+}
+/* El botón aprobado NO es verde plano: centro oscuro, borde emisor,
+   pequeño reflejo blanco arriba, halo exterior y luz de suelo abajo. */
+#servicios .welcome-cta{
+ position:relative;isolation:isolate;
+ width:min(90%,570px);min-height:66px;max-width:100%;
+ display:grid;grid-template-columns:37px 1px minmax(0,1fr) 24px;
+ align-items:center;justify-content:center;
+ column-gap:15px;
+ margin:0 auto;
+ padding:11px 25px;
+ border:2px solid #24D65A;border-radius:999px;
+ background:
+  radial-gradient(ellipse 57% 130% at 50% 105%,rgba(36,214,90,.27),transparent 81%),
+  linear-gradient(180deg,#143B24 0%,#0C2116 25%,#070F0B 55%,#0D2A17 84%,#123A20 100%);
+ color:#FFFFFF!important;
+ box-shadow:
+  inset 0 1px 0 rgba(255,255,255,.40),
+  inset 0 -5px 12px rgba(36,214,90,.22),
+  0 0 0 1px rgba(191,196,201,.20),
+  0 0 8px rgba(36,214,90,.83),
+  0 0 23px rgba(36,214,90,.53),
+  0 9px 29px rgba(36,214,90,.24);
+ font:italic 900 clamp(15px,2.45vw,22px)/1.1 "Montserrat",Arial,sans-serif;
+ letter-spacing:-.02em;text-align:center;white-space:nowrap;
+ transition:box-shadow .24s ease,transform .24s ease;
+}
+#servicios .welcome-cta::before{
+ content:"";position:absolute;pointer-events:none;
+ left:10%;right:10%;top:1px;height:3px;border-radius:999px;
+ background:linear-gradient(90deg,transparent,rgba(255,255,255,.15) 15%,rgba(227,231,233,.81) 48%,rgba(255,255,255,.12) 83%,transparent);
+ filter:blur(.7px);
+}
+#servicios .welcome-cta::after{
+ content:"";pointer-events:none;position:absolute;
+ left:17%;right:17%;top:calc(100% + 3px);height:21px;
+ background:radial-gradient(ellipse at center,rgba(36,214,90,.48),rgba(36,214,90,.10) 45%,transparent 77%);
+ filter:blur(7px);
+}
+#servicios .welcome-cta .wa-icon{
+ color:#FFFFFF!important;fill:currentColor;
+ width:31px;height:31px;flex:0 0 31px;
+ justify-self:center;filter:drop-shadow(0 0 3px rgba(255,255,255,.13));
+}
+#servicios .welcome-cta .welcome-cta-arrow{
+ color:#FFFFFF;font-size:28px;font-weight:500;line-height:1;
+ justify-self:end;
+}
+#servicios .welcome-card-link:is(:hover,:focus-visible) .welcome-cta{
+ transform:translateY(-2px);
+ box-shadow:
+  inset 0 1px 0 rgba(255,255,255,.46),
+  inset 0 -6px 15px rgba(36,214,90,.25),
+  0 0 11px rgba(36,214,90,.88),
+  0 0 31px rgba(36,214,90,.67),
+  0 11px 31px rgba(36,214,90,.30);
+}
+#servicios .welcome-card-link:active .welcome-cta{transform:translateY(0) scale(.99)}
+/* Para crear la división vertical sin dependencias ni iconos repetidos,
+   se añade como elemento del DOM en esta nueva etapa. */
+#servicios .welcome-cta-divider{
+ width:1px;height:30px;justify-self:center;
+ background:#24D65A;box-shadow:0 0 5px rgba(36,214,90,.35);
+}
+/* Tipografía del CTA sobre el centro oscuro, jamás negra sobre neón. */
+#servicios .welcome-cta-label{
+ display:block;white-space:nowrap;text-align:center;color:#FFFFFF;
+}
+
+/* MÓVIL: tarjeta central grande, laterales parciales y fundidas. */
+@media(max-width:600px){
+ #servicios.section{
+  padding-top:24px;padding-bottom:34px;
+  background:
+   radial-gradient(ellipse 75% 16% at 50% 31%,rgba(36,214,90,.09),transparent 85%),#0B0F10;
+ }
+ #servicios .section-head{
+  text-align:center;display:block;margin:0 0 11px;
+ }
+ #servicios .section-head>div{width:100%}
+ #servicios .section-head .eyebrow{display:none}
+ #servicios .section-head h2{
+  position:relative;display:block;
+  font:italic 900 clamp(24px,7.1vw,33px)/1.1 "Montserrat",Arial,sans-serif;
+  letter-spacing:-.065em;text-align:center;
+  color:#FFFFFF;margin:0;padding:0 0 15px;
+ }
+ #servicios .section-head h2::after{
+  content:"";position:absolute;left:50%;bottom:0;
+  width:93px;height:4px;border-radius:99px;
+  transform:translateX(-50%);
+  background:#24D65A;box-shadow:0 0 10px rgba(36,214,90,.33);
+ }
+ #servicios .service-counter{
+  display:flex;align-items:baseline;justify-content:center;gap:3px;
+  margin:0 0 1px;
+  color:#BFC4C9;font:800 14px/1.15 "Montserrat",Arial,sans-serif;
+  letter-spacing:.05em;
+ }
+ #servicios .service-counter #service-number{
+  color:#24D65A;font-size:17px;
+  text-shadow:0 0 10px rgba(36,214,90,.24);
+ }
+ #servicios .service-carousel{width:100%;overflow:visible}
+ #servicios .service-grid{
+  display:flex;flex-wrap:nowrap;
+  gap:14px;
+  box-sizing:border-box;
+  width:100vw;margin-left:calc(50% - 50vw);
+  padding:19px calc((100vw - min(74vw,332px))/2) 25px;
+  scroll-padding-inline:calc((100vw - min(74vw,332px))/2);
+  scroll-snap-type:x mandatory;
+  overflow-x:auto;overflow-y:hidden;
+  overscroll-behavior-inline:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 8%,black 92%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,black 8%,black 92%,transparent 100%);
+ }
+ #servicios .service-grid::-webkit-scrollbar{display:none}
+ #servicios .service-card{
+  flex:0 0 min(74vw,332px);
+  width:min(74vw,332px);
+  height:clamp(275px,86vw,372px);
+  min-height:0;scroll-snap-align:center;
+  border-radius:26px;
+  background:#0B0F10;box-shadow:none;
+ }
+ #servicios .service-card.is-active{
+  border:2px solid #24D65A;
+  box-shadow:0 0 0 1px rgba(36,214,90,.55),
+   0 0 12px rgba(36,214,90,.8),
+   0 0 27px rgba(36,214,90,.51),
+   0 0 54px rgba(36,214,90,.22);
+ }
+ #servicios .service-card:not(.is-active){
+  opacity:.63;filter:brightness(.66) saturate(.8);
+ }
+ #servicios .service-picture>img{
+  object-position:center 50%;
+  filter:saturate(.94) contrast(1.06);
+ }
+ #servicios .service-picture .service-photo-brand{
+  top:9px;right:9px;width:65px;height:38px;opacity:.64;
+ }
+ #servicios .service-info{
+  display:block;padding:38px 12px 20px;
+  bottom:0;
+ }
+ #servicios .service-info h3{
+  font-size:clamp(23px,6.8vw,31px);
+  margin:0;
+ }
+ #servicios .service-info h3::after{
+  width:44px;height:3px;margin:9px auto 8px;
+ }
+ #servicios .service-info .service-detail{
+  display:block;font-size:clamp(10px,2.75vw,12px);
+  max-width:30ch;margin:0 auto;
+  min-height:0;
+ }
+ #servicios .service-detail-short{display:inline}
+ #servicios .service-detail-long{display:none}
+ #servicios .service-carousel-controls{
+  display:flex;margin:2px 0 1px;gap:18px;
+ }
+ #servicios .service-arrow{width:42px;height:42px;font-size:28px}
+ #servicios .service-dot{width:10px;height:10px}
+ #servicios .service-swipe-hint{
+  display:flex;justify-content:center;gap:8px;
+  font-size:clamp(10px,2.8vw,12px);line-height:1.2;
+  margin:7px 0 0;
+ }
+ #servicios .service-swipe-hint .swipe-hand{width:29px;height:29px}
+ #servicios .service-swipe-hint .swipe-line{flex-basis:32px}
+ #servicios .service-visual-note{
+  margin:8px auto 0;max-width:38ch;font-size:9.5px;line-height:1.3;
+  color:#A7B2B0;text-align:center;
+ }
+ #servicios .welcome-card-link{
+  width:100%;margin:21px auto 0;gap:20px;
+ }
+ #servicios .welcome-panel{
+  grid-template-columns:48px minmax(0,1fr);
+  gap:12px;padding:17px 14px 17px 13px;
+  border-radius:19px;
+ }
+ #servicios .welcome-panel .welcome-icon{
+  width:44px;height:44px;
+  border-radius:12px;
+ }
+ #servicios .welcome-panel .welcome-icon svg{width:26px;height:26px}
+ #servicios .welcome-panel .welcome-offer{padding-left:12px}
+ #servicios .welcome-panel .welcome-kicker{
+  font-size:clamp(10px,2.65vw,12px);
+  line-height:1.18;margin-bottom:6px;
+ }
+ #servicios .welcome-panel .welcome-amount{
+  gap:9px;margin:0 0 7px;align-items:baseline;
+ }
+ #servicios .welcome-panel .welcome-amount strong{
+  font-size:clamp(39px,11vw,54px);
+ }
+ #servicios .welcome-panel .welcome-amount>span{
+  font-size:clamp(10px,2.8vw,13px);
+  max-width:8.5ch;line-height:1;
+ }
+ #servicios .welcome-panel .welcome-once{
+  font-size:10px;padding:4px 10px;margin:0 0 5px;
+ }
+ #servicios .welcome-panel .welcome-terms{
+  font-size:9.5px;line-height:1.35;margin:2px 0 0;
+ }
+ #servicios .welcome-cta{
+  width:calc(100% - 28px);
+  min-height:61px;
+  grid-template-columns:29px 1px minmax(0,1fr) 19px;
+  gap:10px;
+  padding:11px 14px;
+  border-radius:999px;
+  font-size:clamp(13px,3.7vw,16px);
+ }
+ #servicios .welcome-cta .wa-icon{width:26px;height:26px;flex-basis:26px}
+ #servicios .welcome-cta .welcome-cta-arrow{font-size:23px}
+ #servicios .welcome-cta-divider{height:24px}
+}
+@media(max-width:360px){
+ #servicios .service-grid{gap:11px}
+ #servicios .service-card{height:clamp(265px,86vw,305px)}
+ #servicios .welcome-panel{grid-template-columns:38px minmax(0,1fr);gap:9px;padding:13px 10px}
+ #servicios .welcome-panel .welcome-icon{width:36px;height:36px;border-radius:9px}
+ #servicios .welcome-panel .welcome-icon svg{width:23px;height:23px}
+ #servicios .welcome-panel .welcome-offer{padding-left:9px}
+ #servicios .welcome-panel .welcome-kicker{font-size:10px}
+ #servicios .welcome-panel .welcome-amount{gap:5px}
+ #servicios .welcome-panel .welcome-amount strong{font-size:36px}
+ #servicios .welcome-panel .welcome-amount>span{font-size:9.5px}
+ #servicios .welcome-panel .welcome-terms{font-size:9px}
+ #servicios .welcome-cta{
+  width:calc(100% - 12px);
+  min-height:56px;
+  padding:9px 11px;
+  grid-template-columns:24px 1px minmax(0,1fr) 16px;
+  gap:7px;font-size:12px;
+ }
+ #servicios .welcome-cta .wa-icon{width:23px;height:23px;flex-basis:23px}
+ #servicios .welcome-cta .welcome-cta-arrow{font-size:20px}
+}
+@media(min-width:601px){
+ #servicios .service-counter{display:none}
+ #servicios .service-carousel-controls{display:none}
+ #servicios .service-swipe-hint{display:none}
+ #servicios .service-detail-short{display:none}
+ #servicios .service-detail-long{display:inline}
+}
+/* Preferencias y accesibilidad: detener rebote y transiciones si procede. */
+@media(prefers-reduced-motion:reduce){
+ #servicios .service-card,
+ #servicios .service-picture>img,
+ #servicios .welcome-panel,
+ #servicios .welcome-cta,
+ #servicios .service-arrow,
+ #servicios .service-dot{
+  transition:none!important;transform:none!important;
+ }
+ #servicios .welcome-card-link.promo-inview .welcome-amount strong{
+  animation:none!important;will-change:auto;
+ }
+ #servicios .service-grid{scroll-behavior:auto!important}
+}

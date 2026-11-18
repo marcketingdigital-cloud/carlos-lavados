@@ -180,3 +180,19 @@ En la captura móvil de V4.4.4 se comprobó que el botón fijo «RESERVAR TURNO�
 **Accesibilidad y QA:** hover/focus definidos, `prefers-reduced-motion`, contraste grafito sobre verde. Comprobaciones estáticas, confirmar en Android real después de Pages: 320×568, 360×640, 390×844, 414×896; no debe aparecer el servicio anterior al primer scroll salvo que la altura reducida exija desplazamiento natural. Verificar impacto en título/fotografía/beneficios y enlaces de reserva y WhatsApp. La página publicada no se considera visualmente aprobada hasta revisar captura real.
 
 **Próxima etapa cuando se apruebe:** V4.5 Pantalla 02 — servicios y bienvenida 20%, reproduciendo la disposición de carrusel, guía táctil y botón de WhatsApp del mockup visual aprobado.
+
+## V4.5 · Pantalla 02 — Electric Emerald Glow (18/11/2026)
+
+**Referencia aprobada:** mockup de «Nuestros servicios» con tarjeta central dominante, contorno verde eléctrico luminoso, laterales desvanecidos, indicador táctil con mano, promoción 20% en grafito y CTA WhatsApp **cápsula oscura con perímetro verde brillante**, halo y reflejo inferior. Esta etapa corrige deliberadamente la versión anterior cuyo botón era verde plano; la referencia visual aprobada manda.
+
+**Alcance:** solamente `#servicios`, mediante la nueva hoja de estilos aislada `brand-v4-5-servicios.css`; portada V4.5 pantalla 01, experiencia, reservas, footer y enlaces restantes intactos. El CSS se agrega al final de la cascada.
+
+**Carrusel:** continúan los tres archivos conceptuales WebP, el logo maestro exacto (ahora sin placa opaca de fondo, integrado como marca secundaria por CSS), las tarjetas y la navegación por scroll-snap/teclado/flechas/puntos. La tarjeta activa gana luz de dos profundidades, contorno verde `#24D65A` y sombra difusa; las laterales se oscurecen y funden con máscara de gradiente del carrusel. Se añade contador dinámico `01 / 03` hasta `03 / 03`, sincronizado desde `updateService()`, y guía táctil con ícono y líneas verdes. Cada fotografía incluye una descripción breve legible en móvil. La nota «Fotografías publicitarias conceptuales…» sigue visible bajo el carrusel, sin presentarlas como trabajos reales.
+
+**Promoción:** sigue existiendo un único enlace externo `#promocion-bienvenida` al mismo `wa.me/541141427755` con el mismo mensaje precargado y requisitos: nuevos clientes, primer lavado, por única vez y sujetos a verificación. Separamos visualmente el enlace en panel y CTA (sin botones ni enlaces anidados). El panel incluye jerarquía clara, línea verde de acento y badge luminoso «POR ÚNICA VEZ». La etiqueta visible del CTA se acorta a «SOLICITAR MI 20%», con ícono original de WhatsApp, separador verde y flecha.
+
+**Efecto distintivo del CTA:** cápsula de centro oscuro con gradiente volumétrico, borde `#24D65A`, brillo fino arriba, halo exterior y luz inferior. Hover/foco refuerzan el resplandor y active reduce mínimamente la escala. No hay destello continuo ni verde plano. El rebote de 3px/4% del 20% se conserva, y se desactiva con `prefers-reduced-motion:reduce`.
+
+**No alterar:** fuente de logo `assets/logo-maestro-original.png`, foto del hero, reserva Cal.com `carlos-lavados/solicitud-lavado-domicilio`, aprobación manual en Cal.com ni WhatsApp Business oficial. La captura de pantalla del mockup no se usa como fondo ni se presenta como fotografía real.
+
+**QA previo a cierre:** revisar controles táctiles en 320/360/390/414 px y escritorio; foco visible, navegación por teclado, contador 01-03, descripción de tarjetas, resplandor/fusión, tipografía del CTA sin quiebres, promoción sin tapa del CTA flotante y vínculo real al WhatsApp precargado. Probar movimiento reducido. La conformidad final requiere captura en dispositivo, no solo validación de código.
