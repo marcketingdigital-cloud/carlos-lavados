@@ -153,3 +153,18 @@ En la captura móvil de V4.4.4 se comprobó que el botón fijo «RESERVAR TURNO�
 - `brand-v4-4-5.css` se añade como última capa de estilos; se evita modificar hojas previas y la configuración de Cal.com.
 
 **Verificación final requerida:** móvil Android de 320/360/390/414px, pie y encabezado sin solapes, contraste de figcaption, acceso táctil a CTA, reserva Cal.com pendiente de aprobación manual, reducción de movimiento y escritorio/tablet. No confundir QA estático con prueba real del teléfono.
+
+## V4.4.6 — Corrección visual efectiva tras captura Android (17/11/2026)
+
+**Problema real de V4.4.5:** el verde se había vuelto menos intenso pero el CTA seguía ocupando todo el ancho porque `.mobile-cta` permanecía con `left:0/right:0` y un fondo `::before` de franja horizontal. El efecto radial aplicado a `fachada.webp` tampoco conseguía hacer desaparecer realmente los cuatro bordes, por lo que seguía pareciendo un rectángulo, y el párrafo consumía demasiado alto.
+
+**Solución implementada**
+- `brand-v4-4-6.css` carga después de V4.4.5 con cambios explícitos. La imagen conserva el asset original y gana una máscara radial de alfa cero real en todo el perímetro, se elimina la superposición rectangular del `::after` y se recorta a proporción móvil 1.90 para liberar altura sin deformación.
+- El contenido `#experiencia` se centra dentro de un contenedor de ancho `calc(100% - 32px)`. Se compactan espacios e interlineados sin eliminar el título ni los tres pasos.
+- El párrafo ahora resume de manera clara y veraz la solicitud online y aprobación manual.
+- El botón flotante ahora es una **píldora real**: `left:auto`, `right:14px`, ancho ajustado al contenido, 49px de alto, sin pseudo-bloque de ancho completo, texto abreviado «RESERVAR» y descripción accesible completa. El verde eléctrico se mantiene (alfa .89; alfa .82 en experiencia) con letras/íconos grafito de alto contraste.
+- Se conserva la lógica de ocultación mientras hay CTA principal, promoción del 20%, calendario, CTA final o footer; también se respeta `prefers-reduced-motion`.
+
+**Invariantes:** no cambia el logotipo maestro, imagen conceptual de portada, carrusel, mensaje de WhatsApp, microrebote del 20%, enlace de Cal.com ni el proceso externo de aprobación manual.
+
+**QA:** verificar de forma visual en Android real (ancho/alto de pantalla, barras navegador, scroll, enfoque, contraste y recorte); una inspección de código no sustituye una captura real.
