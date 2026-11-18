@@ -14,13 +14,15 @@ const footer=document.querySelector('.footer');
 const heroSection=document.querySelector('.hero-first-screen') || document.querySelector('.hero');
 const finalCTA=document.querySelector('.last-cta');
 const promoCTA=document.getElementById('promocion-bienvenida');
+const experienceSection=document.getElementById('experiencia');
 if(sticky){
- const zones={hero:true,booking:false,final:false,footer:false,promo:false};
+ const zones={hero:true,booking:false,final:false,footer:false,promo:false,experience:false};
  const updateSticky=()=>{
   const hide=zones.hero||zones.booking||zones.final||zones.footer||zones.promo;
   sticky.classList.toggle('is-muted',zones.hero||zones.final);
   sticky.classList.toggle('in-booking',zones.booking||zones.footer);
   sticky.classList.toggle('is-hidden',hide);
+  sticky.classList.toggle('on-experience',zones.experience);
   sticky.tabIndex=hide?-1:0;
   if(hide)sticky.setAttribute('aria-hidden','true');
   else sticky.removeAttribute('aria-hidden');
@@ -34,14 +36,15 @@ if(sticky){
       if(entry.target===finalCTA)zones.final=entry.isIntersecting;
       if(entry.target===footer)zones.footer=entry.isIntersecting;
       if(entry.target===promoCTA)zones.promo=entry.isIntersecting;
+      if(entry.target===experienceSection)zones.experience=entry.isIntersecting;
     });
     updateSticky();
   },{rootMargin:'-78px 0px -75px 0px',threshold:0});
-  [heroSection,booking,finalCTA,footer,promoCTA].forEach(el=>{if(el)observer.observe(el)});
+  [heroSection,booking,finalCTA,footer,promoCTA,experienceSection].forEach(el=>{if(el)observer.observe(el)});
  }else{
   const recompute=()=>{
    const vis=el=>{if(!el)return false;const r=el.getBoundingClientRect();return r.bottom>78&&r.top<window.innerHeight-75};
-   zones.hero=vis(heroSection);zones.booking=vis(booking);zones.final=vis(finalCTA);zones.footer=vis(footer);zones.promo=vis(promoCTA);updateSticky();
+   zones.hero=vis(heroSection);zones.booking=vis(booking);zones.final=vis(finalCTA);zones.footer=vis(footer);zones.promo=vis(promoCTA);zones.experience=vis(experienceSection);updateSticky();
   };
   window.addEventListener('scroll',recompute,{passive:true});
   window.addEventListener('resize',recompute);
@@ -119,6 +122,24 @@ if(welcomeLink){
   },{threshold:.25});
   watcher.observe(welcomeLink);
  }else welcomeLink.classList.add('promo-inview');
+}
+
+/* V4.4.5: revelado editorial discreto al entrar a la sección 3.
+   No es necesario para su visibilidad: sin JS, el contenido permanece visible.
+   Se ejecuta una sola vez, y se desactiva con movimiento reducido. */
+if(experienceSection){
+ const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if(!reduceMotion && 'IntersectionObserver' in window){
+  const revealObserver=new IntersectionObserver((entries,observer)=>{
+   entries.forEach(entry=>{
+    if(entry.isIntersecting){
+     entry.target.classList.add('is-in-view');
+     observer.unobserve(entry.target);
+    }
+   });
+  },{threshold:.16});
+  revealObserver.observe(experienceSection);
+ }
 }
 
 /* Cargador oficial Cal.com. En caso de bloqueo, se conserva el enlace directo. */
