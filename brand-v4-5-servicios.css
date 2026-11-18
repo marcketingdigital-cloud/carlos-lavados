@@ -276,12 +276,6 @@
  width:31px;height:31px;flex:0 0 31px;
  justify-self:center;filter:drop-shadow(0 0 3px rgba(255,255,255,.13));
 }
-#servicios .welcome-cta>span:nth-child(2){
- width:1px;height:28px;background:#24D65A;
- color:transparent;font-size:0;
-}
-/* vertical separator supplied by pseudo/DOM fallback below */
-#servicios .welcome-cta>span:nth-child(2){width:auto;height:auto;background:transparent;color:#FFFFFF;font-size:inherit;min-width:0}
 #servicios .welcome-cta .welcome-cta-arrow{
  color:#FFFFFF;font-size:28px;font-weight:500;line-height:1;
  justify-self:end;
