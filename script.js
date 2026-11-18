@@ -58,6 +58,7 @@ const serviceTrack=document.getElementById('services-track');
 if(serviceTrack){
  const cards=Array.from(serviceTrack.querySelectorAll('.service-card'));
  const dots=Array.from(document.querySelectorAll('.service-dot'));
+ const serviceCounter=document.getElementById('service-number');
  const prev=document.querySelector('.service-arrow-prev');
  const next=document.querySelector('.service-arrow-next');
  const mobileServices=window.matchMedia('(max-width:600px)');
@@ -65,6 +66,7 @@ if(serviceTrack){
  let scheduled=false;
  const updateService=(index)=>{
   currentService=Math.max(0,Math.min(cards.length-1,index));
+  if(serviceCounter)serviceCounter.textContent=String(currentService+1).padStart(2,'0');
   cards.forEach((card,i)=>card.classList.toggle('is-active',i===currentService));
   dots.forEach((dot,i)=>{dot.classList.toggle('is-active',i===currentService);dot.setAttribute('aria-pressed',String(i===currentService));});
   if(prev)prev.disabled=currentService===0;
