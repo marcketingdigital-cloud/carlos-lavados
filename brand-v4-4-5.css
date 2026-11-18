@@ -134,6 +134,7 @@
   box-sizing:border-box;
   min-height:68px;padding:9px 20px calc(10px + env(safe-area-inset-bottom,0px));
   gap:10px;font-size:12px;font-weight:800;letter-spacing:0;
+  color:#0B0F10;
   background:rgba(11,15,16,.85);
   border-top:1px solid rgba(191,196,201,.2);
   backdrop-filter:blur(8px);
