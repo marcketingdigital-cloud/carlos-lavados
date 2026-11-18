@@ -1,0 +1,199 @@
+/* CARLOS V4.5 / PANTALLA 01 — HERO PREMIUM
+ * Capa visual aditiva; mantiene logo maestro original, foto conceptual V4.4,
+ * la primera pantalla responsive, CTA de WhatsApp y Cal.com.
+ * Paleta oficial: verde eléctrico #24D65A, grafito #0B0F10,
+ * gris metálico #BFC4C9 y blanco #FFFFFF.
+ * Tonos auxiliares: grafito #11191A, plata clara #E3E7E9.
+ */
+:root{
+ --carlos-electric:#24D65A;
+ --carlos-electric-soft:rgba(36,214,90,.19);
+ --carlos-metal:#BFC4C9;
+ --carlos-metal-bright:#E3E7E9;
+ --carlos-carbon:#0B0F10;
+ --carlos-carbon-raised:#11191A;
+}
+/* Cabecera estable. Se utiliza el PNG maestro intacto, sin filtros. */
+#inicio.site-header{
+ background:rgba(11,15,16,.97);
+ border-bottom:1px solid rgba(191,196,201,.26);
+ box-shadow:0 1px 12px rgba(0,0,0,.15);
+ isolation:isolate;
+}
+#inicio.site-header:after{
+ content:"";position:absolute;bottom:-1px;left:0;right:0;
+ height:1px;pointer-events:none;
+ background:linear-gradient(90deg,transparent 8%,rgba(36,214,90,.19) 47%,transparent 92%);
+}
+#inicio .brand img{filter:none!important}
+#inicio .menu-toggle{
+ border-color:rgba(36,214,90,.52);
+ background:linear-gradient(150deg,rgba(20,30,26,.36),rgba(11,15,16,.82));
+ box-shadow:inset 0 0 0 1px rgba(191,196,201,.06);
+ transition:border-color .22s ease,background-color .22s ease,box-shadow .22s ease;
+}
+#inicio .menu-toggle:is(:hover,:focus-visible){
+ border-color:#24D65A;
+ box-shadow:0 0 0 3px rgba(36,214,90,.13);
+}
+#inicio a:focus-visible{outline:2px solid #24D65A;outline-offset:3px}
+
+/* Fusión fotografía / grafito y dirección de luz: sin cambiar el archivo.
+   Mantener la izquierda suficientemente oscura para leer el mensaje. */
+.hero-first-screen{
+ background:
+  radial-gradient(ellipse 67% 35% at 88% 90%,rgba(36,214,90,.065),transparent 75%),
+  #0B0F10;
+}
+.hero-first-screen > .hero{background:#0B0F10}
+.hero-first-screen .hero .hero-vignette{
+ background:
+  linear-gradient(90deg,
+   rgba(11,15,16,.98) 0%,
+   rgba(11,15,16,.90) 25%,
+   rgba(11,15,16,.58) 54%,
+   rgba(11,15,16,.14) 84%,
+   rgba(11,15,16,.04) 100%),
+  linear-gradient(0deg,#0B0F10 0%,rgba(11,15,16,.45) 15%,transparent 43%);
+}
+.hero-first-screen .hero .hero-photo::after{
+ background:radial-gradient(ellipse 48% 42% at 80% 44%,
+    rgba(227,231,233,.07) 0%,transparent 75%);
+ mix-blend-mode:screen;
+}
+.hero-first-screen .hero .hero-eyebrow{
+ letter-spacing:.075em;
+ color:#FFFFFF;
+}
+.hero-first-screen .hero .hero-eyebrow:after{
+ background:linear-gradient(90deg,#24D65A 0%,#24D65A 74%,rgba(36,214,90,.14));
+ box-shadow:0 0 8px rgba(36,214,90,.24);
+}
+.hero-first-screen .hero h1 .metallic-word{
+ /* Mantiene el tratamiento metálico de la versión aprobada. */
+ background:linear-gradient(180deg,#FFFFFF 0%,#F5F7F7 27%,
+  #BFC4C9 44%,#89939A 51%,#F7F8F8 60%,#BFC4C9 78%,#FFFFFF 100%);
+ background-clip:text;-webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
+ filter:drop-shadow(0 3px 1px rgba(0,0,0,.42));
+}
+.hero-first-screen .hero h1 .metallic-word:after{
+ box-shadow:0 0 5px rgba(255,255,255,.55),0 0 12px rgba(191,196,201,.18);
+}
+.hero-first-screen .hero h1 em{
+ color:#24D65A;
+ text-shadow:0 3px 9px rgba(0,0,0,.45),0 0 17px rgba(36,214,90,.10);
+}
+.hero-first-screen .hero .hero-desc{color:#F4F6F6}
+.hero-first-screen .hero .hero-zones-primary{color:#FFFFFF}
+.hero-first-screen .hero .hero-zones-secondary{color:#D2D8DA}
+.hero-first-screen .hero .hero-photo-disclaimer{
+ color:#BFC4C9;opacity:1;text-shadow:0 1px 2px rgba(0,0,0,.55);
+}
+
+/* CTA principal: verde oficial con modelado leve y borde metálico.
+   No hay destello continuo para evitar competir con el 20% del carrusel. */
+.hero-first-screen .hero .actions .btn.btn-primary{
+ position:relative;isolation:isolate;
+ background:linear-gradient(178deg,#34DF6A 0%,#24D65A 59%,#20C454 100%);
+ border:1px solid rgba(227,231,233,.8);
+ color:#0B0F10;
+ box-shadow:
+  inset 0 1px 0 rgba(255,255,255,.35),
+  0 0 0 1px rgba(36,214,90,.17),
+  0 7px 16px rgba(0,0,0,.18),
+  0 0 17px rgba(36,214,90,.15);
+ transition:background .22s ease,border-color .22s ease,
+   box-shadow .22s ease,transform .22s ease;
+}
+.hero-first-screen .hero .actions .btn.btn-primary .btn-icon,
+.hero-first-screen .hero .actions .btn.btn-primary .cta-arrow{
+ color:#0B0F10;
+}
+.hero-first-screen .hero .actions .btn.btn-primary:hover{
+ transform:translateY(-2px);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.4),
+ 0 9px 23px rgba(0,0,0,.26),0 0 19px rgba(36,214,90,.22);
+}
+.hero-first-screen .hero .actions .btn.btn-primary:active{transform:translateY(0)}
+.hero-first-screen .hero .actions .btn.btn-primary:focus-visible{
+ outline:3px solid #FFFFFF;outline-offset:3px;
+}
+
+/* WhatsApp secundario: un solo ícono oficial, sin anillo adicional. */
+.hero-first-screen .hero .actions .hero-whatsapp{
+ background:linear-gradient(120deg,rgba(16,24,24,.93),rgba(11,15,16,.97));
+ border:1px solid rgba(227,231,233,.74);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.045);
+ color:#FFFFFF;
+ transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+.hero-first-screen .hero .actions .hero-whatsapp .wa-icon{
+ color:#24D65A;filter:none;
+}
+.hero-first-screen .hero .actions .hero-whatsapp .cta-arrow{color:#BFC4C9}
+.hero-first-screen .hero .actions .hero-whatsapp:hover{
+ transform:translateY(-1px);
+ border-color:#24D65A;
+ box-shadow:0 0 0 1px rgba(36,214,90,.12),0 0 15px rgba(36,214,90,.12);
+}
+.hero-first-screen .hero .actions .hero-whatsapp:focus-visible{
+ outline:3px solid #24D65A;outline-offset:3px;
+}
+
+/* Beneficios: misma gramática visual, sin glows llamativos en cada ícono. */
+.hero-first-screen .assurance-strip{
+ background:transparent;
+}
+.hero-first-screen .assurance-content{
+ border:1px solid rgba(191,196,201,.50);
+ background:linear-gradient(132deg,rgba(24,35,33,.93) 0%,#0B0F10 47%,rgba(14,26,20,.96) 100%);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.045),
+    0 0 15px rgba(36,214,90,.075);
+}
+.hero-first-screen .assurance-item:first-child svg,
+.hero-first-screen .assurance-item:last-child svg{
+ color:#24D65A;filter:drop-shadow(0 0 4px rgba(36,214,90,.18));
+}
+.hero-first-screen .assurance-label strong{color:#FFFFFF}
+.hero-first-screen .assurance-label small{color:#BFC4C9}
+
+/* Móvil: conservar el primer fold acordado y controles >= 48px. */
+@media(max-width:600px){
+ #inicio.site-header{box-shadow:none}
+ .hero-first-screen .hero .hero-vignette{
+  background:
+    linear-gradient(90deg,rgba(11,15,16,.97) 0%,rgba(11,15,16,.85) 29%,
+     rgba(11,15,16,.51) 63%,rgba(11,15,16,.10) 100%),
+    linear-gradient(0deg,#0B0F10 0%,rgba(11,15,16,.44) 22%,transparent 43%);
+ }
+ .hero-first-screen .hero .hero-photo::after{
+  background:radial-gradient(ellipse 43% 27% at 77% 42%,
+      rgba(227,231,233,.075),transparent 79%);
+ }
+ .hero-first-screen .hero h1{
+  text-shadow:0 2px 9px rgba(0,0,0,.48);
+ }
+ .hero-first-screen .hero h1 em{
+  text-shadow:0 2px 7px rgba(0,0,0,.48),0 0 12px rgba(36,214,90,.09);
+ }
+ .hero-first-screen .hero .actions .btn.btn-primary,
+ .hero-first-screen .hero .actions .hero-whatsapp{
+  min-height:48px;border-radius:11px;
+ }
+ .hero-first-screen .hero .actions .btn.btn-primary{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.27),0 0 0 1px rgba(36,214,90,.10),0 5px 12px rgba(0,0,0,.16),0 0 12px rgba(36,214,90,.12);
+ }
+ .hero-first-screen .assurance-content{
+  border-radius:12px;
+  box-shadow:0 0 10px rgba(36,214,90,.065);
+ }
+}
+/* No competir con la indicación de reducción de animaciones del usuario. */
+@media(prefers-reduced-motion:reduce){
+ .hero-first-screen .hero .actions .btn.btn-primary,
+ .hero-first-screen .hero .actions .hero-whatsapp,
+ #inicio .menu-toggle{
+  transition:none!important;transform:none!important;
+ }
+}
