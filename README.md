@@ -196,3 +196,17 @@ En la captura móvil de V4.4.4 se comprobó que el botón fijo «RESERVAR TURNO�
 **No alterar:** fuente de logo `assets/logo-maestro-original.png`, foto del hero, reserva Cal.com `carlos-lavados/solicitud-lavado-domicilio`, aprobación manual en Cal.com ni WhatsApp Business oficial. La captura de pantalla del mockup no se usa como fondo ni se presenta como fotografía real.
 
 **QA previo a cierre:** revisar controles táctiles en 320/360/390/414 px y escritorio; foco visible, navegación por teclado, contador 01-03, descripción de tarjetas, resplandor/fusión, tipografía del CTA sin quiebres, promoción sin tapa del CTA flotante y vínculo real al WhatsApp precargado. Probar movimiento reducido. La conformidad final requiere captura en dispositivo, no solo validación de código.
+
+## V4.5.1 — Ajuste de la segunda pantalla (18/11/2026)
+
+**Motivo:** captura Android tras Electric Emerald Glow: el carrusel debía mantener su tamaño; el aviso descriptivo de imágenes conceptuales y el panel de descuento estaban ocupando espacio que impedía ver juntas las dos cápsulas de la promoción.
+
+**Cambios deliberadamente acotados:**
+- Se retira de la interfaz de servicios el párrafo situado debajo de «Deslizá para explorar» que decía «Fotografías publicitarias conceptuales · No muestran trabajos reales de CARLOS». Las descripciones alternativas de los recursos conservan su naturaleza conceptual y se mantiene el contexto de marca en otras secciones, sin presentar fotografías generadas como trabajos comprobados.
+- Se conserva idéntico el carrusel: tres fotografías WebP, alto y ancho de tarjetas, sombras Electric Emerald Glow, desvanecimientos, logos y lógica de navegación.
+- Se añade al final de la cascada `brand-v4-5-servicios-compact.css`: solo contiene ajustes mobile hasta 600px (con ajuste adicional a 360px). Reduce separaciones entre controles, panel promocional y CTA.
+- Se reduce el panel «20% DE DESCUENTO» en padding, icono, título y número; el texto de condiciones se abrevia «Primer lavado · Beneficio sujeto a verificación» manteniendo su significado.
+- Se reduce la cápsula de «SOLICITAR MI 20%»: ancho `calc(100% - 42px)` en móviles habituales, alto mínimo de 54px, iconos proporcionados y halo inferior más discreto; mantiene centro grafito, borde eléctrico y foco accesible.
+- No cambia el enlace con mensaje precargado a WhatsApp Business, la condición de cliente nuevo, el descuento por única vez, el rebote del 20%, la primera pantalla, la tercera pantalla ni Cal.com y su aprobación manual.
+
+**Validación:** revisión estática de la estructura de HTML/CSS, enlaces de destino, conservación de imágenes y accesibilidad básica. Validar en captura real Android 320/360/390/414 px; pantallas muy bajas pueden requerir desplazamiento vertical natural, porque el tamaño fotográfico aprobado permanece fijo.
