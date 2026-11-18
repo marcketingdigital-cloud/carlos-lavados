@@ -189,3 +189,18 @@
  #experiencia.is-in-view .experience-pic,
  #experiencia.is-in-view .experience-content{animation:none!important}
 }
+/* Desvanecimiento perpendicular en navegadores modernos: la intersección
+   de ambas máscaras hace transparentes los cuatro bordes, no toda la foto.
+   El gradiente radial anterior queda como fallback si no hay soporte. */
+@supports (mask-composite:intersect){
+ #experiencia .experience-pic img{
+  -webkit-mask-image:
+    linear-gradient(to right,transparent 0%,#000 14%,#000 86%,transparent 100%),
+    linear-gradient(to bottom,transparent 0%,#000 17%,#000 78%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:
+    linear-gradient(to right,transparent 0%,#000 14%,#000 86%,transparent 100%),
+    linear-gradient(to bottom,transparent 0%,#000 17%,#000 78%,transparent 100%);
+  mask-composite:intersect;
+ }
+}
