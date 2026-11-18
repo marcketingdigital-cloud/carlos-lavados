@@ -137,3 +137,19 @@ Tipografía: Montserrat Extended para la marca/títulos, Montserrat SemiBold com
 ## V4.4.4.1 — Corrección de superposición en promoción
 
 En la captura móvil de V4.4.4 se comprobó que el botón fijo «RESERVAR TURNO» tapaba el CTA «SOLICITAR MI 20% POR WHATSAPP». La lógica JS calculaba `zones.promo=true` y establecía ARIA/tabIndex de ocultación, pero el CSS solo ocultaba los estados `.is-muted`/`.in-booking`; faltaba la clase visual correspondiente a `promo`. Ahora `script.js` sincroniza la clase `.is-hidden` con `hide`, y `brand-v4-4-4.css` la oculta (opacidad, visibilidad, transform y sin interceptar pulsaciones). Así, cuando aparece el beneficio, no compite con un CTA fijo superpuesto. No se alteran imágenes, carrusel, promoción, rutas WhatsApp ni configuración Cal.com. Validación real en celular pendiente.
+
+## V4.4.5 — Experiencia premium y microanimaciones (17/11/2026)
+
+**Problema observado:** la tercera pantalla empezaba con un aviso largo de imágenes conceptuales (perteneciente al bloque anterior), la foto `fachada.webp` terminaba en un rectángulo rígido y quedaba desalineada con el texto; el CTA inferior verde era demasiado alto y dominante.
+
+**Correcciones, sin reconstrucción:**
+- El aviso pasa al interior del carrusel, justo debajo de sus controles: «Fotografías publicitarias conceptuales · No muestran trabajos reales de CARLOS». Esto lo contextualiza sin eliminar la transparencia sobre las imágenes. Se preserva la advertencia ya existente en la primera pantalla y el resto de la política de divulgación.
+- La sección `#experiencia` utiliza `.experience-shell` como eje único de imagen y texto; desktop en dos columnas, móvil en una. Mismos márgenes, sin espacio perdido a la izquierda.
+- Se conserva `assets/fachada.webp` —no se sustituye por otra fotografía—; su imagen se integra con una máscara radial que difumina todos los bordes, degradado inferior y luz/contraste controlados. La leyenda «EL TIEMPO ES TUYO.» sigue accesible como `figcaption`.
+- Se mantiene el título «CUIDAMOS TU AUTO. RESPETAMOS TU TIEMPO.» y la secuencia de tres pasos. Se ajustan tamaño, interlineado y ancho del texto en responsive, sin ocultar contenido.
+- Barra móvil `.mobile-cta` aproximadamente 68px, superficie táctil interna de ~50px; el color oficial se mantiene, pero su relleno utiliza alfa .91 y alfa .83 mientras la sección Experiencia está visible, sin atenuar letras ni iconos.
+- Animación sutil de aparición de foto/copy (10px, menos de 0.8s), una sola vez por sesión de carga y solo al entrar en viewport; no oculta la página si JavaScript falla. `prefers-reduced-motion` elimina la animación.
+- El botón inferior se sigue ocultando sobre el hero, la promoción del 20%, el calendario, el CTA final y el pie. El carrusel de servicios, las fotografías, el efecto metálico del título, WhatsApp y la oferta quedan intactos.
+- `brand-v4-4-5.css` se añade como última capa de estilos; se evita modificar hojas previas y la configuración de Cal.com.
+
+**Verificación final requerida:** móvil Android de 320/360/390/414px, pie y encabezado sin solapes, contraste de figcaption, acceso táctil a CTA, reserva Cal.com pendiente de aprobación manual, reducción de movimiento y escritorio/tablet. No confundir QA estático con prueba real del teléfono.
