@@ -168,3 +168,15 @@ En la captura móvil de V4.4.4 se comprobó que el botón fijo «RESERVAR TURNO�
 **Invariantes:** no cambia el logotipo maestro, imagen conceptual de portada, carrusel, mensaje de WhatsApp, microrebote del 20%, enlace de Cal.com ni el proceso externo de aprobación manual.
 
 **QA:** verificar de forma visual en Android real (ancho/alto de pantalla, barras navegador, scroll, enfoque, contraste y recorte); una inspección de código no sustituye una captura real.
+
+## V4.5 · Pantalla 01 — Portada premium (18/11/2026)
+
+**Dirección aprobada:** extender por etapas el lenguaje de los mockups «CARLOS Premium»: grafito profundo, verde eléctrico controlado, relieve y glow focalizado, integración fotográfica, tipografía editorial y acciones sin ruido visual. **Implementación por pantalla para validar cada paso.** Esta etapa modifica solo la pantalla 1 (header + hero + beneficios), no la segunda.
+
+**Cambio incremental:** se incorpora `brand-v4-5-hero.css` al final de las hojas existentes. Los tonos oficiales siguen siendo `#24D65A` (verde), `#BFC4C9` (metal), `#0B0F10` (grafito) y `#FFFFFF`; apoyos `#11191A` y `#E3E7E9`. Se realzan con sobriedad la línea inferior de cabecera, el menú, el reflejo metálico del titular «IMPECABLE,», el acento «SIN SALIR DE CASA.», la fusión de la fotografía conceptual aprobada al fondo, el CTA principal con relieve y brillo, WhatsApp oscuro con icono original y los cuatro beneficios con border/iluminación coherente.
+
+**Invariantes:** se usa el mismo `assets/logo-maestro-original.png` sin filtros ni regeneraciones; misma fotografía `assets/hero-carlos-v44-clean.webp`; no se altera el HTML visible salvo enlazar CSS; se mantienen los cuatro beneficios dentro de la primera pantalla móvil cuando la altura útil lo permite, acciones táctiles de al menos 48px, texto contextual conceptual y todos los enlaces. La promoción del 20%, carrusel y animación, página 3, Cal.com y aprobación manual no se tocan.
+
+**Accesibilidad y QA:** hover/focus definidos, `prefers-reduced-motion`, contraste grafito sobre verde. Comprobaciones estáticas, confirmar en Android real después de Pages: 320×568, 360×640, 390×844, 414×896; no debe aparecer el servicio anterior al primer scroll salvo que la altura reducida exija desplazamiento natural. Verificar impacto en título/fotografía/beneficios y enlaces de reserva y WhatsApp. La página publicada no se considera visualmente aprobada hasta revisar captura real.
+
+**Próxima etapa cuando se apruebe:** V4.5 Pantalla 02 — servicios y bienvenida 20%, reproduciendo la disposición de carrusel, guía táctil y botón de WhatsApp del mockup visual aprobado.
