@@ -256,3 +256,11 @@ En la captura móvil de V4.4.4 se comprobó que el botón fijo «RESERVAR TURNO�
 **No se modifica:** recursos visuales, sección 1, servicios V4.5.3, la experiencia V4.6.1, WhatsApp Business +54 11 4142-7755, código de `script.js`, identificador del evento `carlos-lavados/solicitud-lavado-domicilio` y colores `#24D65A`, `#0B0F10`, `#BFC4C9`. La aprobación manual se administra externamente en Cal.com y no puede verificarse editando la landing.
 
 **QA:** verificar estructura del HTML, ausencia de pasos duplicados, permanencia de los enlaces y el embed Cal.com, accesibilidad de las microcápsulas y cambio de layout. Comprobar renderizado en Android real con captura y probar la carga externa de Cal.com sin realizar una reserva no deseada.
+
+## V4.7.1 — Más aire en Experiencia (18/11/2026)
+
+Se retira únicamente la franja redundante de beneficios «A domicilio / Confianza / Tu tiempo vale» que estaba debajo del CTA `RESERVAR MI TURNO` en `#experiencia`. Se eliminan también sus selectores CSS sin uso. Para dar respiro a la transición visual hacia la sección de reservas, se aumenta el padding inferior de `#experiencia` a 36px en móvil y 44px en escritorio.
+
+**Se conservan**: fotografía, titular, tres pestañas interactivas del timeline, panel dinámico, CTA luminoso del mismo tamaño que la cápsula de la pantalla 2, enlace al calendario, Cal.com, WhatsApp, las pantallas 1 y 2 y la V4.7 de Reserva simplificada. No se modifica el flujo de solicitud ni el sistema de confirmación manual.
+
+Revisar en Android que la cápsula y el comienzo de CARLOS RESERVA tengan una separación limpia sin cortes.

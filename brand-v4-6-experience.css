@@ -12,7 +12,7 @@
   background:radial-gradient(ellipse 65% 13% at 50% 84%,rgba(36,214,90,.12),transparent 95%),#0B0F10;
   border-top:1px solid rgba(36,214,90,.20);
   border-bottom:1px solid rgba(191,196,201,.23);
-  padding:16px 0 33px;
+  padding:16px 0 44px;
   isolation:isolate;
 }
 #experiencia .experience-journey{
@@ -309,24 +309,6 @@
 }
 #experiencia .experience-booking-cta:active{transform:translateY(0) scale(.99)}
 #experiencia .experience-booking-cta:focus-visible{outline:3px solid #FFFFFF;outline-offset:4px}
-/* 5. Beneficios pequeños: no otra barra ni botones */
-#experiencia .experience-benefits{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:0;align-items:center;
-  padding:7px 0;
-  color:#FFFFFF;
-}
-#experiencia .experience-benefits>div{
-  display:flex;align-items:center;justify-content:center;gap:11px;
-  min-width:0;
-  padding:8px 10px;
-  border-right:1px solid rgba(36,214,90,.60);
-  font:700 clamp(11px,1.55vw,16px)/1.25 "Montserrat",Arial,sans-serif;
-}
-#experiencia .experience-benefits>div:last-child{border-right:0}
-#experiencia .experience-benefits svg{
-  width:30px;height:30px;flex:0 0 30px;stroke:#24D65A;
-}
 /* Tablet: conservar 3 pasos; adaptar foto y copy sin desbordes */
 @media(min-width:601px) and (max-width:850px){
  #experiencia .experience-journey{width:min(720px,calc(100% - 38px))}
@@ -337,7 +319,7 @@
 /* Mobile first: todo en una columna; tarjetas horizontales
    pueden activarse sin desplazamiento lateral accidental. */
 @media(max-width:600px){
- #experiencia.experience-v46{padding:4px 0 19px}
+ #experiencia.experience-v46{padding:4px 0 36px}
  #experiencia .experience-journey{
    display:grid;grid-template-columns:minmax(0,1fr);
    gap:0;width:calc(100% - 30px);margin:0 auto;padding:0;
@@ -423,15 +405,7 @@
  #experiencia .experience-booking-divider{height:21px;width:1px}
  #experiencia .experience-booking-label{font-size:clamp(12px,3.35vw,14px)}
  #experiencia .experience-booking-arrow{font-size:19px}
- #experiencia .experience-benefits{padding:0}
- #experiencia .experience-benefits>div{
-  flex-direction:column;gap:4px;
-  font-size:clamp(9px,2.45vw,11px);
-  padding:5px 3px;line-height:1.2;text-align:center;
- }
- #experiencia .experience-benefits svg{
-  width:24px;height:24px;flex-basis:24px;
- }
+
 }
 @media(max-width:360px){
  #experiencia .experience-journey{width:calc(100% - 22px)}
