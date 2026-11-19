@@ -241,3 +241,18 @@ En la captura móvil de V4.4.4 se comprobó que el botón fijo «RESERVAR TURNO�
 **Estado y alcance:** no cambiar las pantallas 1/2 (pantalla 2 V4.5.3 provisional), su promoción 20%, fotografías, logotipo maestro, WhatsApp Business, el evento `carlos-lavados/solicitud-lavado-domicilio` ni la configuración de aprobación manual.
 
 **Validación exigida:** comprobar interacciones de los tres pasos y teclado, foco visible, contenido del panel, transiciones, mobile 320/360/390/414, overflow, contraste y que el CTA salte al calendario con la aprobación manual externa intacta. En dispositivos con poca altura de pantalla, permitir scroll vertical natural en lugar de comprimir textos y objetivos táctiles por debajo de tamaños legibles. No confundir validaciones de código con pruebas reales de usuario.
+
+## V4.7 — CARLOS RESERVA / 03: calendario protagonista (18/11/2026)
+
+**Motivo UX:** en la pantalla 3 (`#experiencia`) ya existe un recorrido interactivo de tres pasos. La sección de reservas (`#reservar`) volvía a explicar esos pasos dentro de un panel enorme que retrasaba el acceso al calendario en móvil.
+
+**Cambios limitados a `#reservar`:**
+- Se elimina el `aside` con los tres pasos repetidos y el bloque explicativo redundante. Se conservan el titular «TU PRÓXIMO LAVADO. A UN CLIC.» y el aviso de aprobación manual: «Elegí una fecha y un horario disponible. Tu solicitud queda pendiente hasta que Carlos la apruebe».
+- Se incorporan dos microcápsulas informativas: «Reserva online» y «Confirmación personal», con íconos SVG, grafito/plata y verde eléctrico oficial.
+- El contenedor `.booking-layout-streamlined` es de una columna incluso en escritorio. El calendario pasa a ser la primera acción: `.booking-top` y `#cal-booking`; el enlace externo «Abrir calendario a pantalla completa» permanece disponible debajo del calendario, no arriba.
+- Se conserva el contacto de WhatsApp como enlace secundario debajo del calendario. Se conserva el aviso de privacidad y los enlaces directos existentes a Cal.com.
+- Nueva hoja terminal `brand-v4-7-reserva.css`, totalmente limitada a `#reservar`, con mobile-first, encabezado más compacto, bordes Electric Emerald Glow moderados y estados de foco visibles.
+
+**No se modifica:** recursos visuales, sección 1, servicios V4.5.3, la experiencia V4.6.1, WhatsApp Business +54 11 4142-7755, código de `script.js`, identificador del evento `carlos-lavados/solicitud-lavado-domicilio` y colores `#24D65A`, `#0B0F10`, `#BFC4C9`. La aprobación manual se administra externamente en Cal.com y no puede verificarse editando la landing.
+
+**QA:** verificar estructura del HTML, ausencia de pasos duplicados, permanencia de los enlaces y el embed Cal.com, accesibilidad de las microcápsulas y cambio de layout. Comprobar renderizado en Android real con captura y probar la carga externa de Cal.com sin realizar una reserva no deseada.

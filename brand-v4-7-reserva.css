@@ -1,0 +1,240 @@
+/* CARLOS V4.7 — RESERVA SIN REDUNDANCIAS
+   La sección previa (Experiencia Journey) ya explica los 3 pasos.
+   En #reservar priorizamos la acción: calendario integrado.
+   Este archivo solo afecta #reservar; no altera el evento Cal.com
+   ni la gestión de aprobación manual externa.
+   Paleta oficial: #24D65A, #0B0F10, #BFC4C9, #FFFFFF.
+*/
+#reservar.booking-v47{
+ --carlos-electric:#24D65A;
+ --carlos-carbon:#0B0F10;
+ --carlos-silver:#BFC4C9;
+ color:#FFFFFF;
+ background:
+  radial-gradient(ellipse 52% 18% at 92% 7%,rgba(36,214,90,.07),transparent 92%),
+  #0B0F10;
+ padding:clamp(28px,4.7vw,55px) 0 48px;
+}
+#reservar.booking-v47 .shell{
+ width:min(1080px,calc(100% - 42px));
+}
+#reservar.booking-v47 .booking-intro{
+ display:flex;flex-direction:column;
+ align-items:flex-start;justify-content:flex-start;
+ gap:12px;
+ margin:0 0 18px;
+}
+#reservar.booking-v47 .booking-intro>div{width:100%}
+#reservar.booking-v47 .booking-intro .eyebrow{
+ margin:0 0 13px;
+ color:#BFC4C9;
+ font:900 clamp(11px,1.5vw,15px)/1.25 "Montserrat",Arial,sans-serif;
+ letter-spacing:.15em;
+}
+#reservar.booking-v47 .booking-intro h2{
+ color:#FFFFFF;
+ font:900 clamp(34px,5.2vw,62px)/1.05 "Montserrat",Arial,sans-serif;
+ letter-spacing:-.055em;
+ max-width:850px;
+ margin:0;
+}
+#reservar.booking-v47 .booking-intro h2 em{
+ font-style:normal;color:#24D65A;
+ text-shadow:0 0 12px rgba(36,214,90,.09);
+}
+#reservar.booking-v47 .booking-intro>p{
+ margin:0;
+ max-width:62ch;
+ color:#D5DEDA;
+ font:500 clamp(14px,1.6vw,17px)/1.54 "Montserrat",Arial,sans-serif;
+}
+#reservar.booking-v47 .booking-intro>p strong{
+ color:#FFFFFF;
+ font-weight:750;
+}
+/* La información breve que reemplaza la lista redundante. */
+#reservar.booking-v47 .booking-trust{
+ display:flex;align-items:center;justify-content:flex-start;
+ gap:10px;flex-wrap:wrap;
+ margin:0 0 17px;
+}
+#reservar.booking-v47 .booking-trust-pill{
+ display:inline-flex;align-items:center;justify-content:center;
+ min-height:42px;
+ gap:9px;padding:8px 14px;
+ border:1px solid rgba(191,196,201,.55);
+ border-radius:999px;
+ background:linear-gradient(138deg,#17231D,#0B0F10);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+ color:#E3E7E9;
+ font:750 clamp(11px,1.38vw,13px)/1.2 "Montserrat",Arial,sans-serif;
+ white-space:nowrap;
+}
+#reservar.booking-v47 .booking-trust-pill svg{
+ display:block;
+ flex:0 0 18px;
+ width:18px;height:18px;
+ stroke:#24D65A;
+}
+/* Una sola columna: el calendario deja de competir con el aside de pasos. */
+#reservar.booking-v47 .booking-layout-streamlined{
+ display:grid;
+ grid-template-columns:minmax(0,1fr);
+ width:100%;max-width:100%;
+ gap:0;
+ align-items:start;
+}
+#reservar.booking-v47 .booking-container-v47{
+ display:flex;flex-direction:column;
+ width:100%;min-width:0;
+ background:linear-gradient(160deg,#131C18,#0B0F10 60%);
+ border:1px solid rgba(191,196,201,.55);
+ border-radius:18px;
+ overflow:hidden;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.06),
+  0 0 0 1px rgba(36,214,90,.06),
+  0 0 21px rgba(36,214,90,.10);
+}
+#reservar.booking-v47 .booking-top{
+ order:0;display:flex;align-items:center;justify-content:space-between;
+ gap:10px;
+ background:linear-gradient(110deg,rgba(22,46,29,.76),#101814);
+ border-bottom:1px solid rgba(191,196,201,.25);
+ padding:13px 17px;
+}
+#reservar.booking-v47 .booking-top strong{
+ color:#FFFFFF;
+ font:900 clamp(16px,2.2vw,21px)/1.2 "Montserrat",Arial,sans-serif;
+ letter-spacing:.012em;
+}
+#reservar.booking-v47 .booking-top small{
+ color:#D3E7DA;
+ border:1px solid rgba(191,196,201,.55);
+ background:rgba(11,15,16,.4);
+ border-radius:5px;
+ font-size:10px;
+ white-space:nowrap;
+}
+/* Primer componente de acción visible tras el encabezado: la agenda. */
+#reservar.booking-v47 .calendar-wrap{
+ order:1;width:100%;
+ background:#121619;
+ min-height:730px;
+}
+#reservar.booking-v47 .calendar-wrap #cal-booking{
+ min-height:730px;width:100%;
+}
+/* El enlace externo permanece disponible, pero no desplaza al calendario
+   hacia abajo en la primera impresión. */
+#reservar.booking-v47 .full-screen-booking{
+ order:2;
+ display:flex;justify-content:center;align-items:center;
+ background:#13251B;
+ padding:12px 15px;
+ color:#BDF7CF;
+ border-top:1px solid rgba(191,196,201,.20);
+ font:700 12px/1.4 "Montserrat",Arial,sans-serif;
+}
+#reservar.booking-v47 .full-screen-booking:focus-visible,
+#reservar.booking-v47 .calendar-alt a:focus-visible,
+#reservar.booking-v47 .booking-support a:focus-visible{
+ outline:3px solid #24D65A;outline-offset:3px;
+}
+#reservar.booking-v47 .calendar-alt{order:3;background:#101814}
+#reservar.booking-v47 .booking-support{
+ margin:16px 0 0;
+ text-align:center;
+ font:700 12px/1.4 "Montserrat",Arial,sans-serif;
+}
+#reservar.booking-v47 .booking-support a{
+ color:#D5DEDA;
+ text-decoration:underline;
+ text-underline-offset:5px;
+ text-decoration-color:#24D65A;
+}
+#reservar.booking-v47 .privacy{
+ color:#AEB9B7;
+ font-size:11px;
+ line-height:1.55;
+ margin:16px 0 0;
+}
+@media(max-width:600px){
+ #reservar.booking-v47{
+  padding:25px 0 32px;
+ }
+ #reservar.booking-v47 .shell{
+  width:calc(100% - 30px);
+ }
+ #reservar.booking-v47 .booking-intro{
+  gap:10px;
+  margin:0 0 14px;
+ }
+ #reservar.booking-v47 .booking-intro .eyebrow{
+  margin:0 0 10px;
+  font-size:11px;
+ }
+ #reservar.booking-v47 .booking-intro h2{
+  font-size:clamp(31px,8.6vw,42px);
+  line-height:1.04;
+ }
+ #reservar.booking-v47 .booking-intro>p{
+  font-size:clamp(12px,3.35vw,14px);
+  line-height:1.42;
+  max-width:100%;
+ }
+ #reservar.booking-v47 .booking-trust{
+  margin:0 0 14px;
+  gap:8px;
+ }
+ #reservar.booking-v47 .booking-trust-pill{
+  min-height:38px;
+  font-size:clamp(10px,2.72vw,12px);
+  padding:7px 10px;
+  gap:6px;
+ }
+ #reservar.booking-v47 .booking-trust-pill svg{
+  width:16px;height:16px;flex-basis:16px;
+ }
+ #reservar.booking-v47 .booking-container-v47{
+  border-radius:13px;
+ }
+ #reservar.booking-v47 .booking-top{
+  padding:11px 12px;
+ }
+ #reservar.booking-v47 .booking-top strong{font-size:16px}
+ #reservar.booking-v47 .booking-top small{
+  font-size:9px;
+  padding:5px 7px;
+ }
+ #reservar.booking-v47 .calendar-wrap,
+ #reservar.booking-v47 .calendar-wrap #cal-booking{
+  min-height:730px;
+ }
+ #reservar.booking-v47 .full-screen-booking{
+  padding:12px 8px;
+  font-size:11px;
+  text-align:center;
+ }
+ #reservar.booking-v47 .booking-support{
+  margin-top:14px;
+ }
+}
+@media(max-width:360px){
+ #reservar.booking-v47 .shell{width:calc(100% - 24px)}
+ #reservar.booking-v47 .booking-intro h2{font-size:clamp(29px,8.65vw,33px)}
+ #reservar.booking-v47 .booking-trust-pill{
+  font-size:10px;
+  gap:5px;
+  padding:7px 9px;
+ }
+ #reservar.booking-v47 .booking-top strong{font-size:15px}
+ #reservar.booking-v47 .booking-top small{
+  font-size:8px;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ #reservar.booking-v47 :is(a,button){
+  scroll-behavior:auto!important;
+  transition:none!important;
+ }
+}
