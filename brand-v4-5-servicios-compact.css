@@ -41,7 +41,7 @@
   #servicios .welcome-card-link{
     width:100%;
     margin:9px auto 0;
-    gap:8px;
+    gap:16px;
   }
   #servicios .welcome-panel{
     grid-template-columns:34px minmax(0,1fr);
