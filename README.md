@@ -226,3 +226,16 @@ En la captura móvil de V4.4.4 se comprobó que el botón fijo «RESERVAR TURNO�
 **Invariantes:** logo maestro original, fotografías publicitarias, título, teléfono Business +54 11 4142-7755, promoción de nuevo cliente por única vez, animación suave del 20%, calendario Cal.com y aprobación manual.
 
 **QA:** revisar dimensiones 320, 360, 390 y 414 px; no garantizar toda la segunda pantalla en un viewport corto si el usuario exige conservar el tamaño fijo de las imágenes. Preferir deslizamiento vertical natural antes que reducir texto por debajo de una lectura cómoda.
+
+
+## V4.6 — EXPERIENCE JOURNEY · Pantalla 03 (18/11/2026)
+
+**Alcance:** se reemplazan únicamente las tres filas estáticas de la sección #experiencia por tres pestañas funcionales y un panel de texto contextual; se conservan la fotografía assets/fachada.webp, «EL TIEMPO ES TUYO», el título y la descripción autorizados. Se incorpora el CTA «RESERVAR MI TURNO» que lleva al ancla existente #reservar, no a otro sistema de agenda.
+
+**Archivos:** index.html (solo #experiencia y dos referencias de archivos), nuevos experience-v4-6.css y experience-v4-6.js, script.js (ajuste del CTA flotante para que se oculte cuando #experiencia está a la vista), README.md (esta documentación). Los estilos nuevos están encapsulados bajo #experiencia.
+
+**Interacción y accesibilidad:** role=tablist/tab/tabpanel, aria-selected, roving tabindex, clic/toque y navegación con flechas, Home y End. El panel actualiza número, icono, título y descripción; la descripción utiliza aria-live polite. Estados de foco visibles, área táctil mínima de 54 px en móvil, glow controlado, movimiento reducido y scroll vertical natural.
+
+**Invariantes:** no se modifica assets/logo-maestro-original.png, portada, pantalla 2 V4.5.3, carrusel, promoción del 20%, WhatsApp ni la carga Cal.com con calLink carlos-lavados/solicitud-lavado-domicilio. La aprobación manual sigue siendo externa a la landing y debe comprobarse desde Cal.com; el texto no promete confirmación instantánea.
+
+**Verificaciones requeridas antes de publicar:** inspección móvil en 320/360/390/414 px, tablet y escritorio, pruebas con TalkBack/lector de pantalla, foco, touch, flechas/Home/End, movimiento reducido, ausencia de overflow horizontal y de CTAs superpuestos. Revisar un caso de reserva pendiente de aprobación en Cal.com. No confundir pruebas de código con la validación real en Android.
