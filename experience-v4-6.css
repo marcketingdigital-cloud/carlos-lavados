@@ -1,0 +1,86 @@
+/* CARLOS Experience Journey V4.6. Todas las reglas aisladas dentro de #experiencia. */
+#experiencia.experience{--jx-green:#24D65A;--jx-carbon:#0B0F10;--jx-metal:#BFC4C9;--jx-silver:#E3E7E9;position:relative;isolation:isolate;overflow:clip;background:radial-gradient(ellipse at 75% 50%,rgba(36,214,90,.075),transparent 65%),#0B0F10;color:#FFFFFF;padding:clamp(18px,3.8vw,50px) 0 clamp(30px,4.4vw,60px)}
+#experiencia *,#experiencia *::before,#experiencia *::after{box-sizing:border-box}
+#experiencia .experience-shell{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);align-items:center;gap:clamp(20px,3vw,50px);width:min(1200px,calc(100% - 40px));min-height:0;margin-inline:auto;padding:0}
+#experiencia .experience-shell>*{min-width:0}
+#experiencia .experience-pic{position:relative;margin:0;width:100%;min-height:0;aspect-ratio:1.28;border:0;border-radius:0;background:#0B0F10;overflow:hidden;isolation:isolate}
+#experiencia .experience-pic img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:58% center;filter:brightness(1.09) contrast(1.04) saturate(.93);-webkit-mask-image:radial-gradient(ellipse 67% 72% at 51% 48%,#000 38%,rgba(0,0,0,.89) 61%,transparent 92%);mask-image:radial-gradient(ellipse 67% 72% at 51% 48%,#000 38%,rgba(0,0,0,.89) 61%,transparent 92%)}
+#experiencia .experience-pic::after{content:none!important;display:none!important}
+#experiencia .experience-pic figcaption{display:inline-flex;position:absolute;left:8%;bottom:12%;z-index:2;border-left:2px solid #24D65A;border-radius:0 7px 7px 0;padding:8px 10px;margin:0;background:rgba(11,15,16,.72);color:#FFFFFF;font:700 11px/1.3 "Montserrat",Arial,sans-serif;letter-spacing:.12em;backdrop-filter:blur(6px)}
+#experiencia .experience-content{width:100%;max-width:none;margin:0;padding:0}
+#experiencia .experience-content .eyebrow{margin:0 0 10px;color:#24D65A;font-size:10px;line-height:1.4;letter-spacing:.18em;font-weight:800}
+#experiencia .experience-content h2{max-width:none;margin:0 0 14px;color:#FFFFFF;font-size:clamp(27px,3.1vw,47px);line-height:1.07;letter-spacing:-.055em;font-weight:900;text-wrap:balance}
+#experiencia .experience-content h2 em{font-style:normal;color:#24D65A}
+#experiencia .experience-content>p:not(.eyebrow){margin:0 0 19px;max-width:54ch;color:#E3E7E9;font-size:clamp(13.5px,1.15vw,16px);line-height:1.55}
+#experiencia .journey-tablist{position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;gap:9px;margin:0 0 14px}
+#experiencia .journey-tablist::before{content:"";position:absolute;left:10%;right:10%;top:50%;height:2px;background:linear-gradient(90deg,transparent,rgba(36,214,90,.7) 12%,#24D65A 50%,rgba(36,214,90,.7) 88%,transparent);box-shadow:0 0 12px rgba(36,214,90,.4);z-index:-1;pointer-events:none}
+#experiencia .journey-step{position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0;min-height:107px;gap:6px;padding:12px 10px;border:1px solid rgba(191,196,201,.34);border-radius:14px;background:linear-gradient(155deg,rgba(25,34,35,.98),rgba(11,15,16,.98));box-shadow:inset 0 1px rgba(227,231,233,.075);font:inherit;color:#E3E7E9;text-align:left;cursor:pointer;transition:border-color .22s,box-shadow .22s,transform .22s;-webkit-tap-highlight-color:transparent}
+#experiencia .journey-step:hover{border-color:rgba(36,214,90,.7)}
+#experiencia .journey-step[aria-selected="true"]{color:#FFFFFF;border-color:#24D65A;background:linear-gradient(145deg,rgba(23,43,31,.97),rgba(11,15,16,.98));box-shadow:0 0 0 1px rgba(36,214,90,.28),0 0 20px rgba(36,214,90,.16),inset 0 1px rgba(36,214,90,.17)}
+#experiencia .journey-step:active{transform:scale(.985)}
+#experiencia .journey-step:focus-visible,#experiencia .journey-book:focus-visible{outline:3px solid #FFFFFF;outline-offset:3px}
+#experiencia .journey-step-index{font-size:10px;line-height:1;font-weight:900;letter-spacing:.10em;color:#BFC4C9}
+#experiencia .journey-step[aria-selected="true"] .journey-step-index{color:#24D65A}
+#experiencia .journey-step-symbol{display:flex;align-items:center;justify-content:center;width:24px;height:24px;color:#BFC4C9}
+#experiencia .journey-step[aria-selected="true"] .journey-step-symbol{color:#24D65A}
+#experiencia .journey-step-symbol svg{display:block;width:24px;height:24px;stroke:currentColor;fill:none}
+#experiencia .journey-step-copy{display:block;max-width:100%;font-size:clamp(10px,.93vw,12px);font-weight:800;line-height:1.35;letter-spacing:.01em;overflow-wrap:break-word}
+#experiencia .journey-detail{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr);align-items:center;gap:12px;min-height:146px;padding:18px;border:1px solid rgba(191,196,201,.4);border-left:3px solid #24D65A;border-radius:15px;background:linear-gradient(140deg,rgba(23,33,34,.96),rgba(11,15,16,.98));box-shadow:0 11px 30px rgba(0,0,0,.2),inset 0 1px rgba(227,231,233,.065),0 0 22px rgba(36,214,90,.07)}
+#experiencia .journey-detail:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px}
+#experiencia .journey-detail-icon{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(36,214,90,.5);border-radius:13px;background:rgba(36,214,90,.09);color:#24D65A}
+#experiencia .journey-detail-icon svg{width:25px;height:25px;stroke:currentColor;fill:none}
+#experiencia .journey-detail-body{min-width:0}
+#experiencia .journey-detail-kicker{display:block;margin-bottom:6px;color:#24D65A;font-size:10px;font-weight:800;letter-spacing:.14em}
+#experiencia .journey-detail h3{margin:0 0 6px;color:#FFFFFF;font-size:clamp(14px,1.26vw,17px);line-height:1.3;letter-spacing:-.018em;font-weight:800}
+#experiencia .journey-detail p{margin:0;color:#E3E7E9;font-size:clamp(12px,1.04vw,14px);line-height:1.55}
+#experiencia .journey-detail.is-switching .journey-detail-body,#experiencia .journey-detail.is-switching .journey-detail-icon{animation:journey-in .25s ease-out both}
+@keyframes journey-in{from{opacity:.55;transform:translateY(5px)}to{opacity:1;transform:none}}
+#experiencia .journey-action{text-align:center;margin:19px auto 0}
+#experiencia .journey-book{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:11px;min-height:56px;max-width:100%;padding:12px 24px;border:1.5px solid #24D65A;border-radius:999px;background:linear-gradient(180deg,#1C2827 0%,#0B0F10 50%,#11191A 100%);color:#FFFFFF;text-decoration:none;box-shadow:inset 0 1px rgba(227,231,233,.2),inset 0 -2px 8px rgba(0,0,0,.55),0 0 0 1px rgba(36,214,90,.12),0 0 22px rgba(36,214,90,.2),0 10px 21px rgba(0,0,0,.38);font:800 clamp(12px,1.08vw,14px)/1.3 "Montserrat",Arial,sans-serif;letter-spacing:.04em;cursor:pointer;transition:box-shadow .22s,transform .22s}
+#experiencia .journey-book::after{content:"";position:absolute;left:19%;right:19%;height:9px;bottom:-13px;border-radius:50%;background:rgba(36,214,90,.21);filter:blur(10px);pointer-events:none}
+#experiencia .journey-book:hover{transform:translateY(-2px);box-shadow:inset 0 1px rgba(227,231,233,.28),0 0 0 1px rgba(36,214,90,.2),0 0 30px rgba(36,214,90,.30),0 12px 22px rgba(0,0,0,.4)}
+#experiencia .journey-book:active{transform:translateY(0)}
+#experiencia .journey-book svg{width:19px;height:19px;stroke:currentColor;fill:none;flex:none}
+#experiencia .journey-arrow{font-size:20px;line-height:1;color:#24D65A}
+#experiencia .journey-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:570px;margin:22px auto 0;padding:15px 0 0;border-top:1px solid rgba(191,196,201,.22);list-style:none}
+#experiencia .journey-benefits li{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-width:0;color:#E3E7E9;text-align:center;font-size:clamp(10px,.96vw,12px);line-height:1.3;font-weight:700}
+#experiencia .journey-benefits svg{width:20px;height:20px;stroke:#24D65A;fill:none;flex:none}
+@media(max-width:899px){
+#experiencia.experience{padding:12px 0 36px}
+#experiencia .experience-shell{width:min(650px,calc(100% - 32px));grid-template-columns:minmax(0,1fr);gap:6px;align-items:start}
+#experiencia .experience-pic{aspect-ratio:1.90}
+#experiencia .experience-pic img{object-position:58% 47%}
+#experiencia .experience-pic figcaption{left:8%;bottom:12%;padding:6px 9px;font-size:10px}
+#experiencia .experience-content{padding:0}
+#experiencia .experience-content .eyebrow{margin-bottom:7px}
+#experiencia .experience-content h2{margin-bottom:10px;font-size:clamp(28px,7.5vw,38px);line-height:1.045;letter-spacing:-.053em}
+#experiencia .experience-content>p:not(.eyebrow){margin-bottom:13px;font-size:clamp(13px,3.6vw,15px);line-height:1.5}
+#experiencia .journey-tablist{grid-template-columns:minmax(0,1fr);gap:7px;margin-bottom:11px}
+#experiencia .journey-tablist::before{top:28px;bottom:28px;left:23px;right:auto;width:2px;height:auto;background:linear-gradient(180deg,transparent,#24D65A 15%,#24D65A 85%,transparent)}
+#experiencia .journey-step{flex-direction:row;align-items:center;justify-content:flex-start;min-height:54px;padding:8px 12px;gap:11px;border-radius:12px}
+#experiencia .journey-step-index{min-width:18px;text-align:center}
+#experiencia .journey-step-symbol{width:23px;height:23px;flex:none}
+#experiencia .journey-step-symbol svg{width:22px;height:22px}
+#experiencia .journey-step-copy{font-size:clamp(11px,3vw,13px);line-height:1.3}
+#experiencia .journey-detail{min-height:139px;padding:15px;grid-template-columns:39px minmax(0,1fr);gap:12px}
+#experiencia .journey-detail-icon{width:39px;height:39px}
+#experiencia .journey-detail-icon svg{width:23px;height:23px}
+#experiencia .journey-detail h3{font-size:14px}
+#experiencia .journey-detail p{font-size:12.5px}
+#experiencia .journey-action{margin-top:16px}
+#experiencia .journey-book{min-height:54px;padding:11px 19px}
+#experiencia .journey-benefits{margin-top:20px;padding-top:13px}
+}
+@media(max-width:360px){
+#experiencia .experience-shell{width:calc(100% - 28px)}
+#experiencia .experience-content h2{font-size:clamp(26px,7.7vw,30px)}
+#experiencia .journey-step{gap:8px;padding-inline:9px}
+#experiencia .journey-detail{padding:12px;min-height:152px;gap:9px}
+#experiencia .journey-detail p{font-size:12px;line-height:1.5}
+#experiencia .journey-book{padding:11px 14px;gap:8px;font-size:12px}
+#experiencia .journey-benefits{gap:4px}
+}
+@media(prefers-reduced-motion:reduce){
+#experiencia .journey-step,#experiencia .journey-book{transition:none!important}
+#experiencia .journey-detail.is-switching .journey-detail-body,#experiencia .journey-detail.is-switching .journey-detail-icon{animation:none!important}
+}
