@@ -18,7 +18,7 @@ const experienceSection=document.getElementById('experiencia');
 if(sticky){
  const zones={hero:true,booking:false,final:false,footer:false,promo:false,experience:false};
  const updateSticky=()=>{
-  const hide=zones.hero||zones.booking||zones.final||zones.footer||zones.promo;
+  const hide=zones.hero||zones.booking||zones.final||zones.footer||zones.promo||zones.experience;
   sticky.classList.toggle('is-muted',zones.hero||zones.final);
   sticky.classList.toggle('in-booking',zones.booking||zones.footer);
   sticky.classList.toggle('is-hidden',hide);
@@ -141,6 +141,59 @@ if(experienceSection){
    });
   },{threshold:.16});
   revealObserver.observe(experienceSection);
+ }
+}
+
+/* CARLOS V4.6 — Experience Journey: tabs accesibles.
+ * La selección modifica solo la descripción de #experiencia.
+ * No crea ni confirma reservas: el CTA abre #reservar con Cal.com existente.
+ */
+if(experienceSection){
+ const tabs=Array.from(experienceSection.querySelectorAll('.experience-step[role="tab"]'));
+ const panel=document.getElementById('experience-detail');
+ const number=document.getElementById('experience-detail-number');
+ const title=document.getElementById('experience-detail-title');
+ const description=document.getElementById('experience-detail-description');
+ const icons=Array.from(experienceSection.querySelectorAll('[data-detail-icon]'));
+ const content=[
+  {number:'01',title:'ELEGÍ TU HORARIO',description:'Explorá las fechas y horas disponibles mediante CARLOS RESERVA.'},
+  {number:'02',title:'CONTANOS QUÉ NECESITÁS',description:'Indicá tu domicilio y los detalles del lavado para que Carlos pueda revisar tu solicitud.'},
+  {number:'03',title:'RECIBÍ LA CONFIRMACIÓN',description:'Carlos revisa disponibilidad y traslado. Tu turno queda confirmado únicamente después de su aprobación.'}
+ ];
+ if(tabs.length===content.length&&panel&&number&&title&&description){
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+  const selectStep=(index,focus=false)=>{
+   if(index<0||index>=tabs.length)return;
+   const selected=content[index];
+   tabs.forEach((tab,i)=>{
+    const active=i===index;
+    tab.classList.toggle('is-active',active);
+    tab.setAttribute('aria-selected',String(active));
+    tab.tabIndex=active?0:-1;
+   });
+   panel.setAttribute('aria-labelledby',tabs[index].id);
+   number.textContent=selected.number;
+   title.textContent=selected.title;
+   description.textContent=selected.description;
+   icons.forEach((icon,i)=>{icon.hidden=i!==index;});
+   if(!reduced.matches){
+    panel.classList.remove('is-switching');
+    void panel.offsetWidth;
+    panel.classList.add('is-switching');
+   }
+   if(focus)tabs[index].focus();
+  };
+  tabs.forEach((tab,index)=>{
+   tab.addEventListener('click',()=>selectStep(index));
+   tab.addEventListener('keydown',(event)=>{
+    let next=null;
+    if(event.key==='ArrowRight')next=(index+1)%tabs.length;
+    if(event.key==='ArrowLeft')next=(index-1+tabs.length)%tabs.length;
+    if(event.key==='Home')next=0;
+    if(event.key==='End')next=tabs.length-1;
+    if(next!==null){event.preventDefault();selectStep(next,true);}
+   });
+  });
  }
 }
 

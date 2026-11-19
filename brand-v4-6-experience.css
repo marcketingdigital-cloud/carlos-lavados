@@ -1,0 +1,457 @@
+/* CARLOS V4.6 — EXPERIENCE JOURNEY
+   Estética aprobada: Electric Emerald Glow.
+   Afecta exclusivamente #experiencia; evita alterar pantallas 01/02,
+   servicios, WhatsApp, footer, Cal.com y marca original.
+   Colores: #24D65A / #0B0F10 / #BFC4C9 / #FFFFFF.
+*/
+#experiencia.experience-v46{
+  --ej-green:#24D65A;
+  --ej-black:#0B0F10;
+  --ej-silver:#BFC4C9;
+  --ej-white:#FFFFFF;
+  background:radial-gradient(ellipse 65% 13% at 50% 84%,rgba(36,214,90,.12),transparent 95%),#0B0F10;
+  border-top:1px solid rgba(36,214,90,.20);
+  border-bottom:1px solid rgba(191,196,201,.23);
+  padding:16px 0 33px;
+  isolation:isolate;
+}
+#experiencia .experience-journey{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:0;
+  width:min(1050px,calc(100% - 42px));
+  min-height:0;
+  margin-inline:auto;
+  padding:0;
+}
+#experiencia .experience-journey > *{min-width:0;box-sizing:border-box}
+/* 1. Fotografía conceptual aprobada: fusionada con el grafito */
+#experiencia .experience-pic{
+  position:relative;
+  margin:0;
+  width:100%;
+  min-height:0;
+  height:auto;
+  aspect-ratio:2.45;
+  overflow:hidden;
+  border:0;
+  border-radius:0;
+  background:#0B0F10;
+  isolation:isolate;
+}
+#experiencia .experience-pic img{
+  position:absolute;inset:0;
+  display:block;width:100%;height:100%;
+  object-fit:cover;object-position:61% 52%;
+  filter:saturate(.97) contrast(1.08);
+  -webkit-mask-image:
+    linear-gradient(to right,transparent 0%,#000 7%,#000 93%,transparent 100%);
+  mask-image:
+    linear-gradient(to right,transparent 0%,#000 7%,#000 93%,transparent 100%);
+}
+#experiencia .experience-pic::after{
+  content:"";position:absolute;z-index:1;pointer-events:none;inset:0;
+  background:linear-gradient(180deg,
+   rgba(11,15,16,.15) 0%,transparent 33%,
+   rgba(11,15,16,.15) 57%,#0B0F10 100%)!important;
+}
+#experiencia .experience-pic figcaption{
+  position:absolute;z-index:2;
+  left:5%;bottom:19%;
+  background:rgba(11,15,16,.67);
+  border:0;border-left:3px solid #24D65A;
+  border-radius:0 7px 7px 0;
+  padding:9px 14px;
+  color:#FFFFFF;
+  font:800 clamp(11px,1.65vw,16px)/1.2 "Montserrat",Arial,sans-serif;
+  letter-spacing:.075em;
+  backdrop-filter:blur(5px);
+}
+#experiencia .experience-content{
+  box-sizing:border-box;
+  width:100%;max-width:none;margin:0;
+  padding:0 12px 0;
+}
+#experiencia .experience-content .eyebrow{
+  margin:0 0 12px;
+  color:#24D65A;
+  font:900 clamp(11px,1.8vw,15px)/1.25 "Montserrat",Arial,sans-serif;
+  letter-spacing:.11em;
+}
+#experiencia .experience-content h2{
+  margin:0 0 14px;
+  max-width:100%;
+  font:900 clamp(35px,5.4vw,65px)/1.045 "Montserrat",Arial,sans-serif;
+  color:#FFFFFF;
+  letter-spacing:-.06em;
+  text-wrap:balance;
+}
+#experiencia .experience-content h2 em{
+  color:#24D65A;
+  font-style:normal;
+  text-shadow:0 3px 10px rgba(0,0,0,.40),0 0 13px rgba(36,214,90,.08);
+}
+#experiencia .experience-content .experience-intro{
+  margin:0 0 22px;
+  max-width:70ch;
+  color:#E3E7E9;
+  font:500 clamp(14px,1.75vw,17px)/1.5 "Montserrat",Arial,sans-serif;
+}
+/* 2. Timeline funcional con bordes eléctricos y conector */
+#experiencia .experience-steps{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(10px,2.6vw,24px);
+  width:100%;
+  margin:0 0 19px;
+  padding:0;
+}
+#experiencia .experience-steps::before{
+  content:"";z-index:0;position:absolute;
+  left:7%;right:7%;top:50%;height:3px;
+  transform:translateY(-50%);
+  background:linear-gradient(90deg,rgba(36,214,90,.45),#24D65A,rgba(36,214,90,.45));
+  box-shadow:0 0 13px rgba(36,214,90,.52);
+  pointer-events:none;
+}
+#experiencia .experience-step{
+  appearance:none;
+  position:relative;z-index:1;isolation:isolate;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  gap:9px;min-width:0;
+  min-height:130px;
+  padding:16px 12px;
+  background:linear-gradient(148deg,rgba(24,36,34,.96),#0B0F10 79%);
+  border:1px solid rgba(191,196,201,.48);
+  border-radius:24px;
+  color:#DCE2DF;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+  transition:border-color .22s ease,box-shadow .22s ease,transform .22s ease,background-color .22s ease;
+}
+#experiencia .experience-step svg{
+  display:block;flex:0 0 auto;
+  width:37px;height:37px;
+  stroke:#E3E7E9;
+}
+#experiencia .experience-step-number{
+  position:absolute;left:14px;top:11px;
+  color:#BFC4C9;
+  font:900 17px/1 "Montserrat",Arial,sans-serif;
+}
+#experiencia .experience-step-name{
+  display:block;max-width:100%;
+  color:#FFFFFF;
+  font:900 clamp(10px,1.5vw,15px)/1.16 "Montserrat",Arial,sans-serif;
+  letter-spacing:-.025em;
+  text-wrap:balance;
+}
+#experiencia .experience-step.is-active,
+#experiencia .experience-step[aria-selected="true"]{
+  color:#FFFFFF;
+  border:2px solid #24D65A;
+  background:linear-gradient(160deg,rgba(22,49,31,.92),rgba(11,15,16,.97) 48%,rgba(11,30,19,.97));
+  box-shadow:
+    inset 0 0 0 1px rgba(227,231,233,.18),
+    inset 0 -5px 11px rgba(36,214,90,.15),
+    0 0 0 1px rgba(36,214,90,.28),
+    0 0 13px rgba(36,214,90,.73),
+    0 0 32px rgba(36,214,90,.36);
+}
+#experiencia .experience-step.is-active .experience-step-number{color:#24D65A}
+#experiencia .experience-step:is(:hover,:focus-visible){
+  border-color:#24D65A;
+  transform:translateY(-2px);
+}
+#experiencia .experience-step:focus-visible{
+  outline:3px solid #FFFFFF;
+  outline-offset:4px;
+}
+/* 3. Panel dinámico: nunca desaparece si falla JS */
+#experiencia .experience-detail{
+  position:relative;isolation:isolate;
+  display:grid;
+  grid-template-columns:126px minmax(0,1fr);
+  gap:17px;align-items:center;
+  min-height:113px;
+  margin:0 0 21px;
+  padding:13px 20px;
+  color:#FFFFFF;
+  border:1px solid rgba(36,214,90,.55);
+  border-radius:23px;
+  background:
+    radial-gradient(ellipse 47% 99% at 100% 100%,rgba(36,214,90,.29),transparent 90%),
+    linear-gradient(120deg,rgba(28,56,39,.90),#0B0F10 59%,rgba(14,41,23,.98));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),inset 0 -2px 0 rgba(36,214,90,.22);
+  overflow:hidden;
+}
+#experiencia .experience-detail::before{
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  right:-9%;bottom:-60%;width:44%;height:126%;
+  background:radial-gradient(ellipse,rgba(36,214,90,.19),transparent 75%);
+  filter:blur(17px);
+}
+#experiencia .experience-detail-visual{
+  display:grid;place-items:center;
+  width:100%;height:100%;
+  border-right:2px solid rgba(36,214,90,.57);
+}
+#experiencia .experience-detail-visual>span:not([hidden]){
+  display:grid;place-items:center;
+  width:78px;height:78px;
+  border:1px solid rgba(191,196,201,.25);
+  border-radius:20px;
+  background:radial-gradient(ellipse at bottom right,rgba(36,214,90,.36),rgba(11,15,16,.64));
+  box-shadow:0 0 20px rgba(36,214,90,.13);
+}
+#experiencia .experience-detail-visual>span[hidden]{display:none!important}
+#experiencia .experience-detail-visual svg{
+  width:47px;height:47px;
+  stroke:#E3E7E9;
+  filter:drop-shadow(0 0 5px rgba(36,214,90,.18));
+}
+#experiencia .experience-detail-copy{
+  min-width:0;
+  position:relative;z-index:1;
+}
+#experiencia .experience-detail-heading{
+  display:flex;align-items:baseline;gap:12px;
+  margin:0 0 7px;
+}
+#experiencia #experience-detail-number{
+  flex:0 0 auto;
+  color:#24D65A;
+  font:900 24px/1 "Montserrat",Arial,sans-serif;
+}
+#experiencia #experience-detail-title{
+  margin:0;color:#FFFFFF;
+  font:900 clamp(14px,2vw,21px)/1.17 "Montserrat",Arial,sans-serif;
+  letter-spacing:-.035em;
+}
+#experiencia #experience-detail-description{
+  margin:0;
+  max-width:65ch;
+  color:#D5DEDA;
+  font:500 clamp(12px,1.5vw,16px)/1.48 "Montserrat",Arial,sans-serif;
+}
+#experiencia .experience-detail:focus-visible{
+  outline:3px solid #FFFFFF;outline-offset:4px;
+}
+@keyframes carlos-detail-reveal{
+  from{opacity:.50;transform:translateY(5px)}
+  to{opacity:1;transform:translateY(0)}
+}
+#experiencia .experience-detail.is-switching .experience-detail-copy{
+  animation:carlos-detail-reveal .25s ease-out both;
+}
+/* 4. CTA de conversión: la misma cápsula oscura de pantalla 2 */
+#experiencia .experience-booking-cta{
+  position:relative;isolation:isolate;
+  display:grid;
+  grid-template-columns:27px 2px minmax(0,1fr) 24px;
+  align-items:center;column-gap:15px;
+  width:min(78%,650px);
+  min-height:63px;margin:0 auto 20px;
+  padding:10px 24px;
+  border:2px solid #24D65A;border-radius:999px;
+  color:#FFFFFF;text-decoration:none;
+  background:
+    radial-gradient(ellipse 67% 120% at 50% 110%,rgba(36,214,90,.20),transparent 88%),
+    linear-gradient(180deg,#143B24 0%,#0C2116 25%,#070F0B 56%,#0D2A17 83%,#123A20 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.4),
+    inset 0 -5px 12px rgba(36,214,90,.20),
+    0 0 0 1px rgba(191,196,201,.16),
+    0 0 9px rgba(36,214,90,.74),
+    0 0 22px rgba(36,214,90,.48),
+    0 10px 23px rgba(36,214,90,.20);
+  transition:transform .23s ease,box-shadow .23s ease;
+}
+#experiencia .experience-booking-cta::before{
+  content:"";pointer-events:none;position:absolute;
+  left:12%;right:12%;top:1px;height:2px;border-radius:99px;
+  background:linear-gradient(90deg,transparent,rgba(227,231,233,.84),transparent);
+}
+#experiencia .experience-booking-cta::after{
+  content:"";pointer-events:none;position:absolute;
+  left:17%;right:17%;top:calc(100% + 3px);height:15px;
+  background:radial-gradient(ellipse at center,rgba(36,214,90,.45),transparent 77%);
+  filter:blur(7px);
+}
+#experiencia .experience-booking-cta>svg{
+  width:27px;height:27px;
+  stroke:#FFFFFF;
+}
+#experiencia .experience-booking-divider{
+  width:2px;height:30px;
+  background:#24D65A;
+  box-shadow:0 0 6px rgba(36,214,90,.32);
+}
+#experiencia .experience-booking-label{
+  min-width:0;
+  font:italic 900 clamp(15px,2.35vw,21px)/1.1 "Montserrat",Arial,sans-serif;
+  color:#FFFFFF;text-align:center;letter-spacing:-.03em;
+  white-space:nowrap;
+}
+#experiencia .experience-booking-arrow{
+  color:#FFFFFF;justify-self:end;
+  font:700 27px/1 Arial,sans-serif;
+}
+#experiencia .experience-booking-cta:hover{
+  transform:translateY(-2px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.44),
+    inset 0 -6px 13px rgba(36,214,90,.25),
+    0 0 12px rgba(36,214,90,.8),
+    0 0 30px rgba(36,214,90,.58),
+    0 11px 27px rgba(36,214,90,.22);
+}
+#experiencia .experience-booking-cta:active{transform:translateY(0) scale(.99)}
+#experiencia .experience-booking-cta:focus-visible{outline:3px solid #FFFFFF;outline-offset:4px}
+/* 5. Beneficios pequeños: no otra barra ni botones */
+#experiencia .experience-benefits{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;align-items:center;
+  padding:7px 0;
+  color:#FFFFFF;
+}
+#experiencia .experience-benefits>div{
+  display:flex;align-items:center;justify-content:center;gap:11px;
+  min-width:0;
+  padding:8px 10px;
+  border-right:1px solid rgba(36,214,90,.60);
+  font:700 clamp(11px,1.55vw,16px)/1.25 "Montserrat",Arial,sans-serif;
+}
+#experiencia .experience-benefits>div:last-child{border-right:0}
+#experiencia .experience-benefits svg{
+  width:30px;height:30px;flex:0 0 30px;stroke:#24D65A;
+}
+/* Tablet: conservar 3 pasos; adaptar foto y copy sin desbordes */
+@media(min-width:601px) and (max-width:850px){
+ #experiencia .experience-journey{width:min(720px,calc(100% - 38px))}
+ #experiencia .experience-pic{aspect-ratio:2.25}
+ #experiencia .experience-step{min-height:124px;padding:14px 8px}
+ #experiencia .experience-booking-cta{width:min(90%,650px)}
+}
+/* Mobile first: todo en una columna; tarjetas horizontales
+   pueden activarse sin desplazamiento lateral accidental. */
+@media(max-width:600px){
+ #experiencia.experience-v46{padding:4px 0 19px}
+ #experiencia .experience-journey{
+   display:grid;grid-template-columns:minmax(0,1fr);
+   gap:0;width:calc(100% - 30px);margin:0 auto;padding:0;
+ }
+ #experiencia .experience-pic{
+  aspect-ratio:1.98;
+  margin:0 0 3px;min-height:0;border-radius:0;
+ }
+ #experiencia .experience-pic img{
+  object-position:62% 52%;
+ }
+ #experiencia .experience-pic figcaption{
+  left:6%;bottom:20%;
+  padding:6px 9px;border-left-width:2px;
+  font-size:10px;letter-spacing:.065em;
+ }
+ #experiencia .experience-content{padding:0 1px}
+ #experiencia .experience-content .eyebrow{
+  margin:0 0 8px;font-size:10px;letter-spacing:.105em;
+ }
+ #experiencia .experience-content h2{
+  margin:0 0 10px;
+  font-size:clamp(27px,7.4vw,36px);
+  line-height:1.07;letter-spacing:-.062em;
+ }
+ #experiencia .experience-content .experience-intro{
+  margin:0 0 14px;font-size:clamp(12px,3.1vw,14px);
+  line-height:1.4;max-width:54ch;
+ }
+ #experiencia .experience-steps{
+  gap:9px;margin:0 0 13px;
+ }
+ #experiencia .experience-steps::before{
+  left:9%;right:9%;height:2px;
+ }
+ #experiencia .experience-step{
+  gap:7px;
+  min-height:101px;
+  border-radius:17px;
+  padding:15px 4px 10px;
+ }
+ #experiencia .experience-step svg{width:28px;height:28px}
+ #experiencia .experience-step-number{
+  top:7px;left:8px;font-size:12px;
+ }
+ #experiencia .experience-step-name{
+  font-size:clamp(9px,2.45vw,11px);
+  line-height:1.15;
+  letter-spacing:-.035em;
+ }
+ #experiencia .experience-detail{
+  grid-template-columns:67px minmax(0,1fr);
+  gap:9px;min-height:83px;
+  margin:0 0 17px;padding:10px 11px;
+  border-radius:16px;
+ }
+ #experiencia .experience-detail-visual>span:not([hidden]){
+  width:49px;height:52px;
+  border-radius:11px;
+ }
+ #experiencia .experience-detail-visual svg{width:31px;height:31px}
+ #experiencia .experience-detail-heading{gap:7px;margin:0 0 4px}
+ #experiencia #experience-detail-number{font-size:17px}
+ #experiencia #experience-detail-title{
+  font-size:clamp(11px,3vw,15px);
+  line-height:1.17;
+ }
+ #experiencia #experience-detail-description{
+  font-size:clamp(10px,2.8vw,12px);
+  line-height:1.34;
+ }
+ #experiencia .experience-booking-cta{
+  width:calc(100% - 32px);
+  min-height:52px;
+  grid-template-columns:23px 1px minmax(0,1fr) 20px;
+  column-gap:9px;
+  padding:9px 15px;
+  margin:0 auto 15px;
+  border-radius:999px;
+ }
+ #experiencia .experience-booking-cta>svg{width:22px;height:22px}
+ #experiencia .experience-booking-divider{height:24px;width:1px}
+ #experiencia .experience-booking-label{font-size:clamp(12px,3.55vw,15px)}
+ #experiencia .experience-booking-arrow{font-size:23px}
+ #experiencia .experience-benefits{padding:0}
+ #experiencia .experience-benefits>div{
+  flex-direction:column;gap:4px;
+  font-size:clamp(9px,2.45vw,11px);
+  padding:5px 3px;line-height:1.2;text-align:center;
+ }
+ #experiencia .experience-benefits svg{
+  width:24px;height:24px;flex-basis:24px;
+ }
+}
+@media(max-width:360px){
+ #experiencia .experience-journey{width:calc(100% - 22px)}
+ #experiencia .experience-content h2{font-size:clamp(26px,7.8vw,29px)}
+ #experiencia .experience-step{min-height:97px;padding-inline:3px}
+ #experiencia .experience-step-name{font-size:9px}
+ #experiencia .experience-detail{grid-template-columns:53px minmax(0,1fr);gap:7px}
+ #experiencia .experience-detail-visual>span:not([hidden]){width:42px;height:45px}
+ #experiencia .experience-detail-visual svg{width:27px;height:27px}
+ #experiencia #experience-detail-title{font-size:11px}
+ #experiencia #experience-detail-description{font-size:10px}
+ #experiencia .experience-booking-cta{width:calc(100% - 10px);column-gap:7px;padding-inline:11px}
+ #experiencia .experience-booking-label{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+ #experiencia .experience-step,
+ #experiencia .experience-booking-cta{transition:none!important}
+ #experiencia .experience-step:hover,
+ #experiencia .experience-booking-cta:hover,
+ #experiencia .experience-booking-cta:active{transform:none!important}
+ #experiencia .experience-detail.is-switching .experience-detail-copy{animation:none!important}
+ #experiencia.is-in-view .experience-pic,
+ #experiencia.is-in-view .experience-content{animation:none!important}
+}
