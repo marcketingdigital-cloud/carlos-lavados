@@ -264,3 +264,15 @@ Se retira únicamente la franja redundante de beneficios «A domicilio / Confian
 **Se conservan**: fotografía, titular, tres pestañas interactivas del timeline, panel dinámico, CTA luminoso del mismo tamaño que la cápsula de la pantalla 2, enlace al calendario, Cal.com, WhatsApp, las pantallas 1 y 2 y la V4.7 de Reserva simplificada. No se modifica el flujo de solicitud ni el sistema de confirmación manual.
 
 Revisar en Android que la cápsula y el comienzo de CARLOS RESERVA tengan una separación limpia sin cortes.
+
+## V4.7.2 — Ajuste de jerarquía y transición de calendario (19/11/2026)
+
+**Objetivo:** refinar la cuarta sección «CARLOS RESERVA» según captura Android aprobada, sin alterar el evento de Cal.com ni el diseño funcional.
+
+**Cambios CSS aislados a `#reservar`:**
+- Encabezado interno del calendario «CARLOS RESERVA»: de 16 px a 14 px en móvil (reducción del 12,5%) y rango de 15–18 px en escritorio, conservando el título comercial principal.
+- Menos padding vertical en la barra interna del calendario y ligeros ajustes de márgenes de introducción y microcápsulas, para evitar que el título secundario compita con la acción.
+- Más separación entre la pantalla 3 y reservas: padding superior móvil de 25 a 34 px, y aumento proporcional en escritorio.
+- Se mantiene **sin recortar** el iframe de Cal.com. El espacio amplio visible entre la barra de CARLOS RESERVA y el mes pertenece a la interfaz de Cal.com: la página ya usa `month_view` y `hideEventTypeDetails:true`. No se modifican estilos dentro del iframe, alturas artificiales ni posición de calendario, porque podrían ocultar fechas/horarios o romper el manejo de foco.
+
+**Sin cambios:** HTML, `script.js`, endpoint Cal.com `carlos-lavados/solicitud-lavado-domicilio`, solicitud sujeta a aprobación manual, calendario, fotografía, marcas, WhatsApp y pantallas 1–3. Validación visual Android posterior necesaria.
