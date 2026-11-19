@@ -1,4 +1,9 @@
-/* CARLOS V4.7 — RESERVA SIN REDUNDANCIAS
+/* CARLOS V4.7.2 — AJUSTE FINO DE CALENDARIO Y TRANSICIÓN
+   Conserva la vista mensual y el embed original. El espacio interno
+   del iframe de Cal.com no se puede modificar con CSS local sin riesgos.
+   Cambios: menor jerarquía del encabezado y mayor respiro entre secciones.
+
+   CARLOS V4.7 — RESERVA SIN REDUNDANCIAS
    La sección previa (Experiencia Journey) ya explica los 3 pasos.
    En #reservar priorizamos la acción: calendario integrado.
    Este archivo solo afecta #reservar; no altera el evento Cal.com
@@ -13,7 +18,7 @@
  background:
   radial-gradient(ellipse 52% 18% at 92% 7%,rgba(36,214,90,.07),transparent 92%),
   #0B0F10;
- padding:clamp(28px,4.7vw,55px) 0 48px;
+ padding:clamp(36px,5.3vw,64px) 0 48px;
 }
 #reservar.booking-v47 .shell{
  width:min(1080px,calc(100% - 42px));
@@ -22,7 +27,7 @@
  display:flex;flex-direction:column;
  align-items:flex-start;justify-content:flex-start;
  gap:12px;
- margin:0 0 18px;
+ margin:0 0 16px;
 }
 #reservar.booking-v47 .booking-intro>div{width:100%}
 #reservar.booking-v47 .booking-intro .eyebrow{
@@ -56,7 +61,7 @@
 #reservar.booking-v47 .booking-trust{
  display:flex;align-items:center;justify-content:flex-start;
  gap:10px;flex-wrap:wrap;
- margin:0 0 17px;
+ margin:0 0 15px;
 }
 #reservar.booking-v47 .booking-trust-pill{
  display:inline-flex;align-items:center;justify-content:center;
@@ -100,11 +105,11 @@
  gap:10px;
  background:linear-gradient(110deg,rgba(22,46,29,.76),#101814);
  border-bottom:1px solid rgba(191,196,201,.25);
- padding:13px 17px;
+ padding:11px 16px;
 }
 #reservar.booking-v47 .booking-top strong{
  color:#FFFFFF;
- font:900 clamp(16px,2.2vw,21px)/1.2 "Montserrat",Arial,sans-serif;
+ font:900 clamp(15px,1.9vw,18px)/1.2 "Montserrat",Arial,sans-serif;
  letter-spacing:.012em;
 }
 #reservar.booking-v47 .booking-top small{
@@ -160,14 +165,14 @@
 }
 @media(max-width:600px){
  #reservar.booking-v47{
-  padding:25px 0 32px;
+  padding:34px 0 32px;
  }
  #reservar.booking-v47 .shell{
   width:calc(100% - 30px);
  }
  #reservar.booking-v47 .booking-intro{
   gap:10px;
-  margin:0 0 14px;
+  margin:0 0 12px;
  }
  #reservar.booking-v47 .booking-intro .eyebrow{
   margin:0 0 10px;
@@ -183,7 +188,7 @@
   max-width:100%;
  }
  #reservar.booking-v47 .booking-trust{
-  margin:0 0 14px;
+  margin:0 0 12px;
   gap:8px;
  }
  #reservar.booking-v47 .booking-trust-pill{
@@ -199,9 +204,9 @@
   border-radius:13px;
  }
  #reservar.booking-v47 .booking-top{
-  padding:11px 12px;
+  padding:9px 12px;
  }
- #reservar.booking-v47 .booking-top strong{font-size:16px}
+ #reservar.booking-v47 .booking-top strong{font-size:14px}
  #reservar.booking-v47 .booking-top small{
   font-size:9px;
   padding:5px 7px;
@@ -227,7 +232,7 @@
   gap:5px;
   padding:7px 9px;
  }
- #reservar.booking-v47 .booking-top strong{font-size:15px}
+ #reservar.booking-v47 .booking-top strong{font-size:14px}
  #reservar.booking-v47 .booking-top small{
   font-size:8px;
  }
