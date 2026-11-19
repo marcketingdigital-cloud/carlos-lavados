@@ -18,7 +18,8 @@ const experienceSection=document.getElementById('experiencia');
 if(sticky){
  const zones={hero:true,booking:false,final:false,footer:false,promo:false,experience:false};
  const updateSticky=()=>{
-  const hide=zones.hero||zones.booking||zones.final||zones.footer||zones.promo;
+  // V4.6: evitar un CTA flotante redundante sobre el CTA de la pantalla Experiencia.
+  const hide=zones.hero||zones.booking||zones.final||zones.footer||zones.promo||zones.experience;
   sticky.classList.toggle('is-muted',zones.hero||zones.final);
   sticky.classList.toggle('in-booking',zones.booking||zones.footer);
   sticky.classList.toggle('is-hidden',hide);
