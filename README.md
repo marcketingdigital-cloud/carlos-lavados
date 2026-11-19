@@ -226,3 +226,18 @@ En la captura móvil de V4.4.4 se comprobó que el botón fijo «RESERVAR TURNO�
 **Invariantes:** logo maestro original, fotografías publicitarias, título, teléfono Business +54 11 4142-7755, promoción de nuevo cliente por única vez, animación suave del 20%, calendario Cal.com y aprobación manual.
 
 **QA:** revisar dimensiones 320, 360, 390 y 414 px; no garantizar toda la segunda pantalla en un viewport corto si el usuario exige conservar el tamaño fijo de las imágenes. Preferir deslizamiento vertical natural antes que reducir texto por debajo de una lectura cómoda.
+
+## V4.6 — Pantalla 03 «CARLOS EXPERIENCE JOURNEY» (18/11/2026)
+
+**Referencia creativa aprobada:** maqueta con foto contextual «EL TIEMPO ES TUYO.», título «CUIDAMOS TU AUTO. RESPETAMOS TU TIEMPO.», tres tarjetas conectadas (01/02/03), borde Electric Emerald Glow en la seleccionada, panel que informa cada paso, cápsula luminosa «RESERVAR MI TURNO» y beneficios «A domicilio / Confianza / Tu tiempo vale».
+
+**Implementación real y aislada:**
+- `index.html`: se reemplazan solo las tres filas estáticas de `#experiencia` por una navegación de 3 pestañas `role="tablist"` con botones, nombres, `aria-selected`, `aria-controls`, un `role="tabpanel"` de contenido variable e iconos SVG inline. Imagen `assets/fachada.webp`, alt conceptual, figcaption, título y copy aprobados se conservan.
+- `brand-v4-6-experience.css`: hoja final específica de `#experiencia` con fusión fotográfica, 3 tarjetas conectadas, Electric Edge Glow, panel grafito, botón cápsula oscuro con borde verde `#24D65A`, reflejo y halo, beneficios compactos. Adaptación 320/360/390/414px, tablet y escritorio; efectos con `prefers-reduced-motion:reduce`.
+- `script.js`: selección de paso con clic/tacto y teclado (ArrowLeft/ArrowRight/Home/End), `tabindex` itinerante, actualización de `aria-selected`, `aria-labelledby`, número, título, explicación y SVG; transición de 250 ms solo cuando el usuario no solicita reducir movimiento. Estado inicial: Paso 01.
+- **Reserva única:** el nuevo CTA enlaza a `#reservar`, bloque Cal.com ya existente. No crea una agenda nueva ni promete confirmación automática. La aprobación manual continúa siendo administrada fuera de GitHub en Cal.com.
+- **Evitar dos CTA:** el botón sticky inferior existente se oculta al entrar en la sección Experiencia para no competir con el CTA local y reaparece al salir, salvo en secciones donde ya debía ocultarse.
+
+**Estado y alcance:** no cambiar las pantallas 1/2 (pantalla 2 V4.5.3 provisional), su promoción 20%, fotografías, logotipo maestro, WhatsApp Business, el evento `carlos-lavados/solicitud-lavado-domicilio` ni la configuración de aprobación manual.
+
+**Validación exigida:** comprobar interacciones de los tres pasos y teclado, foco visible, contenido del panel, transiciones, mobile 320/360/390/414, overflow, contraste y que el CTA salte al calendario con la aprobación manual externa intacta. En dispositivos con poca altura de pantalla, permitir scroll vertical natural en lugar de comprimir textos y objetivos táctiles por debajo de tamaños legibles. No confundir validaciones de código con pruebas reales de usuario.
