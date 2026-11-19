@@ -210,3 +210,19 @@ En la captura móvil de V4.4.4 se comprobó que el botón fijo «RESERVAR TURNO�
 - No cambia el enlace con mensaje precargado a WhatsApp Business, la condición de cliente nuevo, el descuento por única vez, el rebote del 20%, la primera pantalla, la tercera pantalla ni Cal.com y su aprobación manual.
 
 **Validación:** revisión estática de la estructura de HTML/CSS, enlaces de destino, conservación de imágenes y accesibilidad básica. Validar en captura real Android 320/360/390/414 px; pantallas muy bajas pueden requerir desplazamiento vertical natural, porque el tamaño fotográfico aprobado permanece fijo.
+
+## V4.5.2 — Ajuste fino de densidad de pantalla 2 (18/11/2026)
+
+**Aprobación:** conservar el título «Nuestros servicios», las tres fotografías exactamente del tamaño actual, el contorno brillante Electric Emerald Glow, los indicadores y la guía de deslizamiento, y compactar más las dos cápsulas para ganar altura visual.
+
+**Implementación incremental:** se actualiza exclusivamente la hoja de estilos ya existente `brand-v4-5-servicios-compact.css`, sin incorporar nuevas capas ni modificar el HTML, el JS o los assets de la sección.
+- Título móvil con margen inferior más corto, tamaño todavía legible y subrayado eléctrico proporcional; contador con menos separación.
+- Se reduce únicamente el `padding-top` y el `padding-bottom` del **contenedor desplazable**, nunca `width`, `height`, `flex-basis` ni `aspect-ratio` de `.service-card` o de sus fotografías.
+- Controles del carrusel e ícono de deslizamiento se acercan verticalmente y conservan su funcionalidad.
+- El panel del 20% adopta layout editorial compacto: cabecera, porcentaje y fila con sello «POR ÚNICA VEZ» más condiciones; se reduce su padding, no se suprimen requisitos comerciales.
+- CTA WhatsApp tipo cápsula luminoso de alto mínimo 50px, menos ancho, bordes y halos originales preservados; sigue siendo parte del mismo enlace al número oficial con mensaje precargado.
+- A `max-width:360px`, las condiciones pueden ocupar una línea adicional en vez de quedar cortadas.
+
+**Invariantes:** logo maestro original, fotografías publicitarias, título, teléfono Business +54 11 4142-7755, promoción de nuevo cliente por única vez, animación suave del 20%, calendario Cal.com y aprobación manual.
+
+**QA:** revisar dimensiones 320, 360, 390 y 414 px; no garantizar toda la segunda pantalla en un viewport corto si el usuario exige conservar el tamaño fijo de las imágenes. Preferir deslizamiento vertical natural antes que reducir texto por debajo de una lectura cómoda.
