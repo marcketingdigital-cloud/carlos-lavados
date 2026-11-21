@@ -243,3 +243,28 @@
   transition:none!important;
  }
 }
+/* V4.7.3: limpieza de redundancia y transiciones de reserva.
+   No altera el iframe ni recorta los controles de Cal.com. */
+#reservar.booking-v47 .full-screen-booking{
+ background:transparent;
+ border-top:1px solid rgba(191,196,201,.18);
+ padding:13px 14px;
+ color:#C7F5D3;
+ text-decoration:underline;
+ text-underline-offset:5px;
+ text-decoration-color:rgba(36,214,90,.65);
+}
+#reservar.booking-v47 .booking-support{margin:16px 0 0}
+#reservar.booking-v47 .privacy{
+ max-width:68ch;
+ margin:15px auto 0;
+ text-align:center;
+}
+#reservar.booking-v47 + .coverage{padding-top:clamp(40px,6vw,72px)}
+@media(max-width:600px){
+ #reservar.booking-v47{padding-bottom:26px}
+ #reservar.booking-v47 .full-screen-booking{padding:13px 10px}
+ #reservar.booking-v47 .booking-support{margin-top:14px}
+ #reservar.booking-v47 .privacy{margin-top:13px}
+ #reservar.booking-v47 + .coverage{padding-top:38px}
+}
