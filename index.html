@@ -35,6 +35,19 @@
   <title>CARLOS — Lavados de Autos a Domicilio | Solicitar turno</title>
   <style>@media (max-width:700px){.desktop-booking-guide{display:none}}</style>
   <link rel="stylesheet" href="coverage.css">
+  <style>
+    #preguntas .faq-list { max-width:48rem; margin-inline:auto; }
+    #preguntas details { padding:0; background:transparent; border:0; border-bottom:1px solid #45534d; border-radius:0; }
+    #preguntas details[open] { background:#0e1713; border:1px solid #607569; border-radius:16px; margin-block:6px; }
+    #preguntas summary { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:15px 14px; min-height:52px; list-style:none; color:white; }
+    #preguntas summary::-webkit-details-marker { display:none; }
+    #preguntas summary::after { content:""; flex:0 0 14px; height:14px; background:linear-gradient(#24d65a,#24d65a) center/100% 2px no-repeat,linear-gradient(#24d65a,#24d65a) center/2px 100% no-repeat; }
+    #preguntas details[open] summary::after { background-size:100% 2px,0 0; }
+    #preguntas details p { margin:0; padding:0 14px 16px; font-size:16px; line-height:1.55; color:#e0e6e2; }
+    #preguntas details p a { display:block; width:fit-content; padding-top:6px; }
+    #preguntas .faq-contact { display:flex; align-items:center; justify-content:center; gap:10px; width:min(calc(100% - 40px),310px); min-height:50px; margin:24px auto 0; padding:7px 11px; border:2px solid #24d65a; border-radius:999px; background:linear-gradient(#143b24,#070f0b 55%,#123a20); color:white; font-size:14px; font-style:italic; font-weight:900; text-align:center; text-decoration:none; }
+    #preguntas :focus-visible { outline:2px solid white; outline-offset:3px; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -262,12 +275,28 @@
 
 
     <section class="section shell faq" id="preguntas" aria-labelledby="faq-title">
-      <div class="section-head"><div><p class="eyebrow">INFORMACIÓN ÚTIL / 05</p><h2 id="faq-title">PREGUNTAS<br><em>FRECUENTES.</em></h2></div><p>Lo esencial antes de solicitar tu turno. Si necesitás coordinar un detalle, escribinos por WhatsApp.</p></div>
-      <div class="faq-grid">
-        <details><summary>¿La reserva queda confirmada al elegir un horario?</summary><p>Enviás la solicitud desde la agenda. Revisá la notificación de Cal.com para conocer su estado y contactá a Carlos si necesitás confirmar el traslado.</p></details>
-        <details><summary>¿En qué zonas realizan el servicio?</summary><p>Principalmente en Martínez y Acassuso. Otras localidades de Zona Norte están sujetas a consulta y disponibilidad.</p></details>
-        <details><summary>¿Puedo consultar antes de reservar?</summary><p>Sí. Podés comunicarte directamente por <a href="https://wa.me/541141427755?text=Hola%20Carlos%2C%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener noreferrer">WhatsApp Business</a>.</p></details>
-        <details><summary>¿Cómo cambio un turno solicitado?</summary><p>Consultá las opciones disponibles desde el mensaje que recibas de Cal.com o contactá a Carlos por WhatsApp. Los cambios están sujetos a disponibilidad.</p></details>
+      <div class="section-head">
+        <div><p class="eyebrow">INFORMACIÓN ÚTIL / 05</p><h2 id="faq-title">PREGUNTAS<br><em>FRECUENTES.</em></h2></div>
+        <p>Resolvé tus dudas antes o después de pedir tu turno.</p>
+      </div>
+      <div class="faq-list">
+        <details name="consultas" open>
+          <summary>¿Cuándo se confirma mi turno?</summary>
+          <p>Carlos revisa tu solicitud. Cuando la aprueba, recibís la confirmación por correo.</p>
+        </details>
+        <details name="consultas">
+          <summary>¿Llegan a mi zona?</summary>
+          <p>Lavamos a domicilio en Martínez y Acassuso. Si estás en otra localidad, podés consultar la cobertura. <a href="#cobertura">Elegir mi zona →</a></p>
+        </details>
+        <details name="consultas">
+          <summary>¿Puedo consultar antes de reservar?</summary>
+          <p>Sí. Con el botón de WhatsApp de abajo podés contarle a Carlos qué lavado necesitás o coordinar un detalle de tu domicilio.</p>
+        </details>
+        <details name="consultas">
+          <summary>¿Cómo cambio mi turno?</summary>
+          <p>Abrí el correo de confirmación y tocá «Reprogramar» para elegir otro horario disponible. Si necesitás ayuda, escribile a Carlos.</p>
+        </details>
+        <a class="faq-contact" href="https://wa.me/541141427755?text=Hola%2C%20Carlos.%20Tengo%20una%20consulta%20sobre%20un%20lavado%20a%20domicilio." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp <span aria-hidden="true">↗</span></a>
       </div>
     </section>
 
