@@ -232,9 +232,16 @@ if(document.getElementById('cal-booking')){
   .then(health=>{
    if(health.mode!=='configured'){mountOfficialCalendar();return;}
    const frame=document.createElement('iframe');
-   frame.src=backend+'/';frame.title='CARLOS Reserva — elegí fecha, horario y servicio';
+   frame.src=backend+'/?embed=1';frame.title='CARLOS Reserva — elegí fecha, horario y servicio';
    frame.loading='lazy';frame.referrerPolicy='strict-origin-when-cross-origin';
-   frame.style.cssText='display:block;width:100%;height:940px;min-height:740px;border:0;background:#080e0b;border-radius:14px';
+   frame.style.cssText='display:block;width:100%;height:760px;min-height:540px;border:0;background:#080e0b;border-radius:14px';
+   window.addEventListener('message',event=>{
+    if(event.origin!==new URL(backend).origin||event.source!==frame.contentWindow)return;
+    const message=event.data;
+    if(message?.type==='carlos-reserva-height'&&Number.isFinite(message.height)){
+     frame.style.height=Math.max(540,Math.min(2400,Math.ceil(message.height)+8))+'px';
+    }
+   });
    frame.setAttribute('aria-label','Formulario de reserva de CARLOS');
    document.getElementById('cal-booking').replaceChildren(frame);
   })
