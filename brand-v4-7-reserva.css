@@ -316,9 +316,11 @@
 #reservar.booking-glow-v48:after{content:"";display:block;height:2px;margin-top:25px;background:linear-gradient(90deg,transparent,#24D65A,transparent);box-shadow:0 0 13px rgba(36,214,90,.8)}
 #reservar.booking-glow-v48 + .coverage{padding-top:34px}
 @media(max-width:600px){
- #reservar.booking-glow-v48{padding:25px 0 18px}
+ #reservar.booking-glow-v48{padding:10px 0 18px}
+ #reservar.booking-glow-v48 .booking-intro{gap:5px;margin-bottom:9px}
+ #reservar.booking-glow-v48 .booking-intro>p{line-height:1.35}
  #reservar.booking-glow-v48 .shell{width:calc(100% - 28px)}
- #reservar.booking-glow-v48 .booking-intro h2{font-size:clamp(32px,8.3vw,43px)}
+ #reservar.booking-glow-v48 .booking-intro h2{font-size:clamp(24px,6.45vw,32px)}
  #reservar.booking-glow-v48 .booking-trust{gap:8px;margin:14px 0 18px;flex-wrap:nowrap}
  #reservar.booking-glow-v48 .booking-trust-pill{min-width:0;flex:1;padding:8px 6px;font-size:clamp(9px,2.55vw,12px);gap:5px}
  #reservar.booking-glow-v48 .booking-trust-pill svg{flex:0 0 16px}
