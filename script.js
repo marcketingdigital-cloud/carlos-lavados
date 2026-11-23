@@ -246,7 +246,9 @@ if(document.getElementById('cal-booking')){
   frame.style.position='absolute';
   frame.style.inset='0 auto auto 0';
   target.style.position='relative';
+  const fullScreenLink=document.querySelector('#reservar .full-screen-booking');
   const showFallback=()=>{
+   fullScreenLink?.style.removeProperty('display');
    clearTimeout(fallbackTimer);
    window.removeEventListener('message',onCalendarMessage);
    frame.removeEventListener('error',showFallback);
@@ -257,6 +259,7 @@ if(document.getElementById('cal-booking')){
    const message=event.data;
    if(message?.type!=='carlos-reserva-height'||!Number.isFinite(message.height)||message.height<=0)return;
    clearTimeout(fallbackTimer);
+   fullScreenLink?.style.setProperty('display','none','important');
    status.remove();
    frame.style.position='static';
    frame.style.visibility='visible';
