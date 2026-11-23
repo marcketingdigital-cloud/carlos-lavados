@@ -331,3 +331,17 @@
  #reservar.booking-glow-v48 + .coverage{padding-top:26px}
 }
 @media(prefers-reduced-motion:reduce){#reservar.booking-glow-v48 .booking-support a{transition:none}}
+
+/* V4.8.1: evitar que el contenedor de la agenda imponga 730px vacíos.
+   La altura real del calendario la controla el proveedor; no se recortan horarios. */
+#reservar.booking-v47 .calendar-wrap,
+#reservar.booking-v47 .calendar-wrap #cal-booking{
+ min-height:0;
+}
+#reservar.booking-v47 .calendar-wrap{overflow:visible}
+#reservar.booking-v47 .calendar-wrap #cal-booking{display:block}
+@media(max-width:600px){
+ #reservar.booking-v47 .calendar-wrap,
+ #reservar.booking-v47 .calendar-wrap #cal-booking{min-height:0}
+ #reservar.booking-v47 .booking-top{margin-bottom:0}
+}
