@@ -34,6 +34,21 @@
   <link rel="stylesheet" href="brand-v4-7-reserva.css">
   <title>CARLOS — Lavados de Autos a Domicilio | Solicitar turno</title>
   <style>@media (max-width:700px){.desktop-booking-guide{display:none}}</style>
+<style>
+    #cobertura .coverage-picker { min-width:0; padding:clamp(16px,4vw,28px); background:#0c1711; border:1px solid #34503e; border-radius:18px; }
+    #cobertura [hidden] { display:none; }
+    .coverage-picker fieldset { min-width:0; border:0; padding:0; margin:0; }
+    .coverage-picker legend { font-weight:750; padding:0; margin-bottom:14px; }
+    .coverage-options { display:flex; flex-wrap:wrap; gap:8px; }
+    .coverage-options label { display:flex; align-items:center; gap:6px; min-height:44px; padding:6px 10px; border:1px solid #526358; border-radius:12px; color:white; font-size:14px; cursor:pointer; }
+    .coverage-options input { margin:0; accent-color:#24d65a; }
+    .coverage-options label:has(:checked) { background:#153521; border-color:#24d65a; }
+    #coverage-answer { margin:16px 0; line-height:1.5; font-size:15px; }
+    #coverage-answer:empty { margin:0; }
+    #coverage-town input { display:block; width:100%; margin:6px 0 14px; padding:12px; color:white; background:#0a100d; font:inherit; border:1px solid #68776d; border-radius:8px; }
+    #coverage-action { display:flex; align-items:center; justify-content:center; width:min(100%,310px); min-height:50px; margin-inline:auto; padding:7px 11px; border:2px solid #24d65a; border-radius:999px; background:linear-gradient(180deg,#143b24,#070f0b 55%,#123a20); color:white; text-decoration:none; font:italic 900 14px/1.2 Montserrat,Arial,sans-serif; }
+    .coverage-picker :focus-visible { outline:3px solid white; outline-offset:3px; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -232,7 +247,29 @@
       </div>
     </section>
 
-    <section class="section shell coverage" id="cobertura" aria-labelledby="cobertura-title"><div><p class="eyebrow">ZONAS / 04</p><h2 id="cobertura-title">NOS MOVEMOS<br><em>POR VOS.</em></h2><p>Atendemos principalmente en <strong>Martínez y Acassuso</strong>. Otras localidades de Zona Norte están sujetas a consulta y disponibilidad de traslado.</p><a class="inline-link" href="https://wa.me/541141427755?text=Hola%20Carlos%2C%20quiero%20consultar%20si%20llegan%20a%20mi%20localidad" target="_blank" rel="noopener noreferrer">Consultar cobertura <span aria-hidden="true">↗</span></a></div><div class="zones"><div><span>01</span><strong>MARTÍNEZ</strong><small>ZONA PRINCIPAL</small></div><div><span>02</span><strong>ACASSUSO</strong><small>ZONA PRINCIPAL</small></div><div><span>03</span><strong>ZONA NORTE</strong><small>BAJO CONSULTA</small></div></div></section>
+    <section class="section shell coverage" id="cobertura" aria-labelledby="cobertura-title">
+      <div>
+        <p class="eyebrow">ZONAS / 04</p>
+        <h2 id="cobertura-title">NOS MOVEMOS<br><em>POR VOS.</em></h2>
+        <p>Elegí tu localidad para saber cómo pedir tu lavado a domicilio.</p>
+      </div>
+      <div class="coverage-picker" hidden>
+        <fieldset>
+          <legend>¿En qué localidad estás?</legend>
+          <div class="coverage-options">
+            <label><input type="radio" name="localidad" value="Martínez"> Martínez</label>
+            <label><input type="radio" name="localidad" value="Acassuso"> Acassuso</label>
+            <label><input type="radio" name="localidad" value="otra"> Otra localidad</label>
+          </div>
+        </fieldset>
+        <p id="coverage-answer" role="status"></p>
+        <label id="coverage-town" hidden>Tu localidad
+          <input type="text" maxlength="80" autocomplete="address-level2" placeholder="Por ejemplo, Olivos">
+        </label>
+        <a id="coverage-action" hidden></a>
+      </div>
+      <noscript><p>Atendemos en Martínez y Acassuso. <a href="#reservar">Ver horarios</a>. Para otras localidades, <a href="https://wa.me/541141427755">consultá por WhatsApp</a>.</p></noscript>
+    </section>
 
 
     <section class="section shell faq" id="preguntas" aria-labelledby="faq-title">
@@ -250,5 +287,42 @@
   <footer class="footer"><div class="shell footer-content"><a class="footer-brand" href="#inicio"><img src="assets/logo-maestro-original.png" alt="CARLOS — Logotipo maestro original" width="1672" height="941" loading="lazy"></a><p>Lavados de Autos a Domicilio<br>Martínez, Acassuso y zonas cercanas.</p><div class="footer-links"><a href="#servicios">Servicios</a><a href="#reservar">Solicitar turno</a><a href="#preguntas">Preguntas frecuentes</a><a href="https://wa.me/541141427755" target="_blank" rel="noopener noreferrer">WhatsApp Business</a></div><small>Arperting Marketing · 7sevenCreativo · Gitobi</small></div></footer>
   <a href="#reservar" class="mobile-cta" id="mobile-cta" aria-label="Reservar turno online con CARLOS"><svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></svg><span>RESERVAR TURNO</span><span class="cta-arrow" aria-hidden="true">→</span></a>
   <script src="script.js" defer></script>
+<script>
+    (() => {
+      const picker = document.querySelector('.coverage-picker');
+      const answer = picker.querySelector('#coverage-answer');
+      const town = picker.querySelector('#coverage-town');
+      const input = town.querySelector('input');
+      const action = picker.querySelector('#coverage-action');
+
+      function update() {
+        const selected = picker.querySelector('input[name="localidad"]:checked');
+        if (!selected) return;
+        const other = selected.value === 'otra';
+        town.hidden = !other;
+        const locality = input.value.trim();
+        const description = other
+          ? 'Decinos en qué localidad estás y Carlos te confirma si puede acercarse.'
+          : 'Sí, atendemos en ' + selected.value + '. Elegí el horario que te quede cómodo y Carlos te confirma el turno por correo.';
+        if (answer.textContent !== description) answer.textContent = description;
+        action.hidden = other && !locality;
+        action.textContent = other ? 'Consultar por WhatsApp ↗' : 'Ver horarios →';
+        if (other) {
+          const message = 'Hola, Carlos. Estoy en ' + locality + ' y quería saber si llegás a mi zona para un lavado a domicilio.';
+          action.href = 'https://wa.me/541141427755?text=' + encodeURIComponent(message);
+          action.target = '_blank';
+          action.rel = 'noopener noreferrer';
+        } else {
+          action.href = '#reservar';
+          action.removeAttribute('target');
+        }
+      }
+
+      picker.addEventListener('change', update);
+      input.addEventListener('input', update);
+      picker.hidden = false;
+      update();
+    })();
+  </script>
 </body>
 </html>
