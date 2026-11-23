@@ -39,7 +39,14 @@
     #cobertura [hidden] { display:none; }
     .coverage-picker fieldset { min-width:0; border:0; padding:0; margin:0; }
     .coverage-picker legend { font-weight:750; padding:0; margin-bottom:14px; }
-    .coverage-options { display:flex; flex-wrap:wrap; gap:8px; }
+    .coverage-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+    .coverage-options label:last-child { grid-column:1/-1; }
+    .coverage-options label { cursor:pointer; }
+    .coverage-options label:focus-within { outline:2px solid white; outline-offset:2px; }
+    @media (max-width:600px) {
+      #cobertura.coverage { row-gap:20px; }
+      #cobertura.coverage > div:first-child > p:last-child { margin-bottom:0; font-size:16px; line-height:1.5; }
+    }
     .coverage-options label { display:flex; align-items:center; gap:6px; min-height:44px; padding:6px 10px; border:1px solid #526358; border-radius:12px; color:white; font-size:14px; cursor:pointer; }
     .coverage-options input { margin:0; accent-color:#24d65a; }
     .coverage-options label:has(:checked) { background:#153521; border-color:#24d65a; }
@@ -251,15 +258,15 @@
       <div>
         <p class="eyebrow">ZONAS / 04</p>
         <h2 id="cobertura-title">NOS MOVEMOS<br><em>POR VOS.</em></h2>
-        <p>Elegí tu localidad para saber cómo pedir tu lavado a domicilio.</p>
+        <p>Lavamos a domicilio en Martínez y Acassuso. Consultanos por otras zonas.</p>
       </div>
       <div class="coverage-picker" hidden>
         <fieldset>
-          <legend>¿En qué localidad estás?</legend>
+          <legend>¿Dónde hacemos el lavado?</legend>
           <div class="coverage-options">
             <label><input type="radio" name="localidad" value="Martínez"> Martínez</label>
             <label><input type="radio" name="localidad" value="Acassuso"> Acassuso</label>
-            <label><input type="radio" name="localidad" value="otra"> Otra localidad</label>
+            <label><input type="radio" name="localidad" value="otra"> Estoy en otra localidad</label>
           </div>
         </fieldset>
         <p id="coverage-answer" role="status"></p>
@@ -302,11 +309,11 @@
         town.hidden = !other;
         const locality = input.value.trim();
         const description = other
-          ? 'Decinos en qué localidad estás y Carlos te confirma si puede acercarse.'
-          : 'Sí, atendemos en ' + selected.value + '. Elegí el horario que te quede cómodo y Carlos te confirma el turno por correo.';
+          ? 'Escribí tu localidad para consultar el traslado con Carlos.'
+          : 'Sí, atendemos en ' + selected.value + '. Elegí tu horario y pedí el turno.';
         if (answer.textContent !== description) answer.textContent = description;
         action.hidden = other && !locality;
-        action.textContent = other ? 'Consultar por WhatsApp ↗' : 'Ver horarios →';
+        action.textContent = other ? 'Consultar por WhatsApp ↗' : 'Ver horarios disponibles →';
         if (other) {
           const message = 'Hola, Carlos. Estoy en ' + locality + ' y quería saber si llegás a mi zona para un lavado a domicilio.';
           action.href = 'https://wa.me/541141427755?text=' + encodeURIComponent(message);
