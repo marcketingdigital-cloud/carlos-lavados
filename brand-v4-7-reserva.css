@@ -345,3 +345,14 @@
  #reservar.booking-v47 .calendar-wrap #cal-booking{min-height:0}
  #reservar.booking-v47 .booking-top{margin-bottom:0}
 }
+
+/* V4.9: acceso móvil compacto, sin huecos internos del iframe Cal.com. */
+#reservar.booking-v47 .full-screen-booking[hidden]{display:none!important}
+#reservar.booking-v47 .booking-compact-card{min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;padding:clamp(24px,6vw,42px) 20px;background:radial-gradient(circle at 50% 0,rgba(36,214,90,.13),transparent 70%),#0c1410;text-align:center}
+#reservar.booking-v47 .booking-compact-icon{display:grid;place-items:center;width:55px;height:55px;border:1px solid #24D65A;border-radius:16px;color:#24D65A;font-size:28px}
+#reservar.booking-v47 .booking-compact-card h3{margin:0;color:#fff;font:900 clamp(19px,5vw,25px)/1.17 Montserrat,Arial,sans-serif;letter-spacing:-.025em}
+#reservar.booking-v47 .booking-compact-card p{margin:0;max-width:36ch;color:#d5e3d9;font:500 14px/1.55 Montserrat,Arial,sans-serif}
+#reservar.booking-v47 .booking-compact-action{display:flex;justify-content:center;align-items:center;width:100%;max-width:380px;min-height:54px;margin-top:8px;padding:12px 15px;border-radius:12px;background:#24D65A;color:#07160b;text-decoration:none;font:900 13px/1.3 Montserrat,Arial,sans-serif}
+#reservar.booking-v47 .booking-compact-action:focus-visible{outline:3px solid white;outline-offset:3px}
+#reservar.booking-v47 .booking-compact-card small{color:#b8c9bd;font:500 11px/1.4 Montserrat,Arial,sans-serif}
+@media(max-width:700px){#reservar.booking-v47 .calendar-wrap,#reservar.booking-v47 .calendar-wrap #cal-booking{min-height:0!important}}
