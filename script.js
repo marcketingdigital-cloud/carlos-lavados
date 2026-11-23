@@ -158,7 +158,7 @@ if(experienceSection){
  const content=[
   {number:'01',title:'ELEGÍ TU HORARIO',description:'Explorá las fechas y horas disponibles mediante CARLOS RESERVA.'},
   {number:'02',title:'CONTANOS QUÉ NECESITÁS',description:'Indicá tu domicilio y los detalles del lavado para que Carlos pueda revisar tu solicitud.'},
-  {number:'03',title:'RECIBÍ LA CONFIRMACIÓN',description:'Carlos revisa disponibilidad y traslado. Tu turno queda confirmado únicamente después de su aprobación.'}
+  {number:'03',title:'RECIBÍ LA CONFIRMACIÓN',description:'Revisá la notificación de Cal.com para conocer el estado de tu solicitud y coordiná los detalles con Carlos.'}
  ];
  if(tabs.length===content.length&&panel&&number&&title&&description){
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
