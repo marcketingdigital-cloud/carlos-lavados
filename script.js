@@ -218,50 +218,43 @@ if(experienceSection){
   };
 })(window,'https://app.cal.com/embed/embed.js','init');
 if(document.getElementById('cal-booking')){
- /* V4.8: integración progresiva. Si el backend no está habilitado, Cal.com sigue disponible. */
+ const target=document.getElementById('cal-booking');
+ const backend='https://carlos-reserva-laboratorio.onrender.com';
+ const official='https://cal.com/carlos-lavados/solicitud-lavado-domicilio';
  const mountOfficialCalendar=()=>{
-  const target=document.getElementById('cal-booking');
-  const bookingUrl='https://cal.com/carlos-lavados/solicitud-lavado-domicilio';
-  /* El iframe oficial genera huecos internos que el CSS de la landing no puede corregir.
-     En móvil se ofrece una acción compacta y funcional hacia la agenda oficial. */
-  if(window.matchMedia('(max-width: 700px)').matches){
+  if(window.matchMedia('(max-width:700px)').matches){
    const card=document.createElement('div');card.className='booking-compact-card';
-   const icon=document.createElement('span');icon.className='booking-compact-icon';icon.setAttribute('aria-hidden','true');icon.textContent='▦';
-   const title=document.createElement('h3');title.textContent='ELEGÍ TU FECHA Y HORARIO';
-   const info=document.createElement('p');info.textContent='Consultá los turnos disponibles y completá tu solicitud en la agenda oficial de CARLOS.';
-   const link=document.createElement('a');link.className='booking-compact-action';link.href=bookingUrl;link.target='_blank';link.rel='noopener noreferrer';link.textContent='VER HORARIOS DISPONIBLES ↗';
-   const note=document.createElement('small');note.textContent='Agenda segura gestionada por Cal.com';
-   card.append(icon,title,info,link,note);target.replaceChildren(card);
-   document.querySelector('#reservar .full-screen-booking')?.setAttribute('hidden','');
-   return;
+   const h=document.createElement('h3');h.textContent='AGENDA OFICIAL DE CARLOS';
+   const p=document.createElement('p');p.textContent='La agenda integrada no responde en este momento. Consultá horarios y reservá desde el calendario oficial.';
+   const a=document.createElement('a');a.className='booking-compact-action';a.href=official;a.target='_blank';a.rel='noopener noreferrer';a.textContent='ABRIR AGENDA OFICIAL ↗';
+   card.append(h,p,a);target.replaceChildren(card);return;
   }
   Cal('init','carlos-reserva',{origin:'https://app.cal.com'});
   Cal.ns['carlos-reserva']('inline',{elementOrSelector:'#cal-booking',calLink:'carlos-lavados/solicitud-lavado-domicilio',config:{layout:'month_view',theme:'dark'}});
   Cal.ns['carlos-reserva']('ui',{styles:{branding:{brandColor:'#24D65A'}},hideEventTypeDetails:true,layout:'month_view'});
  };
- const backend='https://carlos-reserva-laboratorio.onrender.com';
- const controller=new AbortController();
- const timeout=setTimeout(()=>controller.abort(),4500);
- fetch(backend+'/api/health',{signal:controller.signal,cache:'no-store'})
-  .then(r=>{if(!r.ok)throw Error('Backend no disponible');return r.json()})
-  .then(health=>{
-   if(health.mode!=='configured'||health.bookingUiEnabled!==true){mountOfficialCalendar();return;}
-   const frame=document.createElement('iframe');
-   frame.src=backend+'/?embed=1';frame.title='CARLOS Reserva — elegí fecha, horario y servicio';
-   frame.loading='lazy';frame.referrerPolicy='strict-origin-when-cross-origin';
-   frame.style.cssText='display:block;width:100%;height:760px;min-height:540px;border:0;background:#080e0b;border-radius:14px';
-   window.addEventListener('message',event=>{
-    if(event.origin!==new URL(backend).origin||event.source!==frame.contentWindow)return;
-    const message=event.data;
-    if(message?.type==='carlos-reserva-height'&&Number.isFinite(message.height)){
-     frame.style.height=Math.max(540,Math.min(2400,Math.ceil(message.height)+8))+'px';
-    }
-   });
-   frame.setAttribute('aria-label','Formulario de reserva de CARLOS');
-   document.getElementById('cal-booking').replaceChildren(frame);
-  })
-  .catch(()=>mountOfficialCalendar())
-  .finally(()=>clearTimeout(timeout));
+ /* El calendario propio se presenta en móvil incluso sin reservas API habilitadas.
+    En modo demo no inventa disponibilidad y muestra el enlace oficial. */
+ if(!window.matchMedia('(max-width:700px)').matches){mountOfficialCalendar();}
+ else {
+  const frame=document.createElement('iframe');
+  frame.src=backend+'/?embed=1';frame.title='CARLOS Reserva: calendario propio y formulario';
+  frame.loading='eager';frame.referrerPolicy='strict-origin-when-cross-origin';
+  frame.style.cssText='display:block;width:100%;height:530px;min-height:0;border:0;background:#08120c';
+  frame.setAttribute('aria-label','Calendario propio de CARLOS Reserva');
+  const fallbackTimer=setTimeout(()=>{if(!frame.dataset.ready)mountOfficialCalendar()},12000);
+  window.addEventListener('message',event=>{
+   if(event.origin!==new URL(backend).origin||event.source!==frame.contentWindow)return;
+   const message=event.data;
+   if(message?.type==='carlos-reserva-height'&&Number.isFinite(message.height)){
+    frame.dataset.ready='true';clearTimeout(fallbackTimer);
+    frame.style.height=Math.max(350,Math.min(2600,Math.ceil(message.height)+4))+'px';
+   }
+  });
+  frame.addEventListener('error',()=>{clearTimeout(fallbackTimer);mountOfficialCalendar()});
+  target.replaceChildren(frame);
+  document.querySelector('#reservar .full-screen-booking')?.setAttribute('hidden','');
+ }
 }
 
 /* V4.1: accesibilidad del menú; seguimiento de CTA sin recopilar datos personales. */
