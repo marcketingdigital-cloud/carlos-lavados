@@ -273,13 +273,13 @@
 /* V4.8 — Electric Emerald Glow. Solo contenedor propio; Cal.com intacto. */
 #reservar.booking-glow-v48{
  background:radial-gradient(ellipse 55% 26% at 94% 12%,rgba(36,214,90,.12),transparent 90%),#080e0d;
- padding:clamp(26px,4vw,46px) 0 32px;
+ padding:clamp(32px,5vw,56px) 0 32px;
 }
 #reservar.booking-glow-v48 .shell{width:min(980px,calc(100% - 34px))}
-#reservar.booking-glow-v48 .booking-intro{gap:8px;margin-bottom:16px}
+#reservar.booking-glow-v48 .booking-intro{gap:14px;margin-bottom:24px}
 #reservar.booking-glow-v48 .booking-intro .eyebrow{color:#e3e8e6;margin-bottom:10px;position:relative}
 #reservar.booking-glow-v48 .booking-intro .eyebrow:after{content:"";display:block;width:95px;height:2px;background:#24D65A;margin-top:5px;box-shadow:0 0 10px rgba(36,214,90,.8)}
-#reservar.booking-glow-v48 .booking-intro h2{line-height:1.02}
+#reservar.booking-glow-v48 .booking-intro h2{font-size:clamp(35px,5.4vw,65px);line-height:1.045;letter-spacing:-.06em;text-transform:uppercase}
 #reservar.booking-glow-v48 .booking-trust{gap:12px;margin:14px 0 20px;justify-content:center}
 #reservar.booking-glow-v48 .booking-trust-pill{
  border:1px solid #24D65A;background:linear-gradient(120deg,rgba(14,36,23,.8),rgba(5,12,10,.95));
@@ -316,11 +316,11 @@
 #reservar.booking-glow-v48:after{content:"";display:block;height:2px;margin-top:25px;background:linear-gradient(90deg,transparent,#24D65A,transparent);box-shadow:0 0 13px rgba(36,214,90,.8)}
 #reservar.booking-glow-v48 + .coverage{padding-top:34px}
 @media(max-width:600px){
- #reservar.booking-glow-v48{padding:10px 0 18px}
- #reservar.booking-glow-v48 .booking-intro{gap:5px;margin-bottom:9px}
- #reservar.booking-glow-v48 .booking-intro>p{line-height:1.35}
+ #reservar.booking-glow-v48{padding:28px 0 18px}
+ #reservar.booking-glow-v48 .booking-intro{gap:12px;margin-bottom:20px}
+ #reservar.booking-glow-v48 .booking-intro>p{line-height:1.5}
  #reservar.booking-glow-v48 .shell{width:calc(100% - 28px)}
- #reservar.booking-glow-v48 .booking-intro h2{font-size:clamp(24px,6.45vw,32px)}
+ #reservar.booking-glow-v48 .booking-intro h2{font-size:clamp(27px,7.4vw,36px);line-height:1.07;letter-spacing:-.062em}
  #reservar.booking-glow-v48 .booking-trust{gap:8px;margin:14px 0 18px;flex-wrap:nowrap}
  #reservar.booking-glow-v48 .booking-trust-pill{min-width:0;flex:1;padding:8px 6px;font-size:clamp(9px,2.55vw,12px);gap:5px}
  #reservar.booking-glow-v48 .booking-trust-pill svg{flex:0 0 16px}
