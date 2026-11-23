@@ -358,3 +358,38 @@
 #reservar.booking-v47 .booking-compact-action:focus-visible{outline:3px solid white;outline-offset:3px}
 #reservar.booking-v47 .booking-compact-card small{color:#b8c9bd;font:500 11px/1.4 Montserrat,Arial,sans-serif}
 @media(max-width:700px){#reservar.booking-v47 .calendar-wrap,#reservar.booking-v47 .calendar-wrap #cal-booking{min-height:0!important}}
+
+/* Proporciones del CTA móvil «Solicitar mi 20%». */
+@media (max-width: 600px) {
+  #reservar.booking-glow-v48 .booking-support a,
+  .last-cta .last-cta-actions .text-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    box-sizing: border-box;
+    width: calc(100% - 56px);
+    min-height: 50px;
+    margin-inline: auto;
+    padding: 7px 11px;
+    border: 2px solid #24D65A;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #143b24, #070f0b 55%, #123a20);
+    color: #fff;
+    font: italic 900 clamp(12px, 3.35vw, 14px)/1.2 Montserrat, Arial, sans-serif;
+    text-align: center;
+    text-decoration: none;
+  }
+  .last-cta .last-cta-actions .text-action:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+  }
+}
+@media (max-width: 360px) {
+  #reservar.booking-glow-v48 .booking-support a,
+  .last-cta .last-cta-actions .text-action {
+    width: calc(100% - 22px);
+    padding: 7px 10px;
+    font-size: clamp(11px, 3.25vw, 12px);
+  }
+}
