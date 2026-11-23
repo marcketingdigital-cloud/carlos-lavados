@@ -218,9 +218,28 @@ if(experienceSection){
   };
 })(window,'https://app.cal.com/embed/embed.js','init');
 if(document.getElementById('cal-booking')){
- Cal('init','carlos-reserva',{origin:'https://app.cal.com'});
- Cal.ns['carlos-reserva']('inline',{elementOrSelector:'#cal-booking',calLink:'carlos-lavados/solicitud-lavado-domicilio',config:{layout:'month_view',theme:'dark'}});
- Cal.ns['carlos-reserva']('ui',{styles:{branding:{brandColor:'#24D65A'}},hideEventTypeDetails:true,layout:'month_view'});
+ /* V4.8: integración progresiva. Si el backend no está habilitado, Cal.com sigue disponible. */
+ const mountOfficialCalendar=()=>{
+  Cal('init','carlos-reserva',{origin:'https://app.cal.com'});
+  Cal.ns['carlos-reserva']('inline',{elementOrSelector:'#cal-booking',calLink:'carlos-lavados/solicitud-lavado-domicilio',config:{layout:'month_view',theme:'dark'}});
+  Cal.ns['carlos-reserva']('ui',{styles:{branding:{brandColor:'#24D65A'}},hideEventTypeDetails:true,layout:'month_view'});
+ };
+ const backend='https://carlos-reserva-laboratorio.onrender.com';
+ const controller=new AbortController();
+ const timeout=setTimeout(()=>controller.abort(),4500);
+ fetch(backend+'/api/health',{signal:controller.signal,cache:'no-store'})
+  .then(r=>{if(!r.ok)throw Error('Backend no disponible');return r.json()})
+  .then(health=>{
+   if(health.mode!=='configured'){mountOfficialCalendar();return;}
+   const frame=document.createElement('iframe');
+   frame.src=backend+'/';frame.title='CARLOS Reserva — elegí fecha, horario y servicio';
+   frame.loading='lazy';frame.referrerPolicy='strict-origin-when-cross-origin';
+   frame.style.cssText='display:block;width:100%;height:940px;min-height:740px;border:0;background:#080e0b;border-radius:14px';
+   frame.setAttribute('aria-label','Formulario de reserva de CARLOS');
+   document.getElementById('cal-booking').replaceChildren(frame);
+  })
+  .catch(()=>mountOfficialCalendar())
+  .finally(()=>clearTimeout(timeout));
 }
 
 /* V4.1: accesibilidad del menú; seguimiento de CTA sin recopilar datos personales. */
