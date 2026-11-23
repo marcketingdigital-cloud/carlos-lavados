@@ -237,18 +237,35 @@ if(document.getElementById('cal-booking')){
   frame.loading='eager';frame.referrerPolicy='strict-origin-when-cross-origin';
   frame.style.cssText='display:block;width:100%;height:530px;min-height:0;border:0;background:#08120c';
   frame.setAttribute('aria-label','Calendario propio de CARLOS Reserva');
-  const fallbackTimer=setTimeout(()=>{if(!frame.dataset.ready)mountOfficialCalendar()},12000);
-  window.addEventListener('message',event=>{
+  const status=document.createElement('p');
+  status.setAttribute('role','status');
+  status.textContent='Estamos cargando los horarios disponibles…';
+  status.style.cssText='margin:0;padding:24px 16px;color:white;background:#08120c';
+  // Mantener el ancho del calendario para que pueda medir y comunicar su altura.
+  frame.style.visibility='hidden';
+  frame.style.position='absolute';
+  frame.style.inset='0 auto auto 0';
+  target.style.position='relative';
+  const showFallback=()=>{
+   clearTimeout(fallbackTimer);
+   window.removeEventListener('message',onCalendarMessage);
+   frame.removeEventListener('error',showFallback);
+   mountOfficialCalendar();
+  };
+  function onCalendarMessage(event){
    if(event.origin!==new URL(backend).origin||event.source!==frame.contentWindow)return;
    const message=event.data;
-   if(message?.type==='carlos-reserva-height'&&Number.isFinite(message.height)){
-    frame.dataset.ready='true';clearTimeout(fallbackTimer);
-    frame.style.height=Math.max(350,Math.min(2600,Math.ceil(message.height)+4))+'px';
-   }
-  });
-  frame.addEventListener('error',()=>{clearTimeout(fallbackTimer);mountOfficialCalendar()});
-  target.replaceChildren(frame);
-  document.querySelector('#reservar .full-screen-booking')?.setAttribute('hidden','');
+   if(message?.type!=='carlos-reserva-height'||!Number.isFinite(message.height)||message.height<=0)return;
+   clearTimeout(fallbackTimer);
+   status.remove();
+   frame.style.position='static';
+   frame.style.visibility='visible';
+   frame.style.height=Math.max(350,Math.min(2600,Math.ceil(message.height)+4))+'px';
+  }
+  const fallbackTimer=setTimeout(showFallback,12000);
+  window.addEventListener('message',onCalendarMessage);
+  frame.addEventListener('error',showFallback);
+  target.replaceChildren(status,frame);
  }
 }
 
