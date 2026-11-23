@@ -34,28 +34,7 @@
   <link rel="stylesheet" href="brand-v4-7-reserva.css">
   <title>CARLOS — Lavados de Autos a Domicilio | Solicitar turno</title>
   <style>@media (max-width:700px){.desktop-booking-guide{display:none}}</style>
-<style>
-    #cobertura .coverage-picker { min-width:0; padding:clamp(16px,4vw,28px); background:#0c1711; border:1px solid #34503e; border-radius:18px; }
-    #cobertura [hidden] { display:none; }
-    .coverage-picker fieldset { min-width:0; border:0; padding:0; margin:0; }
-    .coverage-picker legend { font-weight:750; padding:0; margin-bottom:14px; }
-    .coverage-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
-    .coverage-options label:last-child { grid-column:1/-1; justify-self:center; width:fit-content; max-width:100%; }
-    .coverage-options label { cursor:pointer; }
-    .coverage-options label:focus-within { outline:2px solid white; outline-offset:2px; }
-    @media (max-width:600px) {
-      #cobertura.coverage { row-gap:20px; }
-      #cobertura.coverage > div:first-child > p:last-child { margin-bottom:0; font-size:16px; line-height:1.5; }
-    }
-    .coverage-options label { display:flex; align-items:center; gap:6px; min-height:44px; padding:6px 10px; border:1px solid #526358; border-radius:12px; color:white; font-size:14px; cursor:pointer; }
-    .coverage-options input { margin:0; accent-color:#24d65a; }
-    .coverage-options label:has(:checked) { background:#153521; border-color:#24d65a; }
-    #coverage-answer { margin:16px 0; line-height:1.5; font-size:15px; }
-    #coverage-answer:empty { margin:0; }
-    #coverage-town input { display:block; width:100%; margin:6px 0 14px; padding:12px; color:white; background:#0a100d; font:inherit; border:1px solid #68776d; border-radius:8px; }
-    #coverage-action { display:flex; align-items:center; justify-content:center; width:min(100%,310px); min-height:50px; margin-inline:auto; padding:7px 11px; border:2px solid #24d65a; border-radius:999px; background:linear-gradient(180deg,#143b24,#070f0b 55%,#123a20); color:white; text-decoration:none; font:italic 900 14px/1.2 Montserrat,Arial,sans-serif; }
-    .coverage-picker :focus-visible { outline:3px solid white; outline-offset:3px; }
-  </style>
+  <link rel="stylesheet" href="coverage.css">
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -255,27 +234,30 @@
     </section>
 
     <section class="section shell coverage" id="cobertura" aria-labelledby="cobertura-title">
-      <div>
+      <div class="zone-intro">
         <p class="eyebrow">ZONAS / 04</p>
         <h2 id="cobertura-title">NOS MOVEMOS<br><em>POR VOS.</em></h2>
         <p>Lavamos a domicilio en Martínez y Acassuso. Consultanos por otras zonas.</p>
       </div>
       <div class="coverage-picker" hidden>
-        <fieldset>
-          <legend>¿Dónde hacemos el lavado?</legend>
-          <div class="coverage-options">
-            <label><input type="radio" name="localidad" value="Martínez"> Martínez</label>
-            <label><input type="radio" name="localidad" value="Acassuso"> Acassuso</label>
-            <label><input type="radio" name="localidad" value="otra"> Estoy en otra localidad</label>
+        <h3 id="zone-question">¿En qué zona estás?</h3>
+        <div class="coverage-body">
+          <div class="coverage-options" role="group" aria-labelledby="zone-question">
+            <button type="button">Martínez</button>
+            <button type="button">Acassuso</button>
+            <button type="button" value="otra">Otra localidad</button>
           </div>
-        </fieldset>
-        <p id="coverage-answer" role="status"></p>
-        <label id="coverage-town" hidden>Tu localidad
-          <input type="text" maxlength="80" autocomplete="address-level2" placeholder="Por ejemplo, Olivos">
-        </label>
-        <a id="coverage-action" hidden></a>
+          <form class="coverage-result" hidden>
+            <button type="button" class="coverage-back">‹ Cambiar zona</button>
+            <p role="status"></p>
+            <input name="zona" aria-labelledby="zone-question" required maxlength="80" autocomplete="address-level2" placeholder="Ej.: Olivos">
+            <button type="submit" class="coverage-action">Consultar por WhatsApp ↗</button>
+            <a class="coverage-action" href="#reservar">Ver horarios →</a>
+          </form>
+        </div>
       </div>
       <noscript><p>Atendemos en Martínez y Acassuso. <a href="#reservar">Ver horarios</a>. Para otras localidades, <a href="https://wa.me/541141427755">consultá por WhatsApp</a>.</p></noscript>
+      <div class="zone-close"><p>Vos seguí con tu día.<strong>Del auto se ocupa Carlos.</strong></p></div>
     </section>
 
 
@@ -297,38 +279,45 @@
 <script>
     (() => {
       const picker = document.querySelector('.coverage-picker');
-      const answer = picker.querySelector('#coverage-answer');
-      const town = picker.querySelector('#coverage-town');
-      const input = town.querySelector('input');
-      const action = picker.querySelector('#coverage-action');
+      const options = picker.querySelector('.coverage-options');
+      const form = picker.querySelector('form');
+      const input = form.elements.zona;
+      const back = form.querySelector('.coverage-back');
+      let previous;
 
-      function update() {
-        const selected = picker.querySelector('input[name="localidad"]:checked');
-        if (!selected) return;
-        const other = selected.value === 'otra';
-        town.hidden = !other;
-        const locality = input.value.trim();
-        const description = other
-          ? 'Escribí tu localidad para consultar el traslado con Carlos.'
-          : 'Sí, atendemos en ' + selected.value + '. Elegí tu horario y pedí el turno.';
-        if (answer.textContent !== description) answer.textContent = description;
-        action.hidden = other && !locality;
-        action.textContent = other ? 'Consultar por WhatsApp ↗' : 'Ver horarios disponibles →';
-        if (other) {
-          const message = 'Hola, Carlos. Estoy en ' + locality + ' y quería saber si llegás a mi zona para un lavado a domicilio.';
-          action.href = 'https://wa.me/541141427755?text=' + encodeURIComponent(message);
-          action.target = '_blank';
-          action.rel = 'noopener noreferrer';
-        } else {
-          action.href = '#reservar';
-          action.removeAttribute('target');
-        }
+      for (const choice of options.querySelectorAll('button')) {
+        choice.addEventListener('click', () => {
+          previous = choice;
+          const other = choice.value === 'otra';
+          options.hidden = true;
+          form.hidden = false;
+          input.hidden = input.disabled = !other;
+          form.querySelector('[type=submit]').hidden = !other;
+          form.querySelector('a').hidden = other;
+          const answer = form.querySelector('[role=status]');
+          answer.hidden = other;
+          answer.textContent = other ? '' : 'Sí, llegamos a ' + choice.textContent + '.';
+          (other ? input : back).focus();
+        });
       }
-
-      picker.addEventListener('change', update);
-      input.addEventListener('input', update);
+      back.addEventListener('click', () => {
+        form.hidden = true;
+        options.hidden = false;
+        previous.focus();
+      });
+      input.addEventListener('input', () => input.setCustomValidity(''));
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        const zone = input.value.trim();
+        if (!zone) {
+          input.setCustomValidity('Escribí tu zona.');
+          input.reportValidity();
+          return;
+        }
+        const message = 'Hola, Carlos. Estoy en ' + zone + '. ¿Llegás a mi zona para un lavado a domicilio?';
+        window.open('https://wa.me/541141427755?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
+      });
       picker.hidden = false;
-      update();
     })();
   </script>
 </body>
