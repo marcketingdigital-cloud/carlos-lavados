@@ -48,6 +48,33 @@
     #preguntas .faq-contact { display:flex; align-items:center; justify-content:center; gap:10px; width:min(calc(100% - 40px),310px); min-height:50px; margin:24px auto 0; padding:7px 11px; border:2px solid #24d65a; border-radius:999px; background:linear-gradient(#143b24,#070f0b 55%,#123a20); color:white; font-size:14px; font-style:italic; font-weight:900; text-align:center; text-decoration:none; }
     #preguntas :focus-visible { outline:2px solid white; outline-offset:3px; }
   </style>
+  <style>
+    #cierre {
+      position:relative; isolation:isolate; overflow:hidden; padding:clamp(48px,7vw,98px) 0;
+      background:#0a100e; border-block:1px solid #30433a;
+    }
+    #cierre::before {
+      content:""; position:absolute; z-index:-1; inset:0 0 0 40%;
+      background:linear-gradient(90deg,#0a100e,transparent 60%),linear-gradient(0deg,rgba(10,16,14,.55),transparent 60%),url("assets/servicio-exterior-v444.webp") center 47% / cover;
+    }
+    #cierre h2 { margin:0; font-size:clamp(34px,4.8vw,68px); line-height:1; letter-spacing:-.055em; color:white; }
+    #cierre h2 em { color:#24d65a; }
+    #cierre .closing-copy p { max-width:36ch; margin:17px 0 24px; font-size:clamp(16px,1.35vw,19px); line-height:1.5; color:#e4ebe7; }
+    .closing-actions { display:grid; width:min(100%,310px); gap:10px; }
+    .closing-actions a { position:relative; display:flex; align-items:center; justify-content:center; min-height:50px; padding:9px 34px; border:1px solid #647a6d; border-radius:999px; background:#0b1510; color:white; text-decoration:none; text-align:center; font:700 15px/1.25 Montserrat,Arial,sans-serif; }
+    .closing-actions a:first-child { border:2px solid #24d65a; background:linear-gradient(#173c24,#09160e 55%,#13331d); box-shadow:0 0 14px #24d65a26; font-style:italic; font-weight:900; }
+    .closing-actions span { position:absolute; right:16px; font-size:19px; }
+    .closing-actions a:is(:hover,:focus-visible) { border-color:#91efa9; }
+    .closing-actions a:focus-visible { outline:2px solid white; outline-offset:3px; }
+    @media(max-width:700px) {
+      #cierre { padding:0 0 36px; }
+      #cierre::before { inset:0 0 auto; height:205px; background:linear-gradient(0deg,#0a100e,rgba(10,16,14,.03) 85%),url("assets/servicio-exterior-v444.webp") center 45% / cover; }
+      #cierre .closing-layout { padding-top:150px; }
+      #cierre h2 { font-size:clamp(32px,8vw,48px); }
+      #cierre .closing-copy p { margin:14px 0 22px; }
+      .closing-actions { margin-inline:auto; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -300,7 +327,18 @@
       </div>
     </section>
 
-    <section class="last-cta"><div class="shell last-cta-content"><div><p class="eyebrow">CARLOS · LAVADOS A DOMICILIO</p><h2>TU AUTO IMPECABLE.<br><em>SIN MOVERTE.</em></h2></div><div class="last-cta-actions"><a class="btn btn-primary" href="#reservar">SOLICITAR TURNO <span aria-hidden="true">↗</span></a><a class="text-action" href="https://wa.me/541141427755?text=Hola%20Carlos%2C%20quiero%20consultar%20por%20un%20lavado" target="_blank" rel="noopener noreferrer">O consultá por WhatsApp ↗</a></div></div></section>
+    <section class="last-cta" id="cierre" aria-labelledby="cierre-title">
+      <div class="shell closing-layout">
+        <div class="closing-copy">
+          <h2 id="cierre-title">TU AUTO IMPECABLE.<br><em>EN TU CASA.</em></h2>
+          <p>Elegí el día que te quede cómodo. Carlos lleva el lavado hasta tu puerta.</p>
+        </div>
+        <div class="closing-actions">
+          <a href="#reservar">Solicitar mi turno <span aria-hidden="true">→</span></a>
+          <a href="https://wa.me/541141427755?text=Hola%2C%20Carlos.%20Quiero%20consultarte%20por%20un%20lavado%20a%20domicilio." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp <span aria-hidden="true">↗︎</span></a>
+        </div>
+      </div>
+    </section>
   </main>
   <footer class="footer"><div class="shell footer-content"><a class="footer-brand" href="#inicio"><img src="assets/logo-maestro-original.png" alt="CARLOS — Logotipo maestro original" width="1672" height="941" loading="lazy"></a><p>Lavados de Autos a Domicilio<br>Martínez, Acassuso y zonas cercanas.</p><div class="footer-links"><a href="#servicios">Servicios</a><a href="#reservar">Solicitar turno</a><a href="#preguntas">Preguntas frecuentes</a><a href="https://wa.me/541141427755" target="_blank" rel="noopener noreferrer">WhatsApp Business</a></div><small>Arperting Marketing · 7sevenCreativo · Gitobi</small></div></footer>
   <a href="#reservar" class="mobile-cta" id="mobile-cta" aria-label="Reservar turno online con CARLOS"><svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></svg><span>RESERVAR TURNO</span><span class="cta-arrow" aria-hidden="true">→</span></a>
