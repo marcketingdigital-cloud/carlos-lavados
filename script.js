@@ -220,6 +220,21 @@ if(experienceSection){
 if(document.getElementById('cal-booking')){
  /* V4.8: integración progresiva. Si el backend no está habilitado, Cal.com sigue disponible. */
  const mountOfficialCalendar=()=>{
+  const target=document.getElementById('cal-booking');
+  const bookingUrl='https://cal.com/carlos-lavados/solicitud-lavado-domicilio';
+  /* El iframe oficial genera huecos internos que el CSS de la landing no puede corregir.
+     En móvil se ofrece una acción compacta y funcional hacia la agenda oficial. */
+  if(window.matchMedia('(max-width: 700px)').matches){
+   const card=document.createElement('div');card.className='booking-compact-card';
+   const icon=document.createElement('span');icon.className='booking-compact-icon';icon.setAttribute('aria-hidden','true');icon.textContent='▦';
+   const title=document.createElement('h3');title.textContent='ELEGÍ TU FECHA Y HORARIO';
+   const info=document.createElement('p');info.textContent='Consultá los turnos disponibles y completá tu solicitud en la agenda oficial de CARLOS.';
+   const link=document.createElement('a');link.className='booking-compact-action';link.href=bookingUrl;link.target='_blank';link.rel='noopener noreferrer';link.textContent='VER HORARIOS DISPONIBLES ↗';
+   const note=document.createElement('small');note.textContent='Agenda segura gestionada por Cal.com';
+   card.append(icon,title,info,link,note);target.replaceChildren(card);
+   document.querySelector('#reservar .full-screen-booking')?.setAttribute('hidden','');
+   return;
+  }
   Cal('init','carlos-reserva',{origin:'https://app.cal.com'});
   Cal.ns['carlos-reserva']('inline',{elementOrSelector:'#cal-booking',calLink:'carlos-lavados/solicitud-lavado-domicilio',config:{layout:'month_view',theme:'dark'}});
   Cal.ns['carlos-reserva']('ui',{styles:{branding:{brandColor:'#24D65A'}},hideEventTypeDetails:true,layout:'month_view'});
