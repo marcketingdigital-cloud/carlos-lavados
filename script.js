@@ -230,7 +230,7 @@ if(document.getElementById('cal-booking')){
  fetch(backend+'/api/health',{signal:controller.signal,cache:'no-store'})
   .then(r=>{if(!r.ok)throw Error('Backend no disponible');return r.json()})
   .then(health=>{
-   if(health.mode!=='configured'){mountOfficialCalendar();return;}
+   if(health.mode!=='configured'||health.bookingUiEnabled!==true){mountOfficialCalendar();return;}
    const frame=document.createElement('iframe');
    frame.src=backend+'/?embed=1';frame.title='CARLOS Reserva — elegí fecha, horario y servicio';
    frame.loading='lazy';frame.referrerPolicy='strict-origin-when-cross-origin';
