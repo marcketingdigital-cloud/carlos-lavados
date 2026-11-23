@@ -16,4 +16,4 @@ jobs:
         run: node --check script.js
       - name: Verificar fallback y activacion explicita
         run: |
-          node --input-type=module -e "import fs from 'node:fs'; import assert from 'node:assert/strict'; const js=fs.readFileSync('script.js','utf8'); assert(js.includes('health.bookingUiEnabled!==true')); assert(js.includes('mountOfficialCalendar()')); assert(js.includes('event.origin!==new URL(backend).origin')); assert(fs.readFileSync('index.html','utf8').includes('id=\"cal-booking\"')); console.log('Integración protegida: OK');"
+          node --input-type=module -e "import fs from 'node:fs'; import assert from 'node:assert/strict'; const js=fs.readFileSync('script.js','utf8'); assert(js.includes("frame.src=backend+'/?embed=1'")); assert(js.includes("window.matchMedia('(max-width:700px)')")); assert(js.includes('mountOfficialCalendar()')); assert(js.includes('event.origin!==new URL(backend).origin')); assert(fs.readFileSync('index.html','utf8').includes('id=\"cal-booking\"')); console.log('Integración protegida: OK');"
