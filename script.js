@@ -220,19 +220,14 @@ if(experienceSection){
 if(document.getElementById('cal-booking')){
  const target=document.getElementById('cal-booking');
  const backend='https://carlos-reserva-laboratorio.onrender.com';
- const official='https://cal.com/carlos-lavados/solicitud-lavado-domicilio';
  const mountOfficialCalendar=()=>{
-  if(window.matchMedia('(max-width:700px)').matches){
-   const card=document.createElement('div');card.className='booking-compact-card';
-   const h=document.createElement('h3');h.textContent='AGENDA OFICIAL DE CARLOS';
-   const p=document.createElement('p');p.textContent='La agenda integrada no responde en este momento. Consultá horarios y reservá desde el calendario oficial.';
-   const a=document.createElement('a');a.className='booking-compact-action';a.href=official;a.target='_blank';a.rel='noopener noreferrer';a.textContent='ABRIR AGENDA OFICIAL ↗';
-   card.append(h,p,a);target.replaceChildren(card);return;
-  }
+  /* Respaldo integrado: el cliente nunca es enviado a otra web por defecto. */
+  target.replaceChildren();
   Cal('init','carlos-reserva',{origin:'https://app.cal.com'});
   Cal.ns['carlos-reserva']('inline',{elementOrSelector:'#cal-booking',calLink:'carlos-lavados/solicitud-lavado-domicilio',config:{layout:'month_view',theme:'dark'}});
   Cal.ns['carlos-reserva']('ui',{styles:{branding:{brandColor:'#24D65A'}},hideEventTypeDetails:true,layout:'month_view'});
  };
+
  /* El calendario propio se presenta en móvil incluso sin reservas API habilitadas.
     En modo demo no inventa disponibilidad y muestra el enlace oficial. */
  if(!window.matchMedia('(max-width:700px)').matches){mountOfficialCalendar();}
