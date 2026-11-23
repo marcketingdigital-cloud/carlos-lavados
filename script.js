@@ -158,7 +158,7 @@ if(experienceSection){
  const content=[
   {number:'01',title:'ELEGÍ TU HORARIO',description:'Explorá las fechas y horas disponibles mediante CARLOS RESERVA.'},
   {number:'02',title:'CONTANOS QUÉ NECESITÁS',description:'Indicá tu domicilio y los detalles del lavado para que Carlos pueda revisar tu solicitud.'},
-  {number:'03',title:'RECIBÍ LA CONFIRMACIÓN',description:'Carlos revisa disponibilidad y traslado. Tu turno queda confirmado únicamente después de su aprobación.'}
+  {number:'03',title:'RECIBÍ LA CONFIRMACIÓN',description:'Revisá la notificación de Cal.com para conocer el estado de tu solicitud y coordiná los detalles con Carlos.'}
  ];
  if(tabs.length===content.length&&panel&&number&&title&&description){
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -218,9 +218,35 @@ if(experienceSection){
   };
 })(window,'https://app.cal.com/embed/embed.js','init');
 if(document.getElementById('cal-booking')){
- Cal('init','carlos-reserva',{origin:'https://app.cal.com'});
- Cal.ns['carlos-reserva']('inline',{elementOrSelector:'#cal-booking',calLink:'carlos-lavados/solicitud-lavado-domicilio',config:{layout:'month_view',theme:'dark'}});
- Cal.ns['carlos-reserva']('ui',{styles:{branding:{brandColor:'#24D65A'}},hideEventTypeDetails:true,layout:'month_view'});
+ /* V4.8: integración progresiva. Si el backend no está habilitado, Cal.com sigue disponible. */
+ const mountOfficialCalendar=()=>{
+  Cal('init','carlos-reserva',{origin:'https://app.cal.com'});
+  Cal.ns['carlos-reserva']('inline',{elementOrSelector:'#cal-booking',calLink:'carlos-lavados/solicitud-lavado-domicilio',config:{layout:'month_view',theme:'dark'}});
+  Cal.ns['carlos-reserva']('ui',{styles:{branding:{brandColor:'#24D65A'}},hideEventTypeDetails:true,layout:'month_view'});
+ };
+ const backend='https://carlos-reserva-laboratorio.onrender.com';
+ const controller=new AbortController();
+ const timeout=setTimeout(()=>controller.abort(),4500);
+ fetch(backend+'/api/health',{signal:controller.signal,cache:'no-store'})
+  .then(r=>{if(!r.ok)throw Error('Backend no disponible');return r.json()})
+  .then(health=>{
+   if(health.mode!=='configured'||health.bookingUiEnabled!==true){mountOfficialCalendar();return;}
+   const frame=document.createElement('iframe');
+   frame.src=backend+'/?embed=1';frame.title='CARLOS Reserva — elegí fecha, horario y servicio';
+   frame.loading='lazy';frame.referrerPolicy='strict-origin-when-cross-origin';
+   frame.style.cssText='display:block;width:100%;height:760px;min-height:540px;border:0;background:#080e0b;border-radius:14px';
+   window.addEventListener('message',event=>{
+    if(event.origin!==new URL(backend).origin||event.source!==frame.contentWindow)return;
+    const message=event.data;
+    if(message?.type==='carlos-reserva-height'&&Number.isFinite(message.height)){
+     frame.style.height=Math.max(540,Math.min(2400,Math.ceil(message.height)+8))+'px';
+    }
+   });
+   frame.setAttribute('aria-label','Formulario de reserva de CARLOS');
+   document.getElementById('cal-booking').replaceChildren(frame);
+  })
+  .catch(()=>mountOfficialCalendar())
+  .finally(()=>clearTimeout(timeout));
 }
 
 /* V4.1: accesibilidad del menú; seguimiento de CTA sin recopilar datos personales. */
