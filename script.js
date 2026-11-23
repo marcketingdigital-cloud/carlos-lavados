@@ -15,10 +15,11 @@ const heroSection=document.querySelector('.hero-first-screen') || document.query
 const finalCTA=document.querySelector('.last-cta');
 const promoCTA=document.getElementById('promocion-bienvenida');
 const experienceSection=document.getElementById('experiencia');
+const coverageSection=document.getElementById('cobertura');
 if(sticky){
- const zones={hero:true,booking:false,final:false,footer:false,promo:false,experience:false};
+ const zones={hero:true,booking:false,final:false,footer:false,promo:false,experience:false,coverage:false};
  const updateSticky=()=>{
-  const hide=zones.hero||zones.booking||zones.final||zones.footer||zones.promo||zones.experience;
+  const hide=zones.hero||zones.booking||zones.final||zones.footer||zones.promo||zones.experience||zones.coverage;
   sticky.classList.toggle('is-muted',zones.hero||zones.final);
   sticky.classList.toggle('in-booking',zones.booking||zones.footer);
   sticky.classList.toggle('is-hidden',hide);
@@ -36,15 +37,16 @@ if(sticky){
       if(entry.target===finalCTA)zones.final=entry.isIntersecting;
       if(entry.target===footer)zones.footer=entry.isIntersecting;
       if(entry.target===promoCTA)zones.promo=entry.isIntersecting;
+      if(entry.target===coverageSection)zones.coverage=entry.isIntersecting;
       if(entry.target===experienceSection)zones.experience=entry.isIntersecting;
     });
     updateSticky();
   },{rootMargin:'-78px 0px -75px 0px',threshold:0});
-  [heroSection,booking,finalCTA,footer,promoCTA,experienceSection].forEach(el=>{if(el)observer.observe(el)});
+  [heroSection,booking,finalCTA,footer,promoCTA,experienceSection,coverageSection].forEach(el=>{if(el)observer.observe(el)});
  }else{
   const recompute=()=>{
    const vis=el=>{if(!el)return false;const r=el.getBoundingClientRect();return r.bottom>78&&r.top<window.innerHeight-75};
-   zones.hero=vis(heroSection);zones.booking=vis(booking);zones.final=vis(finalCTA);zones.footer=vis(footer);zones.promo=vis(promoCTA);zones.experience=vis(experienceSection);updateSticky();
+   zones.hero=vis(heroSection);zones.booking=vis(booking);zones.final=vis(finalCTA);zones.footer=vis(footer);zones.promo=vis(promoCTA);zones.experience=vis(experienceSection);zones.coverage=vis(coverageSection);updateSticky();
   };
   window.addEventListener('scroll',recompute,{passive:true});
   window.addEventListener('resize',recompute);
