@@ -81,6 +81,15 @@
       @keyframes closing-approach { from { transform:scale(1.035); } to { transform:scale(1); } }
     }
   </style>
+  <style>
+    #firma { padding:22px 0 max(22px,env(safe-area-inset-bottom)); background:#0b0f10; }
+    .brand-signature { display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; }
+    .brand-signature img { display:block; width:clamp(124px,18vw,152px); height:auto; }
+    .brand-signature a:focus-visible { outline:2px solid #24d65a; outline-offset:3px; }
+    #firma p { margin:0; font-size:14px; line-height:1.5; color:#e2e7e4; text-wrap:balance; }
+    .signature-area { display:inline-block; }
+    #firma small { margin:0; font-size:12px; line-height:1.5; letter-spacing:0; color:#aab6af; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -346,7 +355,13 @@
       </div>
     </section>
   </main>
-  <footer class="footer"><div class="shell footer-content"><a class="footer-brand" href="#inicio"><img src="assets/logo-maestro-original.png" alt="CARLOS — Logotipo maestro original" width="1672" height="941" loading="lazy"></a><p>Lavados de Autos a Domicilio<br>Martínez, Acassuso y zonas cercanas.</p><div class="footer-links"><a href="#servicios">Servicios</a><a href="#reservar">Solicitar turno</a><a href="#preguntas">Preguntas frecuentes</a><a href="https://wa.me/541141427755" target="_blank" rel="noopener noreferrer">WhatsApp Business</a></div><small>Arperting Marketing · 7sevenCreativo · Gitobi</small></div></footer>
+  <footer class="footer" id="firma">
+    <div class="shell brand-signature">
+      <a href="#inicio" aria-label="CARLOS — Volver al inicio"><img src="assets/logo-maestro-original.png" alt="CARLOS — Lavados de autos a domicilio" width="1672" height="941" loading="lazy"></a>
+      <p>Martínez y Acassuso <span class="signature-area">· Consultá por otras zonas</span></p>
+      <small>Arperting Marketing · 7sevenCreativo · Gitobi</small>
+    </div>
+  </footer>
   <a href="#reservar" class="mobile-cta" id="mobile-cta" aria-label="Reservar turno online con CARLOS"><svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></svg><span>RESERVAR TURNO</span><span class="cta-arrow" aria-hidden="true">→</span></a>
   <script src="script.js" defer></script>
 <script>
