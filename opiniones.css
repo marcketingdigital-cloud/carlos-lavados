@@ -1,0 +1,9 @@
+.wash-reviews{box-sizing:border-box;width:100%;margin:clamp(1.5rem,4vw,3rem) auto 0;padding:clamp(1.15rem,3vw,2rem);color:#f5f8f6;background:linear-gradient(120deg,#101d16,#0b1010);border:1px solid #365442;border-radius:20px;text-align:left}
+.wash-reviews h3{margin:0;font:inherit;font-size:clamp(1.2rem,3vw,1.65rem);font-weight:800;letter-spacing:-.025em}
+.wash-reviews p{margin:.6rem 0 0;line-height:1.5}
+.wash-reviews .review-status{color:#c6d1cb}
+.wash-reviews .review-score{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.review-score strong{font-size:1.65rem}.review-stars{position:relative;color:#637569;letter-spacing:.07em;white-space:nowrap}
+.review-stars::after{content:"★★★★★";position:absolute;inset:0 auto 0 0;width:var(--score);overflow:hidden;color:#24d65a}
+.wash-reviews [hidden]{display:none}.wash-reviews details{margin-top:.75rem}.wash-reviews summary{width:fit-content;padding:.55rem 0;color:#d8f5e0;cursor:pointer}
+.wash-reviews ul{padding-inline-start:1.2rem}.wash-reviews li{margin:.65rem 0;line-height:1.55;overflow-wrap:anywhere}
